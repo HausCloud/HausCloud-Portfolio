@@ -1,0 +1,51 @@
+window.addEventListener('load', function() {
+    /* Typed.js for title */
+    let options = {
+	strings: ['Software Engineer', 'Avid Gamer', 'Eternal Student', 'Lofi Addict', 'Anime Lover'],
+	typeSpeed: 40,
+	backspeed: 25,
+	loop: true
+    };
+
+    new Typed('#anttitle div h2', options);
+
+
+    /* Register plugins for GreenSock */
+    gsap.registerPlugin(ScrollToPlugin);
+
+
+    /* Smooth scroll for navbar */
+    document.querySelector('#typicalbackground #navbar ul li:first-child a').addEventListener("click", function(e) {
+	e.preventDefault();
+	gsap.to(document.body, {duration: 0.8, scrollTo: {y: "#about", autoKill: false }})
+    });
+
+    document.querySelector('#typicalbackground #navbar ul li:nth-child(3)').addEventListener("click", function(e) {
+	e.preventDefault();
+	gsap.to(document.body, {duration: 0.8, scrollTo: {y: "#projects", autoKill: false }})
+    });
+
+    document.querySelector('#typicalbackground #navbar ul li:last-child').addEventListener("click", function(e) {
+	e.preventDefault();
+	gsap.to(document.body, {duration: 0.8, scrollTo: {y: "#contact", autoKill: false }})
+    });
+
+    /* Open links for contact section */
+    
+    document.querySelector('#hclinkedin').addEventListener('click', function () {
+    	window.open("https://www.linkedin.com/in/hauscloud", "_blank");
+    });
+    document.querySelector('#hcgithub').addEventListener('click', function () {
+    	window.open("https://www.github.com/hauscloud", "_blank");
+    });
+    document.querySelector('#hctweet').addEventListener('click', function () {
+    	window.open("https://www.twitter.com/hauscloud", "_blank");
+    });
+
+    // document.querySelector('#projects > div > div:first-child > a').addEventListener('click', function () {
+    // 	window.open("https://github.com/hauscloud/c-shell", "_blank");
+    // });
+    // document.querySelector('#projects > div > div:nth-child(2) > a').addEventListener('click', function () {
+    // 	window.open("https://github.com/HausCloud/Hopeful-Cosmos", "_blank");
+    // });
+});
