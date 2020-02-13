@@ -2,7 +2,7 @@
 My personal website to showcase my skills.
 
 ## Screenshot
-![alt text](https://imgur.com/w77ifsx)
+![alt text](https://i.imgur.com/w77ifsx.png)
 
 ## Built With
 * [AWS EB](https://aws.amazon.com/elasticbeanstalk/) - Web Server
