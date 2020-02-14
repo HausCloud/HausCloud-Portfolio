@@ -28,7 +28,7 @@ def _deactivate(args):
 _deactivate(["nondestructive"])
 aliases["deactivate"] = _deactivate
 
-$VIRTUAL_ENV = r"/home/vagrant/HausCloud/virt"
+$VIRTUAL_ENV = r"/home/vagrant/HausCloud-Portfolio/virt"
 
 $_OLD_VIRTUAL_PATH = $PATH
 $PATH = $PATH[:]
