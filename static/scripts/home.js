@@ -2,8 +2,8 @@ window.addEventListener('load', function() {
     /* Typed.js for title */
     let options = {
 	strings: ['Software Engineer', 'Avid Gamer', 'Eternal Student', 'Lofi Addict', 'Anime Lover'],
-	typeSpeed: 40,
-	backspeed: 25,
+	typeSpeed: 60,
+	backspeed: 40,
 	loop: true
     };
 
@@ -30,7 +30,7 @@ window.addEventListener('load', function() {
 	gsap.to(document.body, {duration: 0.8, scrollTo: {y: "#contact", autoKill: false }})
     });
 
-    gsap.from("#anttitle", {duration: 3, opacity: 0});
+    gsap.from("#anttitle", {duration: 2, opacity: 0});
     
     gsap.from(".navitem", {duration: 0.8, opacity: 0, y: -70, stagger: 0.25});
     
