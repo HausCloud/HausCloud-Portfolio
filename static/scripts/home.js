@@ -35,15 +35,30 @@ window.addEventListener('load', function() {
     
 
     /* Add listener event for each project to open overlay on click */
-    let projects = document.querySelectorAll('#projects > div > div > a')
+    // let projects = document.querySelectorAll('#projects > div > div > a')
 
-    projects.forEach(function(item, index) {
-	item.addEventListener('click', function(e) {
-	    e.preventDefault();
-	    overlayDisplay.style.display = 'block';
-	});
+    // projects.forEach(function(item, index) {
+    // 	item.addEventListener('click', function(e) {
+    // 	    e.preventDefault();
+    // 	    overlayDisplay.style.display = 'block';
+    // 	});
+    // });    
+
+    document.getElementById('resume').addEventListener('click', function (e) {
+	e.preventDefault();
+    	window.open('https://drive.google.com/file/d/16qjoK5VtbUFIY5rNf1kiAyE6-qCxTdks/view?usp=sharing', '_blank');
     });
-
+    
+    /* Placeholder project links */
+    document.querySelector('#projects > div > div:first-child > a').addEventListener('click', function (e) {
+	e.preventDefault();
+    	window.open("https://github.com/hauscloud/c-shell", "_blank");
+    });
+    document.querySelector('#projects > div > div:nth-child(2) > a').addEventListener('click', function (e) {
+	e.preventDefault();
+    	window.open("https://github.com/HausCloud/Hopeful-Cosmos", "_blank");
+    });
+    
     /* Open links for contact section */
     document.querySelector('#hclinkedin').addEventListener('click', function (e) {
 	e.preventDefault();
