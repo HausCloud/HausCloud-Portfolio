@@ -26,9 +26,9 @@ p, a, div, li, em, i, b, strong, span {
 /* Small shadow effect */
 
 .shadow {
-    -moz-box-shadow:    3px 3px 5px 6px #ccc;
-    -webkit-box-shadow: 3px 3px 5px 6px #ccc;
-    box-shadow:         3px 3px 5px 6px #ccc;
+    -webkit-box-shadow: 9px 10px 4px -1px rgba(0,0,0,0.05);
+    -moz-box-shadow: 9px 10px 4px -1px rgba(0,0,0,0.05);
+    box-shadow: 9px 10px 4px -1px rgba(0,0,0,0.05);
 }
 
 /* Hover animation courtesy of hover.css */
@@ -48,6 +48,12 @@ p, a, div, li, em, i, b, strong, span {
 .hvr-grow:hover, .hvr-grow:focus, .hvr-grow:active {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
+}
+
+/* Remove underline and blue text for ALL anchor tags */
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
 /* First section of website and container for navbar and typed.js animation */
@@ -192,7 +198,7 @@ p, a, div, li, em, i, b, strong, span {
 }
 
 #about div {
-    height: 50%;
+    height: 60%;
     width: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -209,12 +215,42 @@ p, a, div, li, em, i, b, strong, span {
     align-items: center;
 }
 
+#about > div > div:first-child {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+#about > div > div:first-child > h1 {
+    text-align: center;
+}
+
+#about > div > div:first-child > h1:last-child {
+    padding-left: .2em;
+}
+
+
 #about div p {
     padding: 0 15vw 0 15vw;
 }
 
-#about > div > h1 {
-    text-align: center;
+#about > div > div:last-child {
+    height: 10vh;
+    width: 100%;
+}
+
+#resume > a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 15%;
+    border: 1px solid black;
+    border-radius: 8%;
+}
+
+#resume > a:after {
+    content: "";
+    display: inline-block;
+    padding-bottom: 50%;
 }
 
 /* Project section */

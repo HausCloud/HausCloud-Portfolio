@@ -30,22 +30,32 @@ window.addEventListener('load', function() {
 	gsap.to(document.body, {duration: 0.8, scrollTo: {y: "#contact", autoKill: false }})
     });
 
-    /* Open links for contact section */
+    gsap.from("#anttitle", {duration: 3, opacity: 0});
     
-    document.querySelector('#hclinkedin').addEventListener('click', function () {
+    gsap.from(".navitem", {duration: 0.8, opacity: 0, y: -70, stagger: 0.25});
+    
+    /* Open links for contact section */
+    document.querySelector('#hclinkedin').addEventListener('click', function (e) {
+	e.preventDefault();
     	window.open("https://www.linkedin.com/in/hauscloud", "_blank");
     });
-    document.querySelector('#hcgithub').addEventListener('click', function () {
+    document.querySelector('#hcgithub').addEventListener('click', function (e) {
+	e.preventDefault();
     	window.open("https://www.github.com/hauscloud", "_blank");
     });
-    document.querySelector('#hctweet').addEventListener('click', function () {
+    document.querySelector('#hctweet').addEventListener('click', function (e) {
+	e.preventDefault();
     	window.open("https://www.twitter.com/hauscloud", "_blank");
     });
 
-    // document.querySelector('#projects > div > div:first-child > a').addEventListener('click', function () {
-    // 	window.open("https://github.com/hauscloud/c-shell", "_blank");
-    // });
-    // document.querySelector('#projects > div > div:nth-child(2) > a').addEventListener('click', function () {
-    // 	window.open("https://github.com/HausCloud/Hopeful-Cosmos", "_blank");
-    // });
+
+    /* Open links for project section */
+    document.querySelector('#projects > div > div:first-child > a').addEventListener('click', function (e) {
+	e.preventDefault();
+    	window.open("https://github.com/hauscloud/c-shell", "_blank");
+    });
+    document.querySelector('#projects > div > div:nth-child(2) > a').addEventListener('click', function (e) {
+	e.preventDefault();
+    	window.open("https://github.com/HausCloud/Hopeful-Cosmos", "_blank");
+    });
 });
