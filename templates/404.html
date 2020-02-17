@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <title>HausCloud</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}?{{ cache_id }}">
+    <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One%7cMonda" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/normalize.css') }}?{{ cache_id }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/404.css') }}?{{ cache_id }}">
+  </head>
+
+  <body>
+    <div>
+      <h1>Page not found.</h1>
+      <div>
+	<a class="flex-rectangle" href="http://hauscloud.me">Home</a>
+      </div>
+    </div>
+  </body>
+
+</html>

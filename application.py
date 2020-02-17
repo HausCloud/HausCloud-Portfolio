@@ -19,9 +19,9 @@ def redirectHome():
 def home():
     return render_template('index.html', cache_id=uuid4())
 
+@application.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html', cache_id=uuid4()), 404
+
 if __name__ == "__main__":
     application.run(host='0.0.0.0', debug=True)
-
-# if __name__ == "__main__":
-#     application.debug = True
-#     application.run()

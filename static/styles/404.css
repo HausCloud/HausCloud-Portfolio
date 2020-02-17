@@ -1,0 +1,55 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: calc(16px + (24 - 16) * ((100vw - 400px) / (800 - 400)));
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+body > div {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    width: 65%;
+    height: 65%;
+}
+
+body > div > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Julius Sans One', "Times New Roman", Times, serif;
+    text-align: center;
+}
+
+/* Set default font for most common tags */
+
+p, a, div, li, em, i, b, strong, span {
+    font-family: 'Monda', "Times New Roman", Times, serif;
+}
+
+.flex-rectangle{
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.flex-rectangle:before{
+    content: "";
+    display: block;
+    padding-top: 25%;
+}
