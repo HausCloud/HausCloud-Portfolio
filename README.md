@@ -11,6 +11,7 @@ My personal website to showcase my skills.
 * [Flask](https://flask.palletsprojects.com/en/1.1.x/) - Web Framework
 * [Jinja](https://jinja.palletsprojects.com/en/2.11.x/) - Templating engine
 * [Pip](https://pypi.org/project/pip/) - Package Manager
+* [GSAP3](https://greensock.com/gsap/) - JS animation library
 * HTML / CSS / JS aka usual stuff
 
 ## License
