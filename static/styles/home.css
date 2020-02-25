@@ -157,18 +157,61 @@ a {
 
 #overlay {
     position: fixed;
-    display: none; 
-    width: 100%; /* Full width (cover the whole page) */
-    height: 100%; /* Full height (cover the whole page) */
+    display: none;
+    opacity: 0;
+    width: 100%; 
+    height: 100%;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     background-color: white;
-    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
-    cursor: pointer; /* Add a pointer on hover */
+    z-index: 2; 
+    cursor: pointer;
 }
 
+#overlay > div {
+    display: flex;
+    flex-flow: column nowrap;
+    height: 100%;
+    width: 100%;
+}
+
+#projectinfo {
+    height: 80%;
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+#projectinfo > div {
+    display: flex;
+    flex-flow: column nowrap;
+    height: 100%;
+    width: 100%;
+}
+
+#projectinfo > div > h1 {
+    margin: 1vh 0 1vh 0;
+    text-align: center;
+}
+
+#projectinfo > div > p {
+    text-align: center;
+}
+
+#overlaymenu {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    height: 20%;
+    width: 100%;
+}
+
+#overlaymenu > object {
+    height: 50%;
+    width: 50%;
+}
 
 /* First section of website and container for navbar and typed.js animation */
 
@@ -370,6 +413,7 @@ a {
     min-width: 15%;
     border: 1px solid black;
     border-radius: 8%;
+    padding: 0 2vw 0 2vw;
 }
 
 #resume > a:after {

@@ -6,12 +6,12 @@ window.addEventListener('load', function() {
 	backspeed: 40,
 	loop: true
     };
-    let overlayDisplay = document.getElementById('overlay')
+    
+    // let overlayDisplay = document.getElementById('overlay')
     new Typed('#anttitle div h2', options);
 
-    /* Register plugins for GreenSock */
+    /* Register plugin ScrolTo plugin for GSAP */
     gsap.registerPlugin(ScrollToPlugin);
-
 
     /* Smooth scroll for navbar */
     document.querySelector('#typicalbackground #navbar ul li:first-child a').addEventListener('click', function(e) {
@@ -29,34 +29,29 @@ window.addEventListener('load', function() {
 	gsap.to(document.body, {duration: 0.8, scrollTo: {y: '#contact', autoKill: false }})
     });
 
-    gsap.from('#anttitle', {duration: 2, opacity: 0});
-    
+    /* Face in title */
+    gsap.from('#anttitle', {duration: 1.5, opacity: 0});
+
+    /* Nav bar float in with staff */
     gsap.from('.navitem', {duration: 0.8, opacity: 0, y: -70, stagger: 0.25});
     
 
     /* Add listener event for each project to open overlay on click */
-    // let projects = document.querySelectorAll('#projects > div > div > a')
+    let projects = document.querySelectorAll('#projects > div > div > a')
 
-    // projects.forEach(function(item, index) {
-    // 	item.addEventListener('click', function(e) {
-    // 	    e.preventDefault();
-    // 	    overlayDisplay.style.display = 'block';
-    // 	});
-    // });    
 
+    /* Iterate over each project element and display overlay on click */
+    projects.forEach(function(item, index) {
+    	item.addEventListener('click', function(e) {
+    	    e.preventDefault();
+	    gsap.to('#overlay', {duration: 2, display: 'block', opacity: 1})
+    	});
+    });    
+
+    /* Open link for resume button */
     document.getElementById('resume').addEventListener('click', function (e) {
 	e.preventDefault();
     	window.open('https://drive.google.com/file/d/16qjoK5VtbUFIY5rNf1kiAyE6-qCxTdks/view?usp=sharing', '_blank');
-    });
-    
-    /* Placeholder project links */
-    document.querySelector('#projects > div > div:first-child > a').addEventListener('click', function (e) {
-	e.preventDefault();
-    	window.open("https://github.com/hauscloud/c-shell", "_blank");
-    });
-    document.querySelector('#projects > div > div:nth-child(2) > a').addEventListener('click', function (e) {
-	e.preventDefault();
-    	window.open("https://github.com/HausCloud/Hopeful-Cosmos", "_blank");
     });
     
     /* Open links for contact section */

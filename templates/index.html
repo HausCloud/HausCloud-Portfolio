@@ -13,6 +13,30 @@
 
   <body>
     <div id="overlay">
+      <div>
+	<div id="projectinfo">
+	  <div>
+	    <h1>What</h1>
+	    <p>This is some sort of app blah blah</p>
+	  </div>
+	  <div>
+	    <h1>When</h1>
+	    <p>Project types</p>
+	  </div>
+	  <div>
+	    <h1>Why</h1>
+	    <p>I did this because</p>
+	  </div>
+	</div>
+	<div id="overlaymenu">
+	  <object data="{{ url_for('static', filename='images/github.svg') }}?{{ cache_id }}" type="image/svg+xml">
+            <img src="https://img.glyphs.co/img?q=85&w=900&src=aHR0cHM6Ly9zMy5tZWRpYWxvb3QuY29tL2Jsb2ctaW1hZ2VzL0NDUEwtSW1hZ2UtMDIuanBnP210aW1lPTIwMTkwNTEzMTcyMzEy" />
+          </object>
+	  <object data="{{ url_for('static', filename='images/xbutton.svg') }}?{{ cache_id }}" type="image/svg+xml">
+            <img src="https://img.glyphs.co/img?q=85&w=900&src=aHR0cHM6Ly9zMy5tZWRpYWxvb3QuY29tL2Jsb2ctaW1hZ2VzL0NDUEwtSW1hZ2UtMDIuanBnP210aW1lPTIwMTkwNTEzMTcyMzEy" />
+          </object>
+	</div>
+      </div>
     </div>
     <div id="typicalbackground">
       <div id="navbar">
@@ -83,8 +107,8 @@
       <footer>Copyright &copy; Anthony Le</footer>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.1.1/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.1.1/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.0/ScrollToPlugin.min.js"></script>
     <script src="https://kit.fontawesome.com/7d2e155d8f.js" crossorigin="anonymous"></script>
     <script src="{{ url_for('static', filename='scripts/home.js') }}?{{ cache_id }}"></script>
   </body>
