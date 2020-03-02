@@ -167,7 +167,6 @@ a {
     bottom: 0;
     background-color: white;
     z-index: 2; 
-    cursor: pointer;
 }
 
 #overlay > div {
@@ -210,9 +209,17 @@ a {
     width: 100%;
 }
 
-#overlaymenu > object {
-    height: 50%;
-    width: 50%;
+#overlaymenu > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+#overlaymenu > div > object {
+    height: 70%;
+    padding: 1%;
 }
 
 /* First section of website and container for navbar and typed.js animation */
