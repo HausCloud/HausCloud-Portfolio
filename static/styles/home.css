@@ -218,8 +218,8 @@ a {
 }
 
 #overlaymenu > div > object {
-    height: 70%;
-    padding: 1%;
+    height: 50%;
+    width: 50%;
 }
 
 @media (min-aspect-ratio: 2/1) {
@@ -228,10 +228,18 @@ a {
     }
 
     #projectinfo > div {
+	font-size: 0.7em;
 	justify-content: center;
 	justify-content: space-evenly;
     }
-} 
+}
+
+@media (max-width: 991.98px) {
+    #projectinfo > div {
+	font-size: 0.7em;
+    }
+}
+
 
 /* First section of website and container for navbar and typed.js animation */
 
@@ -595,5 +603,9 @@ a {
 @media (orientation: landscape) {
     #contact > div > a > i {
 	font-size: 2em;
+    }
+
+    #projectinfo > div {
+	font-size: 0.7em;
     }
 }
