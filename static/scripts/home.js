@@ -7,8 +7,8 @@ window.addEventListener('load', function() {
 	loop: true
     };
     let obj = {
-	0: ['Wish upon a star web application', 'SEP 2019 - NOV 2019', 'Developed to counteract the trend of other wishing apps where you make a wish and it disappears into the void. Get insight into the wants of others from all around the world. Help fill a desolate universe with fun, hopes, dreams, ..'],
-	1: ['Command interpreter', 'APR 2019', 'Coursework to broaden understanding of how shells work. Concepts covered are env, built-ins, signals, system calls, string parsing, and errno.']
+	0: ['Command interpreter', 'APR 2019', 'Coursework to broaden understanding of how shells work. Concepts covered are env, built-ins, signals, system calls, string parsing, and errno.'],
+	1:     ['Wish upon a star web application', 'SEP 2019 - NOV 2019', 'Developed to counteract the trend of other wishing apps where you make a wish and it disappears into the void. Get insight into the wants of others from all around the world. Help fill a desolate universe with fun, hopes, dreams, ..']
     };
     
     new Typed('#anttitle div h2', options);
@@ -59,9 +59,9 @@ window.addEventListener('load', function() {
     });    
 
     /* Bind click event to hide overlay */
-/*    document.querySelector('#overlaymenu span:last-child object').addEventListener('click', function(e) {
-	gsap.to('#overlay', {duration: 0.4, display: 'none', opacity: 0});
-    }); */
+    /*    document.querySelector('#overlaymenu span:last-child object').addEventListener('click', function(e) {
+	  gsap.to('#overlay', {duration: 0.4, display: 'none', opacity: 0});
+	  }); */
 
     /* Open link for resume button */
     document.getElementById('resume').addEventListener('click', function (e) {
