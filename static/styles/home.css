@@ -222,6 +222,17 @@ a {
     padding: 1%;
 }
 
+@media (min-aspect-ratio: 2/1) {
+    #projectinfo {
+	flex-flow: row nowrap;
+    }
+
+    #projectinfo > div {
+	justify-content: center;
+	justify-content: space-evenly;
+    }
+} 
+
 /* First section of website and container for navbar and typed.js animation */
 
 #typicalbackground {
