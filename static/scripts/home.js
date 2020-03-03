@@ -10,6 +10,8 @@ window.addEventListener('load', function() {
 	0: ['Command interpreter', 'APR 2019', 'Coursework to broaden understanding of how shells work. Concepts covered are env, built-ins, signals, system calls, string parsing, and errno.'],
 	1:     ['Wish upon a star web application', 'SEP 2019 - NOV 2019', 'Developed to counteract the trend of other wishing apps where you make a wish and it disappears into the void. Get insight into the wants of others from all around the world. Help fill a desolate universe with fun, hopes, dreams, ..']
     };
+
+    let project_links = ['https://github.com/HausCloud/C-Shell', 'https://github.com/HausCloud/Hopeful-Cosmos'];
     
     new Typed('#anttitle div h2', options);
 
@@ -54,6 +56,7 @@ window.addEventListener('load', function() {
 	    document.querySelector('#projectinfo div:first-child p').innerHTML = obj[this.getAttribute("proj_num")][0];
 	    document.querySelector('#projectinfo div:nth-child(2) p').innerHTML = obj[this.getAttribute("proj_num")][1];
 	    document.querySelector('#projectinfo div:last-child p').innerHTML = obj[this.getAttribute("proj_num")][2];
+	    document.getElementById('overlay').setAttribute('proj_num', this.getAttribute("proj_num"));
 	    gsap.to('#overlay', {duration: 0.4, display: 'block', opacity: 1});
     	});
     });    
@@ -61,6 +64,10 @@ window.addEventListener('load', function() {
     // Bind click event to hide overlay
     document.querySelector('#overlaymenu div:last-child a').addEventListener('click', function(e) {
     	gsap.to('#overlay', {duration: 0.4, display: 'none', opacity: 0});
+    });
+
+    document.querySelector('#overlaymenu div:first-child a').addEventListener('click', function(e) {
+	window.open(project_links[document.getElementById('overlay').getAttribute("proj_num")], '_blank');
     });
     
     /* Open link for resume button */
