@@ -59,7 +59,7 @@ window.addEventListener('load', function() {
     });    
 
     // Bind click event to hide overlay
-    document.querySelector('#overlaymenu div:last-child object').addEventListener('click', function(e) {
+    document.querySelector('#overlaymenu div:last-child a').addEventListener('click', function(e) {
     	gsap.to('#overlay', {duration: 0.4, display: 'none', opacity: 0});
     });
     

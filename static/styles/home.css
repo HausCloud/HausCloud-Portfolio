@@ -217,10 +217,17 @@ a {
     width: 100%;
 }
 
-#overlaymenu > div > object {
+#overlaymenu > div > a {
+    width: 30%;
     height: 50%;
-    width: 50%;
 }
+
+#overlaymenu > div > a > object {
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+}
+
 
 @media (min-aspect-ratio: 2/1) {
     #projectinfo {
