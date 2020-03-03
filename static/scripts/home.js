@@ -39,7 +39,7 @@ window.addEventListener('load', function() {
     });
     
 
-    /* Add listener event for each project to open overlay on click */
+    /* Grab all projects */
     let projects = document.querySelectorAll('#projects > div > div > a');
 
     /* Assign each project an attribute with a corresponding index */
@@ -58,11 +58,11 @@ window.addEventListener('load', function() {
     	});
     });    
 
-    /* Bind click event to hide overlay */
-    /*    document.querySelector('#overlaymenu span:last-child object').addEventListener('click', function(e) {
-	  gsap.to('#overlay', {duration: 0.4, display: 'none', opacity: 0});
-	  }); */
-
+    // Bind click event to hide overlay
+    document.querySelector('#overlaymenu div:last-child object').addEventListener('click', function(e) {
+    	gsap.to('#overlay', {duration: 0.4, display: 'none', opacity: 0});
+    });
+    
     /* Open link for resume button */
     document.getElementById('resume').addEventListener('click', function (e) {
 	e.preventDefault();

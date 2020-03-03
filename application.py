@@ -24,4 +24,4 @@ def page_not_found(e):
     return render_template('404.html', cache_id=uuid4()), 404
 
 if __name__ == "__main__":
-    application.run(host='0.0.0.0', debug=True)
+    application.run(host='0.0.0.0')
