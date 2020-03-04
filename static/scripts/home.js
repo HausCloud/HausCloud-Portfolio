@@ -73,7 +73,7 @@ window.addEventListener('load', function() {
     /* Open link for resume button */
     document.getElementById('resume').addEventListener('click', function (e) {
 	e.preventDefault();
-    	window.open('https://drive.google.com/file/d/16qjoK5VtbUFIY5rNf1kiAyE6-qCxTdks/view?usp=sharing', '_blank');
+    	window.open('https://drive.google.com/file/d/1Oef_mnITx02sKcLENombqRXHbJCA5PRe/view?usp=sharing', '_blank');
     });
     
     /* Open links for contact section */
