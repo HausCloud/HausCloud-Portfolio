@@ -1,4 +1,4 @@
-window.addEventListener('load', function() {
+window.addEventListener('DOMContentLoaded', function() {
     /* Typed.js for title */
     let options = {
 	strings: ['Software Engineer', 'Avid Gamer', 'Eternal Student', 'Lofi Addict', 'Anime Lover'],
