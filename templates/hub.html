@@ -12,24 +12,14 @@
   </head>
 
   <body>
-    <div>
+    <div id="cloud-container">
       <div>
-        <object data="{{ url_for('static', filename='images/cloud.svg') }}?{{ cache_id }}" type="image/svg+xml">
-          <img src="https://img.glyphs.co/img?q=85&w=900&src=aHR0cHM6Ly9zMy5tZWRpYWxvb3QuY29tL2Jsb2ctaW1hZ2VzL0NDUEwtSW1hZ2UtMDIuanBnP210aW1lPTIwMTkwNTEzMTcyMzEy" />
-        </object>
-      </div>
-      <div>
-        <object data="{{ url_for('static', filename='images/cloud.svg') }}?{{ cache_id }}" type="image/svg+xml">
-          <img src="https://img.glyphs.co/img?q=85&w=900&src=aHR0cHM6Ly9zMy5tZWRpYWxvb3QuY29tL2Jsb2ctaW1hZ2VzL0NDUEwtSW1hZ2UtMDIuanBnP210aW1lPTIwMTkwNTEzMTcyMzEy" />
-        </object>
-      </div>
-      <div>
-        <object data="{{ url_for('static', filename='images/cloud.svg') }}?{{ cache_id }}" type="image/svg+xml">
-          <img src="https://img.glyphs.co/img?q=85&w=900&src=aHR0cHM6Ly9zMy5tZWRpYWxvb3QuY29tL2Jsb2ctaW1hZ2VzL0NDUEwtSW1hZ2UtMDIuanBnP210aW1lPTIwMTkwNTEzMTcyMzEy" />
-        </object>
+	  <svg class="cloud" viewBox="0 0 100 100">
+	    <text x="50" y="60" text-anchor="middle">Testing</text>
+	  </svg>
       </div>
     </div>
-    <div class="arrow-container">
+    <div id="arrow-container">
       <object class="arrows" data="{{ url_for('static', filename='images/left.svg') }}?{{ cache_id }}" type="image/svg+xml">
         <img src="https://img.glyphs.co/img?q=85&w=900&src=aHR0cHM6Ly9zMy5tZWRpYWxvb3QuY29tL2Jsb2ctaW1hZ2VzL0NDUEwtSW1hZ2UtMDIuanBnP210aW1lPTIwMTkwNTEzMTcyMzEy" />
       </object>
@@ -37,6 +27,7 @@
         <img src="https://img.glyphs.co/img?q=85&w=900&src=aHR0cHM6Ly9zMy5tZWRpYWxvb3QuY29tL2Jsb2ctaW1hZ2VzL0NDUEwtSW1hZ2UtMDIuanBnP210aW1lPTIwMTkwNTEzMTcyMzEy" />
       </object>
     </div>
+    <!-- <script src="{{ url_for('static', filename='scripts/hub.js') }}?{{ cache_id }}"></script> -->
   </body>
 
 </html>
