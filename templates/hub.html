@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en">
-
   <head>
     <title>HausCloud</title>
     <meta charset="utf-8">
@@ -10,13 +9,10 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/normalize.css') }}?{{ cache_id }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/hub.css') }}?{{ cache_id }}">
   </head>
-
   <body>
     <div id="cloud-container">
       <div>
-	  <svg class="cloud" viewBox="0 0 100 100">
-	    <text x="50" y="60" text-anchor="middle">Testing</text>
-	  </svg>
+	<object class="cloud" data="{{ url_for('static', filename='images/cloud_aqg.svg') }}?{{ cache_id }}" type="image/svg+xml"></object>
       </div>
     </div>
     <div id="arrow-container">
@@ -29,5 +25,4 @@
     </div>
     <!-- <script src="{{ url_for('static', filename='scripts/hub.js') }}?{{ cache_id }}"></script> -->
   </body>
-
 </html>

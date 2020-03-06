@@ -26,7 +26,12 @@ html, body {
 /* Responsive text calculation ripped from css-tricks */
 body {
     font-size: calc(16px + (24 - 16) * ((100vw - 400px) / (800 - 400)));
-    background: linear-gradient(to bottom, #57c1eb 0%,#246fa8 100%);
+    /* background: -webkit-gradient(linear, left top, left bottom, from(#b7eaff),to(#94dfff)); */
+    /* background: -o-linear-gradient(top, #b7eaff 0%,#94dfff 100%); */
+    /* background: linear-gradient(to bottom, #b7eaff 0%,#94dfff 100%); */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, #94c5f8),color-stop(80%, #a6e6ff),to(#b1b5ea));
+    background: -o-linear-gradient(top, #94c5f8 1%,#a6e6ff 80%,#b1b5ea 100%);
+    background: linear-gradient(to bottom, #94c5f8 1%,#a6e6ff 80%,#b1b5ea 100%);
 }
 
 #cloud-container {
@@ -64,15 +69,17 @@ body {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-flow: column nowrap;
-    flex-flow: column nowrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
 }
 
 .cloud {
-    fill: white;
+    height: 70%;
+    width: 70%;
 }
 
 #arrow-container > object {
