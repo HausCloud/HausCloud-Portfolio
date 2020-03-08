@@ -7,6 +7,6 @@ webapps = Blueprint('webapps', __name__, url_prefix='/app')
 def menu():
     return render_template('hub.html', cache_id=uuid4())
 
-@webapps.route('/webapp1')
+@webapps.route('/anime_quote_generator')
 def webapps1():
-    return '<h1> Hello World! </h1>'
+    return render_template('aqg.html', cache_id=uuid4())
