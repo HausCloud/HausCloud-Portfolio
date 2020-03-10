@@ -9,6 +9,7 @@ body {
     font-size: calc(16px + (24 - 16) * ((100vw - 400px) / (800 - 400)));
 }
 
+/* Set default font for header */
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Julius Sans One', "Times New Roman", Times, serif;
     text-align: center;
