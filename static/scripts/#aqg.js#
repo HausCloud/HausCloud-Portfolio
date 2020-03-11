@@ -110,7 +110,7 @@ class SuperUltraAtomicQuoteGenerator3000 extends React.Component {
 
     loopQuote () {
 	if (typeof(this.timer) === 'undefined') {
-	    this.timer = setInterval(() => this.changeQuote(), 4000);
+	    this.timer = setInterval(() => this.changeQuote(), 1000);
 	};
     };
     
@@ -123,7 +123,7 @@ class SuperUltraAtomicQuoteGenerator3000 extends React.Component {
     
     render() {
 	return (
-		<div id="quote-gen">
+e		<div id="quote-gen">
 		<div>
 		<h1>{this.state.quote}</h1>
 		<p>- {this.state.character}</p>

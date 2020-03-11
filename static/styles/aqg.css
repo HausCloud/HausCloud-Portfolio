@@ -1,6 +1,9 @@
-html, body {
+* {
     margin: 0;
     padding: 0;
+}
+
+html, body {
     height: 100%;
     width: 100%;
 }
@@ -13,9 +16,61 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Julius Sans One', "Times New Roman", Times, serif;
     text-align: center;
+    font-size: calc(16px + (24 - 16) * ((100vw - 400px) / (800 - 400)));
 }
 
-/* Set default font for most common tags */
+/* set default font for most common tags */
 p, a, div, li, em, i, b, strong, span {
     font-family: 'Monda', "Times New Roman", Times, serif;
+}
+
+#root {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../images/japan_background.gif) no-repeat center center fixed;
+    background-size: cover;
+}
+
+#root > div:first-child {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+#quote-gen {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+
+}
+
+#quote-gen > div {
+    color: white;
+}
+
+#quote-gen button {
+    color: white;
+    background-color: transparent;
+    border: none;
+}
+
+#quote-gen > div:first-child {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    flex-basis: 80%;
+}
+
+#quote-gen > div:last-child {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    height: 100%;
+    width: 100%;
+    flex-basis: 20%;
 }
