@@ -66,6 +66,11 @@ p, a, div, li, em, i, b, strong, span {
     flex-basis: 80%;
 }
 
+#quote-gen > div:first-child > h1 {
+    padding: 0 10vw 0 10vw;
+}
+
+
 #quote-gen > div:last-child {
     display: flex;
     flex-flow: row nowrap;
