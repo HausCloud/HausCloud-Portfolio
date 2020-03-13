@@ -6,7 +6,7 @@ import uuid
 
 application = Flask(__name__)
 CORS(application)
-application.register_blueprint(api)
+# application.register_blueprint(api)
 application.register_blueprint(webapps)
 
 @application.route('/')
