@@ -80,7 +80,7 @@ class SuperUltraAtomicQuoteGenerator3000 extends React.Component {
     };
 
     componentDidMount() {
-	this.loopQuote();
+	this.timer = setInterval(() => this.changeQuote(), 4000);
     }
     
     componentWillUnmount() {
@@ -109,9 +109,9 @@ class SuperUltraAtomicQuoteGenerator3000 extends React.Component {
     };
 
     loopQuote () {
-	if (typeof(this.timer) === 'undefined') {
+	if (this.timer === undefined) {
 	    this.timer = setInterval(() => this.changeQuote(), 4000);
-	};
+	}
     };
     
     randomQuote () {
@@ -129,7 +129,7 @@ class SuperUltraAtomicQuoteGenerator3000 extends React.Component {
 		<p>- {this.state.character}</p>
 		</div>
 		<div>
-		<button onClick={this.loopQuote}>Loop</button>
+		<button onClick={this.loopQuote}>{this.timer === undefined ? 'Loop' : 'Looping'}</button>
 		<button onClick={this.randomQuote}>Random</button>
 		</div>
 		</div>
