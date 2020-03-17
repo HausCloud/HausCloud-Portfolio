@@ -1,12 +1,12 @@
 from flask import Flask, render_template, redirect, Blueprint
-from flask_cors import CORS
+# from flask_cors import CORS
 from static.blueprints.api import api
 from static.blueprints.webapps import webapps
 import uuid
 
 application = Flask(__name__)
-CORS(application)
-# application.register_blueprint(api)
+# CORS(application)
+application.register_blueprint(api)
 application.register_blueprint(webapps)
 
 @application.route('/')

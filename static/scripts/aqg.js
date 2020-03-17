@@ -73,7 +73,10 @@ class SuperUltraAtomicQuoteGenerator3000 extends React.Component {
 	    quote: list[i].quote,
 	    character: list[i].character
 	};
-	
+
+	this.quoteAnim = React.createRef();
+	this.quoteChar = React.createRef();
+	// this.fadeBack = this.faceBack.bind(this);
 	this.changeQuote = this.changeQuote.bind(this);
 	this.randomQuote = this.randomQuote.bind(this);
 	this.loopQuote = this.loopQuote.bind(this);
@@ -81,16 +84,21 @@ class SuperUltraAtomicQuoteGenerator3000 extends React.Component {
 
     componentDidMount() {
 	this.timer = setInterval(() => this.changeQuote(), 4000);
-    }
+    };
     
     componentWillUnmount() {
 	clearInterval(this.timer);
-    }
+    };
+
+    // fadeBack () {
+    // 	if (this.quoteAnim.current.style.opacity == 0 && this.quoteChar.style.opacity == 0) {
+	    
+    // 	}
+    // };
     
     changeQuote () {
 	this.setState(prevState => {
 	    let x = Math.floor(Math.random() * list.length);
-
 	    // Prevent loading the same quote
 	    if (list[x].quote === prevState.quote) {
 		let i = 0;
@@ -106,6 +114,8 @@ class SuperUltraAtomicQuoteGenerator3000 extends React.Component {
 		return {quote: list[x].quote, character: list[x].character};
 	    };
 	});
+	gsap.to(this.quoteAnim.current, {duration: 0.5, opacity: 1, delay: 0.5});
+	gsap.to(this.quoteChar.current, {duration: 0.5, opacity: 1, delay: 0.5});
     };
 
     loopQuote () {
@@ -115,6 +125,8 @@ class SuperUltraAtomicQuoteGenerator3000 extends React.Component {
     };
     
     randomQuote () {
+	gsap.to(this.quoteAnim.current, {duration: 0.2, opacity: 0});
+	gsap.to(this.quoteChar.current, {duration: 0.2, opacity: 0});
 	clearInterval(this.timer);
 	this.timer = undefined;
 	this.changeQuote();
@@ -125,8 +137,8 @@ class SuperUltraAtomicQuoteGenerator3000 extends React.Component {
 	return (
 		<div id="quote-gen">
 		<div>
-		<h1>{this.state.quote}</h1>
-		<p>- {this.state.character}</p>
+		<h1 ref={this.quoteAnim}>{this.state.quote}</h1>
+		<p ref={this.quoteChar}>- {this.state.character}</p>
 		</div>
 		<div>
 		<button onClick={this.loopQuote}>{this.timer === undefined ? 'Loop' : 'Looping'}</button>
