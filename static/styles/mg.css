@@ -29,7 +29,7 @@ p, a, div, li, em, i, b, strong, span {
     width: 100%;
 }
 
-#root div {
+#root > div {
     display: flex;
     flex-flow: column nowrap;
     height: 100%;
@@ -41,7 +41,18 @@ p, a, div, li, em, i, b, strong, span {
     width: 100%;
 }
 
-#jumbotron, #jumbotron > img{
+#jumbotron {
+    display: flex;
+    flex-flow: row nowrap;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(#43d11b, #44d91a);
+}
+
+#jumbotron > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100%;
     width: 100%;
 }
@@ -63,6 +74,9 @@ p, a, div, li, em, i, b, strong, span {
 
 #card-container > img {
     width: 70%;
+    -webkit-box-shadow: 0px 11px 25px 0px rgba(0,0,0,0.33);
+    -moz-box-shadow: 0px 11px 25px 0px rgba(0,0,0,0.33);
+    box-shadow: 0px 11px 25px 0px rgba(0,0,0,0.33);
 }
 
 #card-container > img:after {
