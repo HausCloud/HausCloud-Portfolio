@@ -1,5 +1,6 @@
 let fake_persons = new Set(['https://i.imgur.com/SXdddOS.png', 'https://i.imgur.com/G0GMsz1.png', 'https://i.imgur.com/DnVmyep.png', 'https://i.imgur.com/rEceP8G.png', 'https://i.imgur.com/Bmh1ojx.png', 'https://i.imgur.com/OxyUx4h.png', 'https://i.imgur.com/gQCgQ0v.png', 'https://i.imgur.com/v1aJ6dm.png', 'https://i.imgur.com/45e6lEY.png', 'https://i.imgur.com/96j5NSE.png', 'https://i.imgur.com/HCMO5rs.png', 'https://i.imgur.com/KhA6TQ1.png', 'https://i.imgur.com/w7gVNZR.png', 'https://i.imgur.com/7NrYiD1.png', 'https://i.imgur.com/7LU26oJ.png', 'https://i.imgur.com/zvYsvfF.png', 'https://i.imgur.com/MDvAawQ.png', 'https://i.imgur.com/dIokPBO.png', 'https://i.imgur.com/9bB0IFL.png', 'https://i.imgur.com/H79zsfR.png', 'https://i.imgur.com/jSteyCK.png', 'https://i.imgur.com/Cy3X2sz.png', 'https://i.imgur.com/SdlX3VV.png', 'https://i.imgur.com/3ZFwJYU.png', 'https://i.imgur.com/L2tWyIv.png', 'https://i.imgur.com/NQmmIvr.png', 'https://i.imgur.com/wBrhpUV.png', 'https://i.imgur.com/U3Be6EU.png', 'https://i.imgur.com/OooCfSf.png', 'https://i.imgur.com/jB1OZiR.png', 'https://i.imgur.com/BTummWM.png', 'https://i.imgur.com/Vygqk1z.png', 'https://i.imgur.com/jEptedP.png', 'https://i.imgur.com/cg4zP0j.png']);
-let initial = Array.from(fake_persons);
+let arr = Array.from(fake_persons);
+let initial = [arr[0], arr[1], arr[2]];
 
 class JumboTron extends React.Component {
 	constructor(props) {
@@ -32,7 +33,7 @@ class App extends React.Component {
 			high_score: 0,
 			current_score: 0,
 			seen: new Set(),
-			display: [initial[0], initial[1], initial[2]]
+			display: [...initial]
 		};
 	};
 
@@ -41,7 +42,12 @@ class App extends React.Component {
 		if (stat === true) {
 			increment = 1;
 		}
-		this.setState((prevState, props) => ({display: arr, seen: prevState.seen.add(new_person), current_score: prevState.current_score += increment, status: stat}));
+
+		if (stat === false) {
+			this.setState((prevState, props) => ({display: [...initial], seen: new Set(), current_score: 0, status: false, high_score: prevState.current_score}))
+		} else {
+			this.setState((prevState, props) => ({display: arr, seen: prevState.seen.add(new_person), current_score: prevState.current_score += increment, status: stat}));
+		}
 	};
 
 	set_display(event) {
@@ -64,7 +70,7 @@ class App extends React.Component {
 		if (copy.size > 1) {
 			x = Math.floor(Math.random() * 2) + 1;
 		}
-
+		
 		while (x !== 0) {
 			let person = this.random_person(copy);
 			copy.delete(person);
@@ -74,7 +80,7 @@ class App extends React.Component {
 
 		while (new_display.size !== 3) {
 			let person = this.random_person(fake_persons);
-			if (new_display.has(person) === false) {
+			if (new_display.has(person) === false && person != event.target.src) {
 				new_display.add(person);
 			};
 		}
