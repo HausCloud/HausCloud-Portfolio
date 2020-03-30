@@ -196,6 +196,7 @@ a {
 }
 
 #projectinfo > div > p {
+    padding: 0 3vw 0 3vw;
     margin: 1vh 0 1vh 0;
     text-align: center;
 }
@@ -576,6 +577,7 @@ a {
     -ms-flex-positive: 2;
     -ms-flex-preferred-size: 70%;
     flex-basis: 70%;
+    padding: 3vh 0 3vh 0;
 }
 
 #contact > div > a {
