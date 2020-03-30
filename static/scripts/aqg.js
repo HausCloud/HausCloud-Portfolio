@@ -109,12 +109,18 @@ const list = [
 		"quote": "As a human, what kind of achievements will you leave behind?”",
 		"character": "Izaya Orihara"
 	}, {
-		"quote": "There are days when nothing goes right. There are days when you stumble and fall. There are days when you just want to cry. To cry a lot. To sleep a lot. Or even eat a lot. It’s alright, as long as you pick yourself up again.",
-		"character": "Yuki Takeya"
-	}, {
-		"quote": "There are days when nothing goes right. There are days when you stumble and fall. There are days when you just want to cry. To cry a lot. To sleep a lot. Or even eat a lot. It’s alright, as long as you pick yourself up again.",
-		"character": "Yuki Takeya"
-	},
+		"quote": "Remember the lesson, not the disappointment.",
+		"character": "Holo"
+	},{
+		"quote": "And even though it’s a virtual world, I feel more alive in here than I ever did in the real world.",
+		"character": "Kazuto Kirigaya"
+	},{
+		"quote": "No one’s going to give you a map, you have to walk your own path.",
+		"character": "Hilda"
+	},{
+		"quote": "I will leave tomorrow's problems to tomorrow me",
+		"character": "Saitama"
+	}
 ];
 
 class SuperUltraAtomicQuoteGenerator3000 extends React.Component {
