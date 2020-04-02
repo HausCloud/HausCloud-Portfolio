@@ -53,9 +53,9 @@ def gratitude_journal():
 
 @webapps.route('/gratitude_journal/login')
 def login():
-    x = auth0.authorize_redirect(redirect_uri='http://hauscloud.me/app/gratitude_journal/callback')
-    return jsonify({'x_info': str(dir(x)), 'x_type': type(x), 'x': x})
-    #return auth0.authorize_redirect(redirect_uri='http://hauscloud.me/app/gratitude_journal/callback')
+    # x = auth0.authorize_redirect(redirect_uri='http://hauscloud.me/app/gratitude_journal/callback')
+    # return jsonify({'x_info': str(dir(x)), 'x_type': type(x), 'x': x})
+    return auth0.authorize_redirect(redirect_uri='http://hauscloud.me/app/gratitude_journal/callback')
 
 @webapps.route('/gratitude_journal/logout')
 def logout():
