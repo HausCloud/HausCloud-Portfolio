@@ -1,24 +1,15 @@
-# from functools import wraps
-# import json
-# from os import environ as env
-# from werkzeug.exceptions import HTTPException
-# from dotenv import load_dotenv, find_dotenv
-# from authlib.integrations.flask_client import OAuth
-# from six.moves.urllib.parse import urlencode
-
-from flask import Flask, render_template, redirect, Blueprint, jsonify, session, url_for
-# from flask_cors import CORS
+from werkzeug.exceptions import HTTPException
+from flask import Flask, render_template, redirect, Blueprint, jsonify
 from static.blueprints.api import api
 from static.blueprints.webapps import webapps
 import uuid
 import os
 
-# oauth = OAuth(app)
-
 application = Flask(__name__)
-# CORS(application)
 # application.register_blueprint(api)
 application.register_blueprint(webapps)
+
+application.secret_key = os.getenv('oauth_client_secret')
 
 @application.route('/')
 def redirectHome():
@@ -28,17 +19,13 @@ def redirectHome():
 def home():
     return render_template('index.html', cache_id=uuid.uuid4())
 
-@application.route('/env_var_test')
-def monkey():
-    my_dict = {'monkey': os.getenv('monkey')}
-
-    return jsonify(my_dict)
-
-@application.errorhandler(404)
-def page_not_found(e):
-    return render_template('404.html', cache_id=uuid.uuid4()), 404
-
-
+@application.errorhandler(Exception)
+def global_exception_handler(ex):
+    response = jsonify(message=str(ex))
+    if response.status_code == 404:
+        return render_template('404.html', cache_id=uuid.uuid4()), 404
+    response.status_code = (ex.code if isinstance(ex, HTTPException) else 500)
+    return response
 
 if __name__ == "__main__":
     application.run(host='0.0.0.0')
