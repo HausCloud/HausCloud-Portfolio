@@ -30,7 +30,7 @@ def requires_auth(f):
   def decorated(*args, **kwargs):
     if 'profile' not in session:
       # Redirect to Login page here
-      return redirect('/app/gratitude_journal/dashboard')
+      return redirect('http://hauscloud.me/app/gratitude_journal')
     return f(*args, **kwargs)
 
   return decorated
@@ -75,7 +75,7 @@ def callback_handling():
         'name': userinfo['name'],
         'picture': userinfo['picture']
     }
-    return redirect('/app/gratitude_journal/dashboard')
+    return redirect('http://hauscloud.me/app/gratitude_journal/dashboard')
 
 @webapps.route('/gratitude_journal/dashboard')
 @requires_auth
