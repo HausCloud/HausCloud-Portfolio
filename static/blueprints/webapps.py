@@ -15,8 +15,8 @@ oauth = OAuth(current_app)
 
 auth0 = oauth.register(
     'auth0',
-    client_id=os.getenv('oauth_client_id'),
-    client_secret=os.getenv('oauth_client_secret'),
+    client_id='e3obhOjj0e0aaw4DN5NEyvt4kppEWGD4',
+    client_secret='fWZGrvwFr4ChgRDPPyCYNOOQpz4zblwB4-_41OXmCL7repOBX-mQcxN-xc98KftR',
     api_base_url='https://hauscloud.auth0.com',
     access_token_url='https://hauscloud.auth0.com/oauth/token',
     authorize_url='https://hauscloud.auth0.com/authorize',
@@ -30,7 +30,7 @@ def requires_auth(f):
   def decorated(*args, **kwargs):
     if 'profile' not in session:
       # Redirect to Login page here
-      return redirect('/')
+      return redirect('/app/gratitude_journal/dashboard')
     return f(*args, **kwargs)
 
   return decorated
@@ -60,7 +60,7 @@ def logout():
     # Clear session stored data
     session.clear()
     # Redirect user to logout endpoint
-    params = {'returnTo': url_for('webapps.gratitude_journal', _external=True), 'client_id': os.getenv('oauth_client_id')}
+    params = {'returnTo': url_for('webapps.gratitude_journal', _external=True), 'client_id': 'e3obhOjj0e0aaw4DN5NEyvt4kppEWGD4'}
     return redirect(auth0.api_base_url + '/v2/logout?' + urlencode(params))
 
 @webapps.route('/gratitude_journal/callback')

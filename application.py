@@ -9,7 +9,8 @@ application = Flask(__name__)
 # application.register_blueprint(api)
 application.register_blueprint(webapps)
 
-application.secret_key = os.getenv('oauth_client_secret')
+application.secret_key = 'fWZGrvwFr4ChgRDPPyCYNOOQpz4zblwB4-_41OXmCL7repOBX-mQcxN-xc98KftR'
+application.debug = True
 
 @application.route('/')
 def redirectHome():
