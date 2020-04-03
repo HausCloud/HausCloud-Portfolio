@@ -30,7 +30,7 @@ def requires_auth(f):
   def decorated(*args, **kwargs):
     if 'profile' not in session:
       # Redirect to Login page here
-      return redirect('http://hauscloud.me/app/gratitude_journal')
+      return redirect('/')
     return f(*args, **kwargs)
 
   return decorated
@@ -55,7 +55,7 @@ def gratitude_journal():
 def login():
     # x = auth0.authorize_redirect(redirect_uri='http://hauscloud.me/app/gratitude_journal/callback')
     # return jsonify({'x_info': str(dir(x)), 'x_type': type(x), 'x': x})
-    return auth0.authorize_redirect(redirect_uri='http://hauscloud.me/app/gratitude_journal/callback')
+    return auth0.authorize_redirect(redirect_uri='http://www.hauscloud.me:80/app/gratitude_journal/callback')
 
 @webapps.route('/gratitude_journal/logout')
 def logout():
@@ -77,7 +77,7 @@ def callback_handling():
         'name': userinfo['name'],
         'picture': userinfo['picture']
     }
-    return redirect('/gratitude_journal/dashboard')
+    return redirect('/app/gratitude_journal/dashboard')
 
 @webapps.route('/gratitude_journal/dashboard')
 @requires_auth
