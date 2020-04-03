@@ -63,8 +63,7 @@ def logout():
     session.clear()
     # Redirect user to logout endpoint
     params = {'returnTo': url_for('webapps.gratitude_journal', _external=True), 'client_id': 'e3obhOjj0e0aaw4DN5NEyvt4kppEWGD4'}
-    return jsonify(params)
-    #return redirect(auth0.api_base_url + '/v2/logout?' + urlencode(params))
+    return redirect(auth0.api_base_url + '/v2/logout?' + urlencode(params))
 
 @webapps.route('/gratitude_journal/callback')
 def callback_handling():
