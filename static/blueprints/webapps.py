@@ -9,14 +9,15 @@ import uuid
 import os
 import json
 
+# Register blueprint for web applications with prefix /app
 webapps = Blueprint('webapps', __name__, url_prefix='/app')
 
 oauth = OAuth(current_app)
 
 auth0 = oauth.register(
     'auth0',
-    client_id='e3obhOjj0e0aaw4DN5NEyvt4kppEWGD4',
-    client_secret='fWZGrvwFr4ChgRDPPyCYNOOQpz4zblwB4-_41OXmCL7repOBX-mQcxN-xc98KftR',
+    client_id=os.getenv('oauth_client_id'),
+    client_secret=os.getenv('oauth_client_secret'),
     api_base_url='https://hauscloud.auth0.com',
     access_token_url='https://hauscloud.auth0.com/oauth/token',
     authorize_url='https://hauscloud.auth0.com/authorize',
@@ -25,45 +26,50 @@ auth0 = oauth.register(
     },
 )
 
+# Decorator to check user login and redirect to appropriate route
 def requires_auth(f):
-  @wraps(f)
-  def decorated(*args, **kwargs):
-    if 'profile' not in session:
-      # Redirect to Login page here
-      return redirect('/')
-    return f(*args, **kwargs)
+    @wraps(f)
+    def decorated(*args, **kwargs):
+        if 'profile' not in session:
+            # Redirect to Login page here
+            return redirect('/')
+        return f(*args, **kwargs)
+    return decorated
 
-  return decorated
 
 @webapps.route('/hub')
 def hub():
     return render_template('hub.html', cache_id=uuid.uuid4())
 
+
 @webapps.route('/anime_quote_generator')
 def anime_quote_generator():
     return render_template('aqg.html', cache_id=uuid.uuid4())
+
 
 @webapps.route('/memory_game')
 def memory_game():
     return render_template('mg.html', cache_id=uuid.uuid4())
 
+
 @webapps.route('/gratitude_journal')
 def gratitude_journal():
     return render_template('home.html', cache_id=uuid.uuid4())
 
+
 @webapps.route('/gratitude_journal/login')
 def login():
-    # x = auth0.authorize_redirect(redirect_uri='http://hauscloud.me/app/gratitude_journal/callback')
-    # return jsonify({'x_info': str(dir(x)), 'x_type': type(x), 'x': x})
     return auth0.authorize_redirect(redirect_uri='http://www.hauscloud.me:80/app/gratitude_journal/callback')
+
 
 @webapps.route('/gratitude_journal/logout')
 def logout():
     # Clear session stored data
     session.clear()
     # Redirect user to logout endpoint
-    params = {'returnTo': url_for('webapps.gratitude_journal', _external=True), 'client_id': 'e3obhOjj0e0aaw4DN5NEyvt4kppEWGD4'}
+    params = {'returnTo': url_for('webapps.gratitude_journal', _external=True), 'client_id': os.getenv('oauth_client_id')}
     return redirect(auth0.api_base_url + '/v2/logout?' + urlencode(params))
+
 
 @webapps.route('/gratitude_journal/callback')
 def callback_handling():
@@ -79,7 +85,8 @@ def callback_handling():
     }
     return redirect('/app/gratitude_journal/dashboard')
 
+
 @webapps.route('/gratitude_journal/dashboard')
 @requires_auth
 def gratitude_journal_dashboard():
-    return render_template('dashboard.html', cache_id=uuid.uuid4(), userinfo=session['profile'], userinfo_pretty=json.dumps(session['jwt_payload'], indent=4))
+    return render_template('dashboard.html',userinfo=session['profile'], userinfo_pretty=json.dumps(session['jwt_payload'], indent=4))

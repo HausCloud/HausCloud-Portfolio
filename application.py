@@ -9,8 +9,8 @@ application = Flask(__name__)
 # application.register_blueprint(api)
 application.register_blueprint(webapps)
 
-application.secret_key = 'fWZGrvwFr4ChgRDPPyCYNOOQpz4zblwB4-_41OXmCL7repOBX-mQcxN-xc98KftR'
-application.debug = True
+application.secret_key = os.getenv('oauth_client_secret')
+#application.debug = True
 
 @application.route('/')
 def redirectHome():
@@ -22,9 +22,11 @@ def home():
 
 @application.errorhandler(Exception)
 def global_exception_handler(ex):
+    from pprint import pprint
     response = jsonify(message=str(ex))
     if response.status_code == 404:
         return render_template('404.html', cache_id=uuid.uuid4()), 404
+    pprint(vars(response))
     response.status_code = (ex.code if isinstance(ex, HTTPException) else 500)
     return response
 
