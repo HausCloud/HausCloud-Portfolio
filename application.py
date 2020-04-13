@@ -20,13 +20,13 @@ def redirectHome():
 def home():
     return render_template('index.html', cache_id=uuid.uuid4())
 
+@application.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html', cache_id=uuid.uuid4()), 404
+
 @application.errorhandler(Exception)
 def global_exception_handler(ex):
-    from pprint import pprint
     response = jsonify(message=str(ex))
-    if response.status_code == 404:
-        return render_template('404.html', cache_id=uuid.uuid4()), 404
-    pprint(vars(response))
     response.status_code = (ex.code if isinstance(ex, HTTPException) else 500)
     return response
 
