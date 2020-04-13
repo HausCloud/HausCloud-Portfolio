@@ -1,22 +1,22 @@
-from flask import Blueprint, request, jsonify, abort
-from os import listdir
-from os.path import isfile, join
-from flask_accept import accept
-from uuid import uuid4
+import uuid
+from functools import wraps
+from flask import Blueprint, request, jsonify, abort, session, redirect
+#from flask_accept import accept
+
 
 api = Blueprint('api', __name__ , url_prefix='/api')
 
-@api.route('/image_hash', methods=['GET'])
-@accept('application/json')
-def image_hash():
-    dictionary = {}
-    path = './static/images/fake_persons/'
-    files = [f for f in listdir(path) if isfile(join(path, f))]
+# Decorator to check user login and redirect to appropriate route
+def requires_auth(f):
+    @wraps(f)
+    def decorated(*args, **kwargs):
+        if 'profile' not in session:
+            # Redirect to Login page here
+            return redirect('/app/gratitude_journal')
+        return f(*args, **kwargs)
+    return decorated
 
-    if len(files) == 0:
-        abort(400, description="No files available")
-    
-    for file_name in files:
-        dictionary[file_name] = uuid4()
-
-    return jsonify(dictionary)
+@api.route('/gj_test')
+@requires_auth
+def test():
+    return '<h1>success</h1>'

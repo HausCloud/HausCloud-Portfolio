@@ -6,7 +6,7 @@ import uuid
 import os
 
 application = Flask(__name__)
-# application.register_blueprint(api)
+application.register_blueprint(api)
 application.register_blueprint(webapps)
 
 application.secret_key = os.getenv('oauth_client_secret')
