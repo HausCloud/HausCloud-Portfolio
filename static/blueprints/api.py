@@ -1,8 +1,8 @@
-import uuid
 from functools import wraps
 from flask import Blueprint, request, jsonify, abort, session, redirect
-#from flask_accept import accept
-
+from db_engine import Database
+import uuid
+import os
 
 api = Blueprint('api', __name__ , url_prefix='/api')
 
@@ -16,7 +16,37 @@ def requires_auth(f):
         return f(*args, **kwargs)
     return decorated
 
-@api.route('/gj_test')
+@api.route('/gratitude_journal/all', methods=['POST'])
 @requires_auth
-def test():
-    return '<h1>success</h1>'
+def grab_entries_for_id():
+    data = request.get_json(silent=True)
+    if data is None:
+        abort(400, description='Data must be valid json and Content-Type must be set to application/json.')
+    elif 'user_id' not in data:
+        abort(400, description='User ID must be provided within JSON.')
+
+    config = {'host': os.getenv('RDS_HOSTNAME'), 'username': os.getenv('RDS_USERNAME'),'password': os.getenv('RDS_PASSWORD'),'port': os.getenv('RDS_PORT'),'dbname':'postgres'}
+
+    instance = Database(**config)
+
+    connection_attempt = instance.connect()
+
+    if connection_attempt is not True:
+        instance.close()
+        return abort(500, description='Connection to database failed.')
+    
+    existence_check = instance.exist(data['user_id'])
+
+    if existence_check is not True:
+        instance.close()
+        return abort(400, description='User ID was not found in the database.')
+
+    result = instance.all_entries(data['user_id'])
+
+    if 'error' in result:
+        instance.close()
+        return abort(500, description=str(result))
+
+    instance.close()
+
+    return jsonify({'entries': result})

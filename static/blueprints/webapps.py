@@ -60,6 +60,7 @@ def gratitude_journal():
 @webapps.route('/gratitude_journal/login')
 def login():
     return auth0.authorize_redirect(redirect_uri='http://www.hauscloud.me:80/app/gratitude_journal/callback')
+    #return auth0.authorize_redirect(redirect_uri='http://localhost:5000/app/gratitude_journal/callback')
 
 
 @webapps.route('/gratitude_journal/logout')
@@ -83,10 +84,16 @@ def callback_handling():
         'name': userinfo['name'],
         'picture': userinfo['picture']
     }
-    return redirect('/app/gratitude_journal/dashboard')
+    return redirect('/app/gratitude_journal/personal')
 
 
-@webapps.route('/gratitude_journal/dashboard')
+@webapps.route('/gratitude_journal/personal')
 @requires_auth
 def gratitude_journal_dashboard():
-    return render_template('dashboard.html',userinfo=session['profile'], userinfo_pretty=json.dumps(session['jwt_payload'], indent=4))
+    name = session['jwt_payload']['nickname']
+    if name[-1:] == 's':
+        name = name[:-1] + "'" + 's'
+    else:
+        name += "'s"
+
+    return render_template('journal.html', user=name, cache_id=uuid.uuid4(), data=session['jwt_payload'])

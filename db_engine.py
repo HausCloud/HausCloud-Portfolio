@@ -46,7 +46,7 @@ class Database:
             try:
                 self.cursor.execute(exist_statement, (user_id,))
                 if self.cursor.rowcount != 1:
-                    return json.dumps({'error': 'User {} not in DB'.format(user_id)})
+                    return {'error': 'User {} not in DB'.format(user_id)}
                 return True
             except psycopg2.errors.InFailedSqlTransaction as err:
                 return {'error': str(err)}
@@ -110,6 +110,18 @@ class Database:
             self.cursor.execute(wipe_statement, (user_id,))
             self.conn.commit()
             return True
+        except psycopg2.errors.InFailedSqlTransaction as err:
+            return {'error': str(err)}
+        except psycopg2.errors.SyntaxError as err:
+            return {'error': str(err)}
+        except psycopg2.DatabaseError as err:
+            return {'error': str(err)}
+
+    def all_entries(self, user_id):
+        all_statement = 'SELECT entries FROM journals WHERE user_id = %s;'
+        try:
+            self.cursor.execute(all_statement, (user_id,))
+            return self.cursor.fetchone()[0]        
         except psycopg2.errors.InFailedSqlTransaction as err:
             return {'error': str(err)}
         except psycopg2.errors.SyntaxError as err:
