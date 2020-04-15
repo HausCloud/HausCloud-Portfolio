@@ -17,6 +17,35 @@ def requires_auth(f):
         return f(*args, **kwargs)
     return decorated
 
+@api.route('gratitude_journal/delete', methods=['POST'])
+@requires_auth
+def delete_entry_for_id():
+    data = request.get_json(silent=True)
+    if data is None:
+        abort(400, description='Data must be valid json and Content-Type must be set to application/json.')
+    elif 'user_id' not in data:
+        abort(400, description='user_id attribute must exist in request.')
+    elif 'entry_id' not in data:
+        abort(400, description='entry_id attribute must exist in request.')
+
+    config = {'host': os.getenv('RDS_HOSTNAME'), 'username': os.getenv('RDS_USERNAME'),'password': os.getenv('RDS_PASSWORD'),'port': os.getenv('RDS_PORT'),'dbname':'postgres'}
+    instance = Database(**config)
+
+    if instance.connect() is not True:
+        instance.close()
+        abort(500, description='Connection to database failed.')
+
+    if instance.exist(data['user_id']) is not True:
+        instance.close()
+        abort(400, description='User not in database to add entry.')
+
+    instance.delete(data['user_id'], data['entry_id'])
+
+    instance.close()
+
+    return jsonify({'success': 'If entry exist, it is deleted.'})
+    
+
 @api.route('/gratitude_journal/insert', methods=['POST'])
 @requires_auth
 def insert_entry_for_id():
@@ -52,12 +81,29 @@ def insert_entry_for_id():
     config = {'host': os.getenv('RDS_HOSTNAME'), 'username': os.getenv('RDS_USERNAME'),'password': os.getenv('RDS_PASSWORD'),'port': os.getenv('RDS_PORT'),'dbname':'postgres'}
     instance = Database(**config)
 
-    if instance.connect() is not True or instance.exist(data['user_id']) is not True:
+    if instance.connect() is not True:
         instance.close()
-        abort(500, description='Connection to database failed or user not found.')
+        abort(500, description='Connection to database failed.')
+
+    if instance.exist(data['user_id']) is not True:
+        instance.close()
+        abort(400, description='User not in database to add entry.')
+
+    result = instance.all_entries(data['user_id'])
+
+    if 'fail_transaction_error' in result or 'syntax_error' in result or 'db_error' in result:
+        instance.close()
+        return abort(500, description=str(result))
+
+    if len(result) > 0:
+        sorted_dates = sorted([datetime.datetime.strptime(val['date'], '%m/%d/%Y %I:%M:%S %p') for val in result.values()],reverse=True)
+        if sorted_dates[0] > date:
+            instance.close()
+            abort(400, description='Incoming date precedes all other entry dates.')
 
     result = instance.add(data['user_id'], data['text'], data['mood'], date.strftime('%m/%d/%Y %I:%M:%S %p'))
     
+    instance.close()
     if result is True:
         return jsonify({'success': 'Entry added'})
     else:
@@ -87,13 +133,21 @@ def grab_entries_for_id():
     if existence_check is not True and type(existence_check) is dict and 'nouser_error' in existence_check:
         instance.create(data['user_id'])
         instance.close()
-        return jsonify({'entries': {}})
+        return jsonify({'entries': []})
 
     result = instance.all_entries(data['user_id'])
 
     if 'fail_transaction_error' in result or 'syntax_error' in result or 'db_error' in result:
         instance.close()
         return abort(500, description=str(result))
+
+    date_sort = sorted([datetime.datetime.strptime(val['date'], '%m/%d/%Y %I:%M:%S %p') for val in result.values()],reverse=True)
+    response = []
+    for obj in date_sort:
+        for key, val in result.items():
+            if val['date'] == obj.strftime('%m/%d/%Y %I:%M:%S %p'):
+                response.append([key, val])
+
     instance.close()
 
-    return jsonify({'entries': result})
+    return jsonify({'entries': response})

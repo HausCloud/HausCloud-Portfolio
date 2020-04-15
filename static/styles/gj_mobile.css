@@ -43,3 +43,34 @@ p, a, div, li, em, i, b, strong, span {
         flex-basis: 80%;
     }
 }
+
+#root > div:first-child {
+    display: flex;
+    flex-flow: column nowrap;
+    height: 100%;
+    width: 100%;
+}
+
+#main-content {
+    height: 75%;
+}
+
+#nav {
+    background: grey;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-around;
+    height: 25%;
+}
+
+#nav > div {
+    height: 50%;
+    width: 50%;
+}
+
+#nav > div > svg {
+    height: 100%;
+    width: 100%;
+}
