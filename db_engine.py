@@ -19,17 +19,7 @@ class Database:
                 self.cursor = self.conn.cursor()
                 return True
             except psycopg2.OperationalError as err:
-                return {'error': str(err)}
-
-    # def print_all(self):
-    #     try:
-    #         self.cursor.execute('SELECT * FROM journals;')
-    #         records = self.cursor.fetchall()
-    #         print(len(records))
-    #         for item in records:
-    #             print(item)
-    #     except Exception as err:
-    #         pass
+                return {'op_error': str(err)}
             
     def close(self):
         if self.conn is not None:
@@ -46,16 +36,15 @@ class Database:
             try:
                 self.cursor.execute(exist_statement, (user_id,))
                 if self.cursor.rowcount != 1:
-                    return {'error': 'User {} not in DB'.format(user_id)}
+                    return {'nouser_error': 'User {} not in DB'.format(user_id)}
                 return True
             except psycopg2.errors.InFailedSqlTransaction as err:
-                return {'error': str(err)}
+                return {'fail_transaction_error': str(err)}
             except psycopg2.errors.SyntaxError as err:
-                return {'error': str(err)}
+                return {'syntax_error': str(err)}
             except psycopg2.DatabaseError as err:
-                return {'error': str(err)}
-
-        return {'error': 'Connection is unestablished or cursor is was not created'}
+                return {'db_error': str(err)}
+        #return {'misc_error': 'Connection is unestablished or cursor is was not created'}
     
     def create(self, user_id):
         create_statement = "INSERT INTO journals (user_id) VALUES (%s);"
@@ -65,11 +54,11 @@ class Database:
             self.conn.commit()
             return True
         except psycopg2.errors.InFailedSqlTransaction as err:
-            return {'error': str(err)}
+            return {'fail_transaction_error': str(err)}
         except psycopg2.errors.SyntaxError as err:
-            return {'error': str(err)}
+            return {'syntax_error': str(err)}
         except psycopg2.DatabaseError as err:
-            return {'error': str(err)}
+            return {'db_error': str(err)}
 
     def add(self, user_id, text, mood, date):
         entry = json.dumps({'text': text, 'mood': mood, 'date': date})
@@ -83,11 +72,11 @@ class Database:
             self.conn.commit()
             return True
         except psycopg2.errors.InFailedSqlTransaction as err:
-            return {'error': str(err)}
+            return {'fail_transaction_error': str(err)}
         except psycopg2.errors.SyntaxError as err:
-            return {'error': str(err)}
+            return {'syntax_error': str(err)}
         except psycopg2.DatabaseError as err:
-            return {'error': str(err)}
+            return {'db_error': str(err)}
         
     def delete(self, user_id, entry_id):
         delete_statement = "UPDATE journals SET entries = entries - %s WHERE user_id = %s;"
@@ -97,11 +86,11 @@ class Database:
             self.conn.commit()
             return True
         except psycopg2.errors.InFailedSqlTransaction as err:
-            return {'error': str(err)}
+            return {'fail_transaction_error': str(err)}
         except psycopg2.errors.SyntaxError as err:
-            return {'error': str(err)}
+            return {'syntax_error': str(err)}
         except psycopg2.DatabaseError as err:
-            return {'error': str(err)}
+            return {'db_error': str(err)}
 
     def wipe(self, user_id):
         wipe_statement = "UPDATE journals SET entries = '{}' WHERE user_id = %s;"
@@ -111,11 +100,11 @@ class Database:
             self.conn.commit()
             return True
         except psycopg2.errors.InFailedSqlTransaction as err:
-            return {'error': str(err)}
+            return {'fail_transaction_error': str(err)}
         except psycopg2.errors.SyntaxError as err:
-            return {'error': str(err)}
+            return {'syntax_error': str(err)}
         except psycopg2.DatabaseError as err:
-            return {'error': str(err)}
+            return {'db_error': str(err)}
 
     def all_entries(self, user_id):
         all_statement = 'SELECT entries FROM journals WHERE user_id = %s;'
@@ -123,8 +112,8 @@ class Database:
             self.cursor.execute(all_statement, (user_id,))
             return self.cursor.fetchone()[0]        
         except psycopg2.errors.InFailedSqlTransaction as err:
-            return {'error': str(err)}
+            return {'fail_transaction_error': str(err)}
         except psycopg2.errors.SyntaxError as err:
-            return {'error': str(err)}
+            return {'syntax_error': str(err)}
         except psycopg2.DatabaseError as err:
-            return {'error': str(err)}
+            return {'db_error': str(err)}
