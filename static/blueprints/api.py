@@ -97,9 +97,9 @@ def insert_entry_for_id():
 
     if len(result) > 0:
         sorted_dates = sorted([datetime.datetime.strptime(val['date'], '%m/%d/%Y %I:%M:%S %p') for val in result.values()],reverse=True)
-        if sorted_dates[0] > date:
+        if sorted_dates[0] >= date:
             instance.close()
-            abort(400, description='Incoming date precedes all other entry dates.')
+            abort(400, description='Incoming date precedes latest entry date.')
 
     result = instance.add(data['user_id'], data['text'], data['mood'], date.strftime('%m/%d/%Y %I:%M:%S %p'))
     
@@ -108,8 +108,6 @@ def insert_entry_for_id():
         return jsonify({'success': 'Entry added'})
     else:
         return jsonify({'failure': 'Unable to add entry'})
-
-
 
 @api.route('/gratitude_journal/all', methods=['POST'])
 @requires_auth
@@ -141,13 +139,10 @@ def grab_entries_for_id():
         instance.close()
         return abort(500, description=str(result))
 
-    date_sort = sorted([datetime.datetime.strptime(val['date'], '%m/%d/%Y %I:%M:%S %p') for val in result.values()],reverse=True)
-    response = []
-    for obj in date_sort:
-        for key, val in result.items():
-            if val['date'] == obj.strftime('%m/%d/%Y %I:%M:%S %p'):
-                response.append([key, val])
+    response = sorted([[key, val] for key, val in result.items()], key = lambda x : datetime.datetime.strptime(x[1]['date'], '%m/%d/%Y %I:%M:%S %p'), reverse=True)
+
+    for index, item in enumerate(response):
+        response[index][1]['date'] = datetime.datetime.strptime(item[1]['date'], '%m/%d/%Y %I:%M:%S %p').strftime('%b %d %Y @ %-I:%M%p')
 
     instance.close()
-
     return jsonify({'entries': response})

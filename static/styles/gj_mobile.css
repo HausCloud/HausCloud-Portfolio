@@ -28,19 +28,19 @@ p, a, div, li, em, i, b, strong, span {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-basis: 10%;
+    height: 10%;
 }
 
 #root {
-    flex-basis: 90%;
+    height: 90%;
 }
 
 @media screen and (max-device-aspect-ratio: 16/9) {
     #title {
-        flex-basis: 20%;
+        height: 20%;
     }
     #root {
-        flex-basis: 80%;
+        height: 80%;
     }
 }
 
@@ -53,6 +53,54 @@ p, a, div, li, em, i, b, strong, span {
 
 #main-content {
     height: 75%;
+}
+
+#main-content > div {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-between;
+    overflow-y: scroll;
+}
+
+#main-content > div > div {
+    min-height: 50%;
+    width: 70%;
+}
+
+.entry {
+    height: 80%;
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-evenly;
+}
+
+.entry > p:last-child {
+    width: 50%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.info {
+    height: 20%;
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+}
+
+.info p, .info button {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #nav {
