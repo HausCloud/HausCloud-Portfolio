@@ -79,31 +79,59 @@ class Entries extends React.Component {
     super(props);
     this.state = {
       view: "multi",
+      single_entry: <div></div>,
     };
 
     this.multi_view = this.multi_view.bind(this);
+    this.single_view = this.single_view.bind(this);
   }
 
-  multi_view () {
-    return this.props.entries.map((entry) => (
-        <div key={entry[0]}>
-          <div className="entry">
-            <p>{entry[1]["text"][0]}</p>
-            <p>{entry[1]["text"][1]}</p>
-          </div>
-          <div className="info">
-            <p>{entry[1]["date"]}</p>
-            <p>{entry[1]["mood"]}</p>
-            <button onClick={ () => this.setState({view: 'single'}) }>Open</button>
-          </div>
+  single_view(entry_data) {
+    let entry = (
+      <div id="single_view">
+        <div className="entry">
+          <p>{entry_data["text"][0]}</p>
+          <p>{entry_data["text"][1]}</p>
         </div>
-    ))
-  };
+        <div className="info">
+          <p>{entry_data["date"]}</p>
+          <p>{entry_data["mood"]}</p>
+          <button
+            onClick={() => {
+              this.setState({view: 'multi'})
+              this.multi_view();
+            }}
+          >
+            Open
+          </button>
+        </div>
+      </div>
+    );
+    this.setState({ view: "single", single_entry: entry });
+  }
+
+  multi_view() {
+    return this.props.entries.map((entry) => (
+      <div key={entry[0]}>
+        <div className="entry">
+          <p>{entry[1]["text"][0]}</p>
+          <p>{entry[1]["text"][1]}</p>
+        </div>
+        <div className="info">
+          <p>{entry[1]["date"]}</p>
+          <p>{entry[1]["mood"]}</p>
+          <button onClick={() => this.single_view(entry[1])}>Open</button>
+        </div>
+      </div>
+    ));
+  }
 
   render() {
     return (
       <div>
-        {this.state.view == 'multi' ? this.multi_view() : <div></div> }
+        {this.state.view == "multi"
+          ? this.multi_view()
+          : this.state.single_entry}
       </div>
     );
   }
@@ -125,13 +153,11 @@ class App extends React.Component {
       dataType: "json",
       contentType: "application/json",
     }).done((data) => {
-      console.log(data);
       let arr = [];
       data["entries"].forEach((item) => {
         arr.push(item);
       });
       this.setState({ entries: arr });
-      console.log(arr.length);
     });
   }
 
