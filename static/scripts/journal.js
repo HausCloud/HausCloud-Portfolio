@@ -6,6 +6,20 @@ const user_id = userinfo.sub.replace("auth0|", "");
 
 console.log(userinfo);
 
+const book = (
+  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 470 470">
+    <g>
+      <path d="m338.829,0h-320.105c-4.142,0-7.5,3.357-7.5,7.5v455c0,4.143 3.358,7.5 7.5,7.5h320.105c20.678,0 37.5-16.822 37.5-37.5v-395c0-20.678-16.822-37.5-37.5-37.5zm22.5,432.5c0,12.406-10.093,22.5-22.5,22.5h-312.605v-440h312.605c12.407,0 22.5,10.094 22.5,22.5v395z" />
+      <path d="m51.224,37.5v305c0,4.143 3.358,7.5 7.5,7.5 4.144-0.002 7.5-3.358 7.5-7.5v-305c0-4.142-3.356-7.498-7.497-7.5-4.145,0-7.503,3.357-7.503,7.5z" />
+      <path d="m51.224,372.5v60c0,4.143 3.358,7.5 7.5,7.5 4.144-0.002 7.5-3.358 7.5-7.5v-60c0-4.142-3.356-7.498-7.497-7.5-4.145,0-7.503,3.357-7.503,7.5z" />
+      <path d="m298.829,70h-170.105c-4.142,0-7.5,3.357-7.5,7.5v90c0,4.143 3.358,7.5 7.5,7.5h170.105c4.142,0 7.5-3.357 7.5-7.5v-90c5.68434e-14-4.143-3.358-7.5-7.5-7.5zm-7.5,90h-155.105v-75h155.105v75z" />
+      <path d="m158.724,115h110.105c4.142,0 7.5-3.357 7.5-7.5s-3.358-7.5-7.5-7.5h-110.105c-4.142,0-7.5,3.357-7.5,7.5s3.358,7.5 7.5,7.5z" />
+      <path d="m158.724,145h110.105c4.142,0 7.5-3.357 7.5-7.5s-3.358-7.5-7.5-7.5h-110.105c-4.142,0-7.5,3.357-7.5,7.5s3.358,7.5 7.5,7.5z" />
+      <path d="m458.739,127.566c-0.018-0.184-0.05-0.365-0.081-0.545-0.011-0.061-0.016-0.122-0.028-0.183-0.045-0.225-0.102-0.445-0.166-0.662-0.005-0.017-0.008-0.033-0.013-0.05-0.08-0.262-0.173-0.518-0.28-0.767l-19.969-48.034c-1.163-2.798-3.896-4.621-6.925-4.621s-5.762,1.823-6.925,4.621l-19.969,48.034c-0.107,0.249-0.2,0.505-0.28,0.767-0.005,0.017-0.008,0.033-0.013,0.05-0.064,0.217-0.121,0.437-0.166,0.662-0.012,0.061-0.017,0.122-0.028,0.183-0.031,0.18-0.063,0.361-0.081,0.545-0.025,0.248-0.038,0.497-0.038,0.747v319.187c0,12.406 10.093,22.5 22.5,22.5h10c12.407,0 22.5-10.094 22.5-22.5v-319.187c-0.001-0.25-0.014-0.5-0.038-0.747zm-22.463,327.434h-10c-4.136,0-7.5-3.364-7.5-7.5v-12.5h25v12.5c0,4.136-3.364,7.5-7.5,7.5zm7.5-319.187v284.187h-25v-284.187h25zm-21.259-15l8.76-21.07 8.76,21.07h-17.52z" />
+    </g>
+  </svg>
+);
+
 const magnifying_glass = (
   <svg version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 513.28 513.28">
     <g>
@@ -74,75 +88,102 @@ const ideas = (
 //     error: function (xhr, ajaxOptions, thrownError) { alert("ERROR:" + xhr.responseText+" - "+thrownError); }
 //  });
 
+// class Emoji extends React.Component {
+//   constructor(props) {
+//     super(props);
+
+//     this.state = {
+//       exhuberant: '😄',
+//       happy: '🙂',
+//       meh:
+
+//     };
+//   }
+// }
+
+// () => {
+//   if (entry_data['mood'] == 'exhuberant') {
+//     return emoji = '😄';
+//   } else if (entry_data['mood'] == 'happy') {
+//     return emoji = '🙂';
+//   } else if (entry_data['mood'] == 'meh') {
+//     return emoji = '😑';
+//   } else if (entry_data['mood'] == 'unhappy') {
+//     return emoji = '🙃';
+//   } else if (entry_data['mood'] == 'nope') {
+//     return emoji = '😓';
+//   }
+// }
+
+class Form extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <form id="form-container">
+        <label htmlFor="cars">Choose</label>
+        <select id="cars" name="cars">
+          <option defaultValue="I'm grateful for">I'm grateful for</option>
+          <option defaultValue="So happy that">So happy that</option>
+          <option defaultValue="#blessed">#blessed</option>
+        </select>
+        <label htmlFor="entry">Blorp</label>
+        <input
+          type="text"
+          id="entry"
+          name="entry"
+          defaultValue="A roof over my head"
+        ></input>
+        <input type="submit" value="Submit"></input>
+      </form>
+    );
+  }
+}
+
+class Search extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <div id="search-container">
+        <form>
+          <input type="text" placeholder="Search.." name="search"></input>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    );
+  }
+}
+
+class MrSuggestor extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render () {
+    return (
+    <div id="suggestion-container">
+      <p>Hi I suggest stuff.</p>
+    </div>
+    )
+  }
+}
+
 class Entries extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       view: "multi",
       single_entry: <div></div>,
+      entries: [],
     };
 
     this.multi_view = this.multi_view.bind(this);
     this.single_view = this.single_view.bind(this);
-  }
-
-  single_view(entry_data) {
-    let entry = (
-      <div id="single_view">
-        <div className="entry">
-          <p>{entry_data["text"][0]}</p>
-          <p>{entry_data["text"][1]}</p>
-        </div>
-        <div className="info">
-          <p>{entry_data["date"]}</p>
-          <p>{entry_data["mood"]}</p>
-          <button
-            onClick={() => {
-              this.setState({view: 'multi'})
-              this.multi_view();
-            }}
-          >
-            Open
-          </button>
-        </div>
-      </div>
-    );
-    this.setState({ view: "single", single_entry: entry });
-  }
-
-  multi_view() {
-    return this.props.entries.map((entry) => (
-      <div key={entry[0]}>
-        <div className="entry">
-          <p>{entry[1]["text"][0]}</p>
-          <p>{entry[1]["text"][1]}</p>
-        </div>
-        <div className="info">
-          <p>{entry[1]["date"]}</p>
-          <p>{entry[1]["mood"]}</p>
-          <button onClick={() => this.single_view(entry[1])}>Open</button>
-        </div>
-      </div>
-    ));
-  }
-
-  render() {
-    return (
-      <div>
-        {this.state.view == "multi"
-          ? this.multi_view()
-          : this.state.single_entry}
-      </div>
-    );
-  }
-}
-
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      entries: [],
-    };
   }
 
   componentDidMount() {
@@ -161,16 +202,92 @@ class App extends React.Component {
     });
   }
 
+  single_view(entry_data) {
+    let entry = (
+      <div id="single_view">
+        <div className="entry">
+          <p>{entry_data["text"][0]}</p>
+          <p>{entry_data["text"][1]}</p>
+        </div>
+        <div className="info">
+          <p>{entry_data["date"]}</p>
+          <p>{entry_data["mood"]}</p>
+          <button
+            onClick={() => {
+              this.setState({ view: "multi" });
+              this.multi_view();
+            }}
+          >
+            Open
+          </button>
+        </div>
+      </div>
+    );
+    this.setState({ view: "single", single_entry: entry });
+  }
+
+  multi_view() {
+    return this.state.entries.map((entry) => (
+      <div className="group-entries" key={entry[0]}>
+        <div className="entry">
+          <p>{entry[1]["text"][0]}</p>
+          <p>{entry[1]["text"][1]}</p>
+        </div>
+        <div className="info">
+          <p>{entry[1]["date"].split(" ").slice(0, 3).join(" ")}</p>
+          <p>{entry[1]["mood"]}</p>
+          <button onClick={() => this.single_view(entry[1])}>Open</button>
+        </div>
+      </div>
+    ));
+  }
+
+  render() {
+    return (
+      <div id="entries-container">
+        {this.state.view == "multi"
+          ? this.multi_view()
+          : this.state.single_entry}
+      </div>
+    );
+  }
+}
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      container: <Entries />,
+    };
+
+    // this.swap_content = this.swap_content.bind(this);
+  }
+
   render() {
     return (
       <div>
-        <div id="main-content">
-          <Entries entries={this.state.entries} />
-        </div>
+        <div id="main-content">{this.state.container}</div>
         <div id="nav">
-          <div>{magnifying_glass}</div>
-          <div>{pen}</div>
-          <div>{ideas}</div>
+          <div
+            onClick={() => {
+              this.setState({ container: <Search /> });
+            }}
+          >
+            {magnifying_glass}
+          </div>
+          <div
+            onClick={() => {
+              this.setState({ container: <Form /> });
+            }}
+          >
+            {pen}
+          </div>
+          <div onClick={() => {
+              this.setState({ container: <Entries /> });
+            }}>{book}</div>
+          <div onClick={() => {
+              this.setState({ container: <MrSuggestor /> });
+            }}>{ideas}</div>
         </div>
       </div>
     );

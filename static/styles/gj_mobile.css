@@ -11,6 +11,7 @@ html, body {
 body {
     display: flex;
     flex-flow: column nowrap;
+    /* background: url(https://image.freepik.com/free-photo/craft-texture-brown-journal-note_1253-671.jpg); */
     /* font-size: calc(16px + (24 - 16) * ((100vw - 400px) / (800 - 400))); */
 }
 
@@ -66,9 +67,11 @@ p, a, div, li, em, i, b, strong, span {
     overflow-y: scroll;
 }
 
-#main-content > div > div {
-    min-height: 50%;
-    width: 70%;
+.group-entries {
+    background: lightblue;
+    border-radius: 10%;
+    min-height: 60vh;
+    width: 90%;
 }
 
 .entry {
@@ -105,7 +108,6 @@ p, a, div, li, em, i, b, strong, span {
 }
 
 #nav {
-    background: grey;
     display: flex;
     flex-flow: row nowrap;
     align-items: center;

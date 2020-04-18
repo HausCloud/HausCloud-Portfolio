@@ -73,6 +73,9 @@ def insert_entry_for_id():
     if data['text'][0] not in possible_text:
         abort(400, description='First value in array must be a valid prefix.')
 
+    if len(data['text'][1]) > 127:
+        abort(400, description='Post too long.')
+
     try:
         date = datetime.datetime.strptime(data['date'], '%m/%d/%Y, %I:%M:%S %p')
     except ValueError:
