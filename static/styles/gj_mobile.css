@@ -30,11 +30,17 @@ p, a, div, li, em, i, b, strong, span {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 10%;
+    height: 15%;
+}
+
+#title h1 {
+    padding: 1vh;
+    border: 1px solid black;
+    margin: 0;
 }
 
 #root {
-    height: 90%;
+    height: 85%;
 }
 
 @media screen and (max-device-aspect-ratio: 16/9) {
@@ -53,6 +59,57 @@ p, a, div, li, em, i, b, strong, span {
     width: 100%;
 }
 
+#suggestion-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: calc(16px + (24 - 16) * ((100vw - 400px) / (800 - 400)));
+}
+
+#single_view {
+    height: 100%;
+    width: 100%;
+
+}
+
+#form-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+}
+
+#form-container > div {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#form-container > div > select {
+    height: 100%;
+    width: 50%;
+    text-align-last: center;
+    /* background-color: inherit; */
+}
+
+#form-container div:nth-child(3) label input {
+    margin: 1vh 2vw 1vh 2vw;
+    padding: 0 1vw 0 1vw;
+    border: none;
+    border-bottom: 1px solid black;
+} 
+
+#form-container div:last-child input {
+    height: 100%;
+    width: 50%;
+}
+
 #main-content {
     height: 75%;
 }
@@ -68,7 +125,6 @@ p, a, div, li, em, i, b, strong, span {
 }
 
 .group-entries {
-    background: lightblue;
     border-radius: 10%;
     min-height: 60vh;
     width: 90%;
@@ -126,7 +182,17 @@ p, a, div, li, em, i, b, strong, span {
     width: 100%;
 }
 
-#single_view {
-    height: 100%;
+
+.rectangle {
     width: 100%;
+}
+
+.rectangle:before {
+    content: "";
+    display: block;
+    padding-top: 25%;
+  } 
+
+.active > svg {
+    fill: lightblue;
 }

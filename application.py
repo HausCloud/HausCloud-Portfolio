@@ -1,5 +1,5 @@
 from werkzeug.exceptions import HTTPException
-from flask import Flask, render_template, redirect, Blueprint, jsonify
+from flask import Flask, render_template, redirect, Blueprint, jsonify, request
 from static.blueprints.api import api
 from static.blueprints.webapps import webapps
 import uuid
