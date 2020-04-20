@@ -88,73 +88,65 @@ const ideas = (
 //     error: function (xhr, ajaxOptions, thrownError) { alert("ERROR:" + xhr.responseText+" - "+thrownError); }
 //  });
 
-// class Emoji extends React.Component {
-//   constructor(props) {
-//     super(props);
-
-//     this.state = {
-//       exhuberant: '😄',
-//       happy: '🙂',
-//       meh:
-
-//     };
-//   }
-// }
-
-// () => {
-//   if (entry_data['mood'] == 'exhuberant') {
-//     return emoji = '😄';
-//   } else if (entry_data['mood'] == 'happy') {
-//     return emoji = '🙂';
-//   } else if (entry_data['mood'] == 'meh') {
-//     return emoji = '😑';
-//   } else if (entry_data['mood'] == 'unhappy') {
-//     return emoji = '🙃';
-//   } else if (entry_data['mood'] == 'nope') {
-//     return emoji = '😓';
-//   }
-// }
-
 class Form extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      value: 'To be well!',
+      prefix: "I'm grateful for",
+      mood: '😄'
+    };
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(e) {
+    let emoji = 'exhuberant'
+    if (this.state.mood == '😓') {
+      emoji = 'nope';
+    } else if (this.state.mood == '🙃') {
+      emoji = 'unhappy';
+    } else if (this.state.mood == '😐') {
+      emoji = 'meh';
+    } else if (this.state.mood == '🙂') {
+      emoji = 'happy';
+    } else if (this.state.mood == '😄') {
+      emoji = 'exhuberant';
+    }
+
+    $.ajax({
+      url: "http://localhost:5000/api/gratitude_journal/insert",
+      data: JSON.stringify({ "user_id": user_id, "text": [this.state.prefix, this.state.value], "mood": emoji, "date": new Date().toLocaleString() }),
+      type: "POST",
+      dataType: 'json',
+      contentType: "application/json",
+      success: function (data, status, xhr) { console.log(data); },
+      error: function (xhr, ajaxOptions, thrownError) { console.log("ERROR:" + xhr.responseText + " - " + thrownError); }
+    });
+    e.preventDefault();
   }
 
   render() {
     return (
-      <form id="form-container">
-        <label htmlFor="cars">Choose</label>
-        <select id="cars" name="cars">
-          <option defaultValue="I'm grateful for">I'm grateful for</option>
-          <option defaultValue="So happy that">So happy that</option>
-          <option defaultValue="#blessed">#blessed</option>
+      <form onSubmit={this.handleSubmit}>
+        <select id="form_prefix" onChange={(e) => this.setState({ prefix: e.target.value })}>
+          <option>I'm grateful for</option>
+          <option>So happy that</option>
+          <option>#blessed</option>
         </select>
-        <label htmlFor="entry">Blorp</label>
-        <input
-          type="text"
-          id="entry"
-          name="entry"
-          defaultValue="A roof over my head"
-        ></input>
-        <input type="submit" value="Submit"></input>
+        <select id="mood" onChange={(e) => this.setState({ mood: e.target.value })}>
+          <option>😄</option>
+          <option>🙂</option>
+          <option>😐</option>
+          <option>🙃</option>
+          <option>😓</option>
+        </select>
+        <label>
+          Input:
+          <input type="text" value={this.state.value} onChange={(e) => { this.setState({ value: e.target.value }); }} />
+        </label>
+        <input type="submit" value="Submit" />
       </form>
-    );
-  }
-}
-
-class Search extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return (
-      <div id="search-container">
-        <form>
-          <input type="text" placeholder="Search.." name="search"></input>
-          <button type="submit">Submit</button>
-        </form>
-      </div>
     );
   }
 }
@@ -162,13 +154,22 @@ class Search extends React.Component {
 class MrSuggestor extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      suggestion_list: ["To have a roof over my head", "To be alive and corona-free", "To have such amazing friends"],
+      suggestion: "To have a roof over my head"
+    }
   }
 
-  render () {
+  componentDidMount () {
+    this.suggestion = setInterval(() => {this.setState({suggestion: this.state.suggestion_list[Math.floor(Math.random() * 3)]})}, 3000)
+  }
+
+
+  render() {
     return (
-    <div id="suggestion-container">
-      <p>Hi I suggest stuff.</p>
-    </div>
+      <div id="suggestion-container">
+        <p>{this.state.suggestion}</p>
+      </div>
     )
   }
 }
@@ -179,7 +180,7 @@ class Entries extends React.Component {
     this.state = {
       view: "multi",
       single_entry: <div></div>,
-      entries: [],
+      entries: []
     };
 
     this.multi_view = this.multi_view.bind(this);
@@ -215,10 +216,9 @@ class Entries extends React.Component {
           <button
             onClick={() => {
               this.setState({ view: "multi" });
-              this.multi_view();
             }}
           >
-            Open
+            Close
           </button>
         </div>
       </div>
@@ -227,6 +227,7 @@ class Entries extends React.Component {
   }
 
   multi_view() {
+
     return this.state.entries.map((entry) => (
       <div className="group-entries" key={entry[0]}>
         <div className="entry">
@@ -257,10 +258,9 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      container: <Entries />,
+      container: <Entries />
     };
 
-    // this.swap_content = this.swap_content.bind(this);
   }
 
   render() {
@@ -270,24 +270,17 @@ class App extends React.Component {
         <div id="nav">
           <div
             onClick={() => {
-              this.setState({ container: <Search /> });
-            }}
-          >
-            {magnifying_glass}
-          </div>
-          <div
-            onClick={() => {
               this.setState({ container: <Form /> });
             }}
           >
             {pen}
           </div>
           <div onClick={() => {
-              this.setState({ container: <Entries /> });
-            }}>{book}</div>
+            this.setState({ container: <Entries /> });
+          }}>{book}</div>
           <div onClick={() => {
-              this.setState({ container: <MrSuggestor /> });
-            }}>{ideas}</div>
+            this.setState({ container: <MrSuggestor /> });
+          }}>{ideas}</div>
         </div>
       </div>
     );
