@@ -54,7 +54,7 @@ def memory_game():
 
 @webapps.route('/gratitude_journal')
 def gratitude_journal():
-    return render_template('home.html', cache_id=uuid.uuid4())
+    return render_template('journal_login.html', cache_id=uuid.uuid4())
 
 
 @webapps.route('/gratitude_journal/login')

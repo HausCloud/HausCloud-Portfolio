@@ -4,6 +4,25 @@ function jinja_data() {
 
 const user_id = userinfo.sub.replace("auth0|", "");
 
+const logout = (<svg version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512">
+  <g>
+    <g>
+      <path d="M505.664,243.739l-54.783-38.622c-9.926-6.997-23.645,0.128-23.645,12.26v23.622H164.196
+			c-8.284,0-15.001,6.716-15.001,15.001S155.912,271,164.196,271h263.038v23.621c0,12.212,13.792,19.204,23.644,12.26l54.783-38.622
+			C514.027,262.365,514.196,249.767,505.664,243.739z"></path>
+    </g>
+  </g>
+  <g>
+    <g>
+      <path d="M430.471,352.317c-7.169-4.146-16.347-1.698-20.496,5.474c-35.236,60.916-101.103,101.811-176.372,101.811
+			c-112.266,0-203.602-91.336-203.602-203.602S121.337,52.398,233.603,52.398c75.319,0,141.156,40.933,176.371,101.809
+			c4.148,7.172,13.328,9.619,20.496,5.474c7.171-4.148,9.621-13.325,5.474-20.496C395.418,69.127,319.729,22.397,233.603,22.397
+			C104.49,22.397,0,126.876,0,256c0,129.113,104.479,233.603,233.603,233.603c86.163,0,161.833-46.763,202.342-116.79
+			C440.092,365.642,437.642,356.466,430.471,352.317z"></path>
+    </g>
+  </g>
+</svg>)
+
 const book = (
   <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 470 470">
     <g>
@@ -52,36 +71,6 @@ const ideas = (
   </svg>
 );
 
-// $.ajax({
-//     url: "http://localhost:5000/api/gratitude_journal/all",
-//     data: JSON.stringify({"user_id": userinfo.sub.replace('auth0|', '')}),
-//     type: "POST",
-//     dataType: 'json',
-//     contentType: "application/json",
-//     success: function(data, status, xhr) { console.log(data); },
-//     error: function (xhr, ajaxOptions, thrownError) { alert("ERROR:" + xhr.responseText+" - "+thrownError); }
-//  });
-
-//  $.ajax({
-//     url: "http://localhost:5000/api/gratitude_journal/insert",
-//     data: JSON.stringify({"user_id": user_id, "text": ["So happy that", "that i have food"], "mood": "exhuberant", "date": new Date().toLocaleString()}),
-//     type: "POST",
-//     dataType: 'json',
-//     contentType: "application/json",
-//     success: function(data, status, xhr) { console.log(data); },
-//     error: function (xhr, ajaxOptions, thrownError) { alert("ERROR:" + xhr.responseText+" - "+thrownError); }
-//  });
-
-//  $.ajax({
-//     url: "http://localhost:5000/api/gratitude_journal/delete",
-//     data: JSON.stringify({"user_id": userinfo.sub.replace('auth0|', ''), "entry_id": "8f697344-c8f3-4c37-9a05-9640bfc56f06"}),
-//     type: "POST",
-//     dataType: 'json',
-//     contentType: "application/json",
-//     success: function(data, status, xhr) { console.log(data); },
-//     error: function (xhr, ajaxOptions, thrownError) { alert("ERROR:" + xhr.responseText+" - "+thrownError); }
-//  });
-
 class Form extends React.Component {
   constructor(props) {
     super(props);
@@ -116,6 +105,8 @@ class Form extends React.Component {
       contentType: "application/json",
       success: function (data, status, xhr) { console.log(data); },
       error: function (xhr, ajaxOptions, thrownError) { console.log("ERROR:" + xhr.responseText + " - " + thrownError); }
+    }).done((data) => {
+      this.props.show_new_entry();
     });
     e.preventDefault();
   }
@@ -124,30 +115,30 @@ class Form extends React.Component {
     return (
       <form id="form-container" onSubmit={this.handleSubmit}>
         <div>
-        <select id="form_prefix" onChange={(e) => this.setState({ prefix: e.target.value })}>
-          <option>I'm grateful for</option>
-          <option>So happy that</option>
-          <option>#blessed</option>
-        </select>
+          <select id="form_prefix" onChange={(e) => this.setState({ prefix: e.target.value })}>
+            <option>I'm grateful for</option>
+            <option>So happy that</option>
+            <option>#blessed</option>
+          </select>
         </div>
         <div>
-        <select id="mood" onChange={(e) => this.setState({ mood: e.target.value })}>
-          <option>😄</option>
-          <option>🙂</option>
-          <option>😐</option>
-          <option>🙃</option>
-          <option>😓</option>
-        </select>
+          <select id="mood" onChange={(e) => this.setState({ mood: e.target.value })}>
+            <option>😄</option>
+            <option>🙂</option>
+            <option>😐</option>
+            <option>🙃</option>
+            <option>😓</option>
+          </select>
         </div>
         <div>
-        <label>
-          Entry:
+          <label>
+            Entry:
           <input type="text" value={this.state.value} onChange={(e) => { this.setState({ value: e.target.value }); }} />
-        </label>
+          </label>
         </div>
         <div>
-        <input type="submit" value="Add to Journal" />
-      </div>
+          <input className="simple-button" type="submit" value="Add to Journal" />
+        </div>
       </form>
     );
   }
@@ -157,13 +148,13 @@ class MrSuggestor extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      suggestion_list: ["A roof over my head and a warm home", "To be corona-free", "My friends and family", "For plenty of drinkable water", "I can enjoy the small and free pleasures of life", "For internet access", "The setbacks that have formed me and made me stronger"],
+      suggestion_list: ["A roof over my head and a warm home", "To be corona-free", "My friends and family", "For plenty of drinkable water", "I can enjoy the small and free pleasures of life", "For internet access", "The setbacks that have formed me and made me stronger", "Making the subway just before the doors close", "My hairy baby", "Chocolate.", "Pay day!", "New car smell", "Fuzzy socks", "Spellcheck", "Acting like a kid again", "Good hair days", "Keyboard Shortcuts", "Free Samples", "The Smell of Coffee Brewing", "Indoor Plumbing", "The Snooze Button", "GPS"],
       suggestion: "To have a roof over my head"
     }
   }
 
   componentDidMount() {
-    this.suggestion = setInterval(() => { this.setState({ suggestion: this.state.suggestion_list[Math.floor(Math.random() * this.state.suggestion_list.length)] }) }, 3000)
+    this.suggestion = setInterval(() => { this.setState({ suggestion: this.state.suggestion_list[Math.floor(Math.random() * this.state.suggestion_list.length)] }) }, 2000)
   }
 
   componentWillUnmount() {
@@ -174,8 +165,23 @@ class MrSuggestor extends React.Component {
     return (
       <div>
         <div id="suggestion-container">
-        <p>{this.state.suggestion}</p>
+          <p>{this.state.suggestion}</p>
         </div>
+      </div>
+    )
+  }
+}
+
+class LogOut extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+
+  render () {
+    return (
+      <div id="logout-container">
+        <h1>Inspired By Kurzgesagt</h1>
+        <button onClick={() => location.href = 'http://localhost:5000/app/gratitude_journal/logout'}>Logout</button>
       </div>
     )
   }
@@ -201,20 +207,20 @@ class Entries extends React.Component {
     this.fetchData();
   }
 
-  deleteEntry (entry_id) {
+  deleteEntry(entry_id) {
     $.ajax({
       url: "http://localhost:5000/api/gratitude_journal/delete",
-      data: JSON.stringify({"user_id": userinfo.sub.replace('auth0|', ''), "entry_id": entry_id}),
+      data: JSON.stringify({ "user_id": userinfo.sub.replace('auth0|', ''), "entry_id": entry_id }),
       type: "POST",
       dataType: 'json',
       contentType: "application/json",
-   }).done((data) => {
-    this.fetchData();
-    this.setState({view: 'multi'});
-  }).fail(() => {this.setState({view: "single", single_entry: <p>Not available</p>})});
+    }).done((data) => {
+      this.fetchData();
+      this.setState({ view: 'multi' });
+    }).fail(() => { this.setState({ view: "single", single_entry: <p>Not available</p> }) });
   }
 
-  fetchData () {
+  fetchData() {
     $.ajax({
       url: "http://localhost:5000/api/gratitude_journal/all",
       data: JSON.stringify({ user_id: user_id }),
@@ -227,7 +233,7 @@ class Entries extends React.Component {
         arr.push(item);
       });
       this.setState({ entries: arr });
-    }).fail(() => {this.setState({view: "single", single_entry: <p>Not available</p>})});
+    }).fail(() => { this.setState({ view: "single", single_entry: <p>Not available</p> }) });
   }
 
   single_view(entry_data, entry_id) {
@@ -240,10 +246,10 @@ class Entries extends React.Component {
         <div className="info">
           <p>{entry_data["date"]}</p>
           <p>{this.emoji(entry_data["mood"])}</p>
-          <button onClick={() => {this.deleteEntry(entry_id)}}>
+          <button className="simple-button" onClick={() => { this.deleteEntry(entry_id) }}>
             Delete
           </button>
-          <button
+          <button className="simple-button"
             onClick={() => {
               this.setState({ view: "multi" });
             }}
@@ -256,16 +262,16 @@ class Entries extends React.Component {
     this.setState({ view: "single", single_entry: entry });
   }
 
-  emoji (mood_string) {
+  emoji(mood_string) {
     if (mood_string == 'nope') {
-      return'😓';
+      return '😓';
     } else if (mood_string == 'unhappy') {
       return '🙃';
     } else if (mood_string == 'meh') {
       return '😐';
     } else if (mood_string == 'happy') {
       return '🙂';
-    } else if (mood_string  == 'exhuberant') {
+    } else if (mood_string == 'exhuberant') {
       return '😄';
     } else {
       return '?'
@@ -283,7 +289,7 @@ class Entries extends React.Component {
         <div className="info">
           <p>{entry[1]["date"].split(" ").slice(0, 3).join(" ")}</p>
           <p>{this.emoji(entry[1]["mood"])}</p>
-          <button onClick={() => this.single_view(entry[1], entry[0])}>Open</button>
+          <button className="simple-button" onClick={() => this.single_view(entry[1], entry[0])}>Open</button>
         </div>
       </div>
     ));
@@ -305,9 +311,14 @@ class App extends React.Component {
     super(props);
     this.state = {
       container: <Entries />,
-      active: [false, true, false]
+      active: [false, true, false, false]
     };
 
+    this.swapDisplay = this.swapDisplay.bind(this);
+  }
+
+  swapDisplay() {
+    this.setState({ container: <Entries />, active: [false, true, false] });
   }
 
   render() {
@@ -315,20 +326,23 @@ class App extends React.Component {
       <div>
         <div id="main-content">{this.state.container}</div>
         <div id="nav">
-          <div className={this.state.active[0] ? 'active': null}
+          <div className={this.state.active[0] ? 'active' : null}
             onClick={() => {
-              this.setState({ container: <Form />, active: [true, false, false] });
+              this.setState({ container: <Form show_new_entry={this.swapDisplay} />, active: [true, false, false] });
             }}
           >
             {pen}
           </div>
-          <div className={this.state.active[1] ? 'active': null} onClick={() => {
-            this.setState({ container: <Entries />, active: [false, true, false] });
+          <div className={this.state.active[1] ? 'active' : null} onClick={() => {
+            this.setState({ container: <Entries />, active: [false, true, false, false] });
           }}>{book}</div>
-          <div className={this.state.active[2] ? 'active': null} onClick={() => {
-            this.setState({ container: <MrSuggestor /> , active: [false, false, true]});
+          <div className={this.state.active[2] ? 'active' : null} onClick={() => {
+            this.setState({ container: <MrSuggestor />, active: [false, false, true, false] });
           }}>{ideas}</div>
-        </div>
+          <div className={this.state.active[3] ? 'active' : null} onClick={() => {
+            this.setState({ container: <LogOut />, active: [false, false, false, true] });
+          }}>{logout}</div>
+          </div>
       </div>
     );
   }
