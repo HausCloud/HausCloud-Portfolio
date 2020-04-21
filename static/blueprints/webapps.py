@@ -1,19 +1,16 @@
-from functools import wraps
-from os import environ as env
-from werkzeug.exceptions import HTTPException
-from dotenv import load_dotenv, find_dotenv
-from authlib.integrations.flask_client import OAuth
-from six.moves.urllib.parse import urlencode
-from flask import Flask, render_template, redirect, Blueprint, jsonify, session, url_for, current_app
+'Blueprint for web applications and hub'
+
 import uuid
 import os
-import json
+from functools import wraps
+from authlib.integrations.flask_client import OAuth
+from six.moves.urllib.parse import urlencode
+from flask import render_template, redirect, Blueprint, session, url_for, current_app
 
-# Register blueprint for web applications with prefix /app
 webapps = Blueprint('webapps', __name__, url_prefix='/app')
 
+# Setup login for Auth0
 oauth = OAuth(current_app)
-
 auth0 = oauth.register(
     'auth0',
     client_id=os.getenv('oauth_client_id'),
@@ -26,10 +23,12 @@ auth0 = oauth.register(
     },
 )
 
-# Decorator to check user login and redirect to appropriate route
+
 def requires_auth(f):
+    'Wrapper function'
     @wraps(f)
     def decorated(*args, **kwargs):
+        'Decorator for validating token and route access'
         if 'profile' not in session:
             # Redirect to Login page here
             return redirect('/app/gratitude_journal')
@@ -39,41 +38,48 @@ def requires_auth(f):
 
 @webapps.route('/hub')
 def hub():
+    'Render web application hub'
     return render_template('hub.html', cache_id=uuid.uuid4())
 
 
 @webapps.route('/anime_quote_generator')
-def anime_quote_generator():
+def aqg():
+    'Render React app: Anime Quote Generator'
     return render_template('aqg.html', cache_id=uuid.uuid4())
 
 
 @webapps.route('/memory_game')
-def memory_game():
+def mg():
+    'Render React app: Memory Game'
     return render_template('mg.html', cache_id=uuid.uuid4())
 
 
 @webapps.route('/gratitude_journal')
-def gratitude_journal():
+def gj_login():
+    'Render login page for React app, Gratitude Journal'
     return render_template('journal_login.html', cache_id=uuid.uuid4())
 
 
 @webapps.route('/gratitude_journal/login')
-def login():
-    #return auth0.authorize_redirect(redirect_uri='http://www.hauscloud.me:80/app/gratitude_journal/callback')
+def auth_gj_login():
+    'Redirect Auth0 login page and prep for callback on successful login'
+    # return auth0.authorize_redirect(redirect_uri='http://www.hauscloud.me:80/app/gratitude_journal/callback')
     return auth0.authorize_redirect(redirect_uri='http://localhost:5000/app/gratitude_journal/callback')
 
 
 @webapps.route('/gratitude_journal/logout')
-def logout():
-    # Clear session stored data
+def gj_logout():
+    'End session on Flask and log user out on Auth0'
     session.clear()
-    # Redirect user to logout endpoint
-    params = {'returnTo': url_for('webapps.gratitude_journal', _external=True), 'client_id': os.getenv('oauth_client_id')}
+
+    params = {'returnTo': url_for(
+        'webapps.gratitude_journal', _external=True), 'client_id': os.getenv('oauth_client_id')}
     return redirect(auth0.api_base_url + '/v2/logout?' + urlencode(params))
 
 
 @webapps.route('/gratitude_journal/callback')
-def callback_handling():
+def callback_handler():
+    'Calback function to get user data and route to their personal journal'
     auth0.authorize_access_token()
     resp = auth0.get('userinfo')
     userinfo = resp.json()
@@ -89,7 +95,9 @@ def callback_handling():
 
 @webapps.route('/gratitude_journal/personal')
 @requires_auth
-def gratitude_journal_dashboard():
+def gj():
+    'Render React app: Gratitude Journal'
+    # Add apostrophe in right spot
     name = session['jwt_payload']['nickname']
     if name[-1:] == 's':
         name = name[:-1] + "'" + 's'

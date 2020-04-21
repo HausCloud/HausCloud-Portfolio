@@ -1,124 +1,134 @@
 <!doctype html>
 <html lang="en">
 
-  <head>
-    <title>HausCloud</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}?{{ cache_id }}">
-    <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One%7cMonda" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/normalize.css') }}?{{ cache_id }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/home.css') }}?{{ cache_id }}">
-  </head>
+<head>
+	<title>HausCloud</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}?{{ cache_id }}">
+	<link href="https://fonts.googleapis.com/css?family=Julius+Sans+One%7cMonda" rel="stylesheet">
+	<link rel="stylesheet" type="text/css"
+		href="{{ url_for('static', filename='styles/normalize.css') }}?{{ cache_id }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/home.css') }}?{{ cache_id }}">
+</head>
 
-  <body>
-    <div id="overlay">
-      <div>
-	<div id="projectinfo">
-	  <div>
-	    <h1>What</h1>
-	    <p></p>
-	  </div>
-	  <div>
-	    <h1>When</h1>
-	    <p></p>
-	  </div>
-	  <div>
-	    <h1>Why</h1>
-	    <p></p>
-	  </div>
+<body>
+	<div id="overlay">
+		<div>
+			<div id="projectinfo">
+				<div>
+					<h1>What</h1>
+					<p></p>
+				</div>
+				<div>
+					<h1>When</h1>
+					<p></p>
+				</div>
+				<div>
+					<h1>Why</h1>
+					<p></p>
+				</div>
+			</div>
+			<div id="overlaymenu">
+				<div>
+					<a class="hvr-grow">
+						<object data="{{ url_for('static', filename='images/github.svg') }}?{{ cache_id }}"
+							type="image/svg+xml">
+							<img
+								src="https://img.glyphs.co/img?q=85&w=900&src=aHR0cHM6Ly9zMy5tZWRpYWxvb3QuY29tL2Jsb2ctaW1hZ2VzL0NDUEwtSW1hZ2UtMDIuanBnP210aW1lPTIwMTkwNTEzMTcyMzEy" />
+						</object>
+					</a>
+				</div>
+				<div>
+					<a class="hvr-grow">
+						<object data="{{ url_for('static', filename='images/xbutton.svg') }}?{{ cache_id }}"
+							type="image/svg+xml">
+							<img
+								src="https://img.glyphs.co/img?q=85&w=900&src=aHR0cHM6Ly9zMy5tZWRpYWxvb3QuY29tL2Jsb2ctaW1hZ2VzL0NDUEwtSW1hZ2UtMDIuanBnP210aW1lPTIwMTkwNTEzMTcyMzEy" />
+						</object>
+					</a>
+				</div>
+			</div>
+		</div>
 	</div>
-	<div id="overlaymenu">
-	  <div>
-	    <a class="hvr-grow">
-	    <object data="{{ url_for('static', filename='images/github.svg') }}?{{ cache_id }}" type="image/svg+xml">
-              <img src="https://img.glyphs.co/img?q=85&w=900&src=aHR0cHM6Ly9zMy5tZWRpYWxvb3QuY29tL2Jsb2ctaW1hZ2VzL0NDUEwtSW1hZ2UtMDIuanBnP210aW1lPTIwMTkwNTEzMTcyMzEy" />
-            </object>
-	    </a>
-	  </div>
-	  <div>
-	    <a class="hvr-grow">
-	    <object data="{{ url_for('static', filename='images/xbutton.svg') }}?{{ cache_id }}" type="image/svg+xml">
-              <img src="https://img.glyphs.co/img?q=85&w=900&src=aHR0cHM6Ly9zMy5tZWRpYWxvb3QuY29tL2Jsb2ctaW1hZ2VzL0NDUEwtSW1hZ2UtMDIuanBnP210aW1lPTIwMTkwNTEzMTcyMzEy" />
-            </object>
-	    </a>
-	  </div>
+	<div id="typicalbackground">
+		<div id="navbar">
+			<ul>
+				<li class="navitem"><a href="#about" class="hvr-grow">About</a></li>
+				<li class="navitem"><a href="app/hub" class="hvr-grow">Apps</a></li>
+				<li class="navitem"><a href="#projects" class="hvr-grow">Projects</a></li>
+				<li class="navitem"><a href="#contact" class="hvr-grow">Contact</a></li>
+			</ul>
+		</div>
+		<div id="anttitle">
+			<h1>Anthony Le</h1>
+			<div>
+				<noscript>
+					<h2>Software Engineer</h2>
+				</noscript>
+				<h2></h2>
+			</div>
+		</div>
 	</div>
-      </div>
-    </div>
-    <div id="typicalbackground">
-      <div id="navbar">
-	<ul>
-	  <li class="navitem"><a href="#about" class="hvr-grow">About</a></li>
-	  <li class="navitem"><a href="app/hub" class="hvr-grow">Apps</a></li>
-	  <li class="navitem"><a href="#projects" class="hvr-grow">Projects</a></li>
-	  <li class="navitem"><a href="#contact" class="hvr-grow">Contact</a></li>
-	</ul>
-      </div>
-      <div id="anttitle">
-	<h1>Anthony Le</h1>
-	<div>
-	  <noscript>
-            <h2>Software Engineer</h2></noscript>
-	  <h2></h2></div>
-      </div>
-    </div>
-    <div id="about">
-      <div>
-	<div>
-	  <h1>Hi</h1>
-	  <h1>,</h1>
-	  <h1>I'm Anthony.</h1>
+	<div id="about">
+		<div>
+			<div>
+				<h1>Hi</h1>
+				<h1>,</h1>
+				<h1>I'm Anthony.</h1>
+			</div>
+			<p>In a nutshell, I'm just some guy who fell in love with coding and went for broke to pursue his dreams.
+				Currently based in New Haven CT, I'm eager to put my best foot forward in the tech world.
+			</p>
+			<div>
+				<div id="resume">
+					<a class="hvr-float-shadow"
+						href="https://drive.google.com/file/d/1Oef_mnITx02sKcLENombqRXHbJCA5PRe/view?usp=sharing">Resume</a>
+				</div>
+			</div>
+		</div>
 	</div>
-	<p>In a nutshell, I'm just some guy who fell in love with coding and went for broke to pursue his dreams. Currently based in New Haven CT, I'm eager to put my best foot forward in the tech world.
-	</p>
-	<div>
-	  <div id="resume">
-            <a class="hvr-float-shadow" href="https://drive.google.com/file/d/1Oef_mnITx02sKcLENombqRXHbJCA5PRe/view?usp=sharing">Resume</a>
-	  </div>
+	<div id="projects">
+		<h1>Projects</h1>
+		<div>
+			<div>
+				<a class="hvr-curl-top-left" href="https://www.hopeful-cosmos.me">
+				</a>
+			</div>
+			<div>
+				<a class="hvr-curl-top-left" href="https://www.github.com/hauscloud/c-shell">
+				</a>
+			</div>
+		</div>
 	</div>
-      </div>
-    </div>
-    <div id="projects">
-      <h1>Projects</h1>
-      <div>
-	<div>
-	  <a class="hvr-curl-top-left" href="https://www.hopeful-cosmos.me">
-	  </a>
+	<div id="contact">
+		<h2> Let's Connect </h2>
+		<div>
+			<noscript><a href="https://www.linkedin.com/in/hauscloud" class="hvr-grow">Linkedin</a></noscript>
+			<a id="hclinkedin" class="hvr-grow">
+				<i class="fab fa-linkedin fa-3x"></i>
+			</a>
+			<noscript><a href="https://www.github.com/hauscloud" class="hvr-grow">GitHub</a></noscript>
+			<a id="hcgithub" class="hvr-grow">
+				<i class="fab fa-github-square fa-3x"></i>
+			</a>
+			<noscript><a href="https://www.twitter.com/hauscloud" class="hvr-grow">Twitter</a></noscript>
+			<a id="hctweet" class="hvr-grow">
+				<i class="fab fa-twitter-square fa-3x"></i>
+			</a>
+			<noscript><a href="mailto:hauscloud.me@gmail.com" target="_blank" rel="noopener noreferrer"
+					class="hvr-grow">E-Mail</a></noscript>
+			<a href="mailto:hauscloud.me@gmail.com" target="_blank" rel="noopener noreferrer" class="hvr-grow">
+				<i class="fas fa-envelope-square fa-3x"></i>
+			</a>
+		</div>
+		<footer>Copyright &copy; Anthony Le</footer>
 	</div>
-	<div>
-	  <a class="hvr-curl-top-left" href="https://www.github.com/hauscloud/c-shell">
-	  </a>
-	</div>
-      </div>
-    </div>
-    <div id="contact">
-      <h2> Let's Connect </h2>
-      <div>
-	<noscript><a href="https://www.linkedin.com/in/hauscloud" class="hvr-grow">Linkedin</a></noscript>
-	<a id="hclinkedin" class="hvr-grow">
-	  <i class="fab fa-linkedin fa-3x"></i>
-	</a>
-	<noscript><a href="https://www.github.com/hauscloud" class="hvr-grow">GitHub</a></noscript>
-	<a id="hcgithub" class="hvr-grow">
-	  <i class="fab fa-github-square fa-3x"></i>
-	</a>
-	<noscript><a href="https://www.twitter.com/hauscloud" class="hvr-grow">Twitter</a></noscript>
-	<a id="hctweet" class="hvr-grow">
-	  <i class="fab fa-twitter-square fa-3x"></i>
-	</a>
-	<noscript><a href="mailto:hauscloud.me@gmail.com" target="_blank" rel="noopener noreferrer" class="hvr-grow">E-Mail</a></noscript>
-	<a href="mailto:hauscloud.me@gmail.com" target="_blank" rel="noopener noreferrer" class="hvr-grow">
-	  <i class="fas fa-envelope-square fa-3x"></i>
-	</a>
-      </div>
-      <footer>Copyright &copy; Anthony Le</footer>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.0/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.0/ScrollToPlugin.min.js"></script>
-    <script src="https://kit.fontawesome.com/7d2e155d8f.js" crossorigin="anonymous"></script>
-    <script src="{{ url_for('static', filename='scripts/home.js') }}?{{ cache_id }}"></script>
-  </body>
+	<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.0/gsap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.0/ScrollToPlugin.min.js"></script>
+	<script src="https://kit.fontawesome.com/7d2e155d8f.js" crossorigin="anonymous"></script>
+	<script src="{{ url_for('static', filename='scripts/home.js') }}?{{ cache_id }}"></script>
+</body>
 
 </html>
