@@ -13,6 +13,7 @@ body {
 }
 
 /* Set default font for header */
+
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Julius Sans One', "Times New Roman", Times, serif;
     text-align: center;
@@ -20,6 +21,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* set default font for most common tags */
+
 p, a, div, li, em, i, b, strong, span {
     font-family: 'Monda', "Times New Roman", Times, serif;
 }
@@ -36,7 +38,7 @@ p, a, div, li, em, i, b, strong, span {
     background-size: cover;
 }
 
-#root > div:first-child {
+#root>div:first-child {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -54,10 +56,9 @@ p, a, div, li, em, i, b, strong, span {
     -webkit-box-direction: normal;
     -ms-flex-flow: column nowrap;
     flex-flow: column nowrap;
-
 }
 
-#quote-gen > div {
+#quote-gen>div {
     color: white;
 }
 
@@ -68,7 +69,7 @@ p, a, div, li, em, i, b, strong, span {
     border: none;
 }
 
-#quote-gen > div:first-child {
+#quote-gen>div:first-child {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -88,12 +89,11 @@ p, a, div, li, em, i, b, strong, span {
     flex-basis: 80%;
 }
 
-#quote-gen > div:first-child > h1 {
+#quote-gen>div:first-child>h1 {
     padding: 0 10vw 0 10vw;
 }
 
-
-#quote-gen > div:last-child {
+#quote-gen>div:last-child {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -108,7 +108,9 @@ p, a, div, li, em, i, b, strong, span {
     width: 100%;
     -ms-flex-preferred-size: 20%;
     flex-basis: 20%;
-}.example {
+}
+
+.example {
     display: -ms-grid;
     display: grid;
     -webkit-transition: all .5s;

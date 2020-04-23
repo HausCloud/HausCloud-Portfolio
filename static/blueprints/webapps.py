@@ -71,9 +71,8 @@ def auth_gj_login():
 def gj_logout():
     'End session on Flask and log user out on Auth0'
     session.clear()
-
-    params = {'returnTo': url_for(
-        'webapps.gratitude_journal', _external=True), 'client_id': os.getenv('oauth_client_id')}
+    print(url_for('webapps.gj', _external=True))
+    params = {'returnTo': url_for('webapps.gj_login', _external=True), 'client_id': os.getenv('oauth_client_id')}
     return redirect(auth0.api_base_url + '/v2/logout?' + urlencode(params))
 
 

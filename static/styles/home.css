@@ -7,6 +7,7 @@ html, body {
 }
 
 /* Responsive text calculation ripped from css-tricks */
+
 body {
     font-size: calc(16px + (24 - 16) * ((100vw - 400px) / (800 - 400)));
 }
@@ -26,8 +27,8 @@ p, a, div, li, em, i, b, strong, span {
 /* Small shadow effect */
 
 .shadow {
-    -webkit-box-shadow: 9px 10px 4px -1px rgba(0,0,0,0.05);
-    box-shadow: 9px 10px 4px -1px rgba(0,0,0,0.05);
+    -webkit-box-shadow: 9px 10px 4px -1px rgba(0, 0, 0, 0.05);
+    box-shadow: 9px 10px 4px -1px rgba(0, 0, 0, 0.05);
 }
 
 /* Hover animations courtesy of hover.css */
@@ -65,6 +66,7 @@ p, a, div, li, em, i, b, strong, span {
     box-shadow: 0 0 1px rgba(0, 0, 0, 0);
     position: relative;
 }
+
 .hvr-curl-top-left:before {
     pointer-events: none;
     position: absolute;
@@ -77,7 +79,7 @@ p, a, div, li, em, i, b, strong, span {
     /* IE9 */
     background: -o-linear-gradient(315deg, white 45%, #aaa 50%, #ccc 56%, white 80%);
     background: linear-gradient(135deg, white 45%, #aaa 50%, #ccc 56%, white 80%);
-    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#ffffff', endColorstr='#000000');
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#ffffff', endColorstr='#000000');
     /*For IE7-8-9*/
     z-index: 1000;
     -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
@@ -89,6 +91,7 @@ p, a, div, li, em, i, b, strong, span {
     -o-transition-property: width, height;
     transition-property: width, height;
 }
+
 .hvr-curl-top-left:hover:before, .hvr-curl-top-left:focus:before, .hvr-curl-top-left:active:before {
     width: 25px;
     height: 25px;
@@ -112,6 +115,7 @@ p, a, div, li, em, i, b, strong, span {
     transition-property: transform;
     transition-property: transform, -webkit-transform;
 }
+
 .hvr-float-shadow:before {
     pointer-events: none;
     position: absolute;
@@ -135,12 +139,14 @@ p, a, div, li, em, i, b, strong, span {
     transition-property: transform, opacity;
     transition-property: transform, opacity, -webkit-transform;
 }
+
 .hvr-float-shadow:hover, .hvr-float-shadow:focus, .hvr-float-shadow:active {
     -webkit-transform: translateY(-5px);
     -ms-transform: translateY(-5px);
     transform: translateY(-5px);
     /* move the element up by 5px */
 }
+
 .hvr-float-shadow:hover:before, .hvr-float-shadow:focus:before, .hvr-float-shadow:active:before {
     opacity: 1;
     -webkit-transform: translateY(5px);
@@ -150,6 +156,7 @@ p, a, div, li, em, i, b, strong, span {
 }
 
 /* Remove underline and blue text for ALL anchor tags */
+
 a {
     text-decoration: none;
     color: inherit;
@@ -159,17 +166,17 @@ a {
     position: fixed;
     display: none;
     opacity: 0;
-    width: 100%; 
+    width: 100%;
     height: 100%;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     background-color: white;
-    z-index: 2; 
+    z-index: 2;
 }
 
-#overlay > div {
+#overlay>div {
     display: flex;
     flex-flow: column nowrap;
     height: 100%;
@@ -183,19 +190,19 @@ a {
     flex-flow: column nowrap;
 }
 
-#projectinfo > div {
+#projectinfo>div {
     display: flex;
     flex-flow: column nowrap;
     height: 100%;
     width: 100%;
 }
 
-#projectinfo > div > h1 {
+#projectinfo>div>h1 {
     margin: 2vh 0 2vh 0;
     text-align: center;
 }
 
-#projectinfo > div > p {
+#projectinfo>div>p {
     padding: 0 3vw 0 3vw;
     margin: 1vh 0 1vh 0;
     text-align: center;
@@ -210,7 +217,7 @@ a {
     width: 100%;
 }
 
-#overlaymenu > div {
+#overlaymenu>div {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -218,36 +225,33 @@ a {
     width: 100%;
 }
 
-#overlaymenu > div > a {
+#overlaymenu>div>a {
     width: 30%;
     height: 50%;
 }
 
-#overlaymenu > div > a > object {
+#overlaymenu>div>a>object {
     height: 100%;
     width: 100%;
     pointer-events: none;
 }
 
-
 @media (min-aspect-ratio: 2/1) {
     #projectinfo {
-	flex-flow: row nowrap;
+        flex-flow: row nowrap;
     }
-
-    #projectinfo > div {
-	font-size: 0.7em;
-	justify-content: center;
-	justify-content: space-evenly;
+    #projectinfo>div {
+        font-size: 0.7em;
+        justify-content: center;
+        justify-content: space-evenly;
     }
 }
 
 @media (max-width: 991.98px) {
-    #projectinfo > div {
-	font-size: 0.7em;
+    #projectinfo>div {
+        font-size: 0.7em;
     }
 }
-
 
 /* First section of website and container for navbar and typed.js animation */
 
@@ -334,8 +338,8 @@ a {
 
 @media all and (max-width: 600px) {
     #navbar ul li a {
-	padding: 1.3em 0 1.3rem 0;
-	font-size: 5vw;
+        padding: 1.3em 0 1.3rem 0;
+        font-size: 5vw;
     }
 }
 
@@ -408,7 +412,7 @@ a {
     align-items: center;
 }
 
-#about > div > div:first-child {
+#about>div>div:first-child {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -418,25 +422,25 @@ a {
     flex-flow: row nowrap;
 }
 
-#about > div > div:first-child > h1 {
+#about>div>div:first-child>h1 {
     text-align: center;
 }
 
-#about > div > div:first-child > h1:last-child {
+#about>div>div:first-child>h1:last-child {
     padding-left: .2em;
 }
 
-
 #about div p {
-    padding: 0 15vw 0 15vw;
+    height: 100%;
+    width: 70%;
 }
 
-#about > div > div:last-child {
+#about>div>div:last-child {
     height: 10vh;
     width: 100%;
 }
 
-#resume > a {
+#resume>a {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -452,7 +456,7 @@ a {
     padding: 0 2vw 0 2vw;
 }
 
-#resume > a:after {
+#resume>a:after {
     content: "";
     display: inline-block;
     padding-bottom: 50%;
@@ -472,31 +476,29 @@ a {
     flex-flow: column nowrap;
 }
 
-#projects > h1 {
+#projects>h1 {
     -ms-flex-preferred-size: 20%;
     flex-basis: 20%;
     width: 100%;
     text-align: center;
 }
 
-#projects > div {
+#projects>div {
     display: -ms-grid;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     grid-gap: 5px;
 }
 
-
 /* Decrease project size and prevent whitespace overflow to varying degrees */
 
 @media all and (max-width: 600px) {
-    #projects > div {
-	grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    #projects>div {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     }
 }
 
-
-#projects > div > div {
+#projects>div>div {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -508,29 +510,28 @@ a {
     align-items: center;
 }
 
-#projects > div > div > a {
+#projects>div>div>a {
     position: relative;
     width: 80%;
 }
 
-#projects > div > div > a:after {
+#projects>div>div>a:after {
     content: "";
     display: block;
     padding-bottom: 100%;
 }
 
-#projects > div > div:first-child > a {
+#projects>div>div:first-child>a {
     background: url('../images/projects/logo_c_shell.png') no-repeat;
     background-size: 100% 100%;
     background: cover;
 }
 
-#projects > div > div:nth-child(2) > a {
+#projects>div>div:nth-child(2)>a {
     background: url('../images/projects/logo_hopeful_cosmos.png') no-repeat;
     background-size: 100% 100%;
     background: cover;
 }
-
 
 /* Contact section */
 
@@ -551,7 +552,7 @@ a {
     background: #F5F5F5;
 }
 
-#contact > h2 {
+#contact>h2 {
     text-align: center;
     -webkit-box-flex: 2;
     -ms-flex-positive: 2;
@@ -561,7 +562,7 @@ a {
     margin-top: 1vh;
 }
 
-#contact > div {
+#contact>div {
     width: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -570,9 +571,7 @@ a {
     -webkit-box-direction: normal;
     -ms-flex-flow: row nowrap;
     flex-flow: row nowrap;
-    -webkit-box-pack: space-evenly;
-    -ms-flex-pack: space-evenly;
-    justify-content: space-evenly;
+    justify-content: space-around;
     -webkit-box-flex: 2;
     -ms-flex-positive: 2;
     -ms-flex-preferred-size: 70%;
@@ -580,12 +579,12 @@ a {
     padding: 3vh 0 3vh 0;
 }
 
-#contact > div > a {
+#contact>div>a {
     color: inherit;
     text-decoration: none;
 }
 
-#contact > div > a > i {
+#contact>div>a>i {
     height: 100%;
     width: 100%;
     display: -webkit-box;
@@ -599,7 +598,7 @@ a {
     align-items: center;
 }
 
-#contact > footer {
+#contact>footer {
     font-size: .5em;
     width: 100%;
     text-align: center;
@@ -610,11 +609,10 @@ a {
 /* Increase size of contact icons in landscape mode */
 
 @media (orientation: landscape) {
-    #contact > div > a > i {
-	font-size: 2em;
+    #contact>div>a>i {
+        font-size: 2em;
     }
-
-    #projectinfo > div {
-	font-size: 0.7em;
+    #projectinfo>div {
+        font-size: 0.7em;
     }
 }
