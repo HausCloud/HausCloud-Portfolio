@@ -105,7 +105,7 @@ class Form extends React.Component {
     }
 
     $.ajax({
-      url: 'http://localhost:5000/api/gratitude_journal/insert',
+      url: 'http://hauscloud.me/api/gratitude_journal/insert',
       data: JSON.stringify({
         user_id, text: [this.state.prefix, this.state.value], mood: emoji, date: new Date().toLocaleString(),
       }),
@@ -190,7 +190,7 @@ class LogOut extends React.Component {
     return (
       <div id="logout-container">
         <h1>Inspired By Kurzgesagt</h1>
-        <button onClick={() => { location.href = 'http://hauscloud.me/app/gratitude_journal/logout'; }}>Logout</button>
+        <button onClick={() => { location.href = 'http://www.hauscloud.me/app/gratitude_journal/logout'; }}>Logout</button>
       </div>
     );
   }
@@ -218,7 +218,7 @@ class Entries extends React.Component {
 
   deleteEntry(entry_id) {
     $.ajax({
-      url: 'http://localhost:5000/api/gratitude_journal/delete',
+      url: 'http://hauscloud.me/api/gratitude_journal/delete',
       data: JSON.stringify({ user_id: userinfo.sub.replace('auth0|', ''), entry_id }),
       type: 'POST',
       dataType: 'json',
@@ -231,7 +231,7 @@ class Entries extends React.Component {
 
   fetchData() {
     $.ajax({
-      url: 'http://localhost:5000/api/gratitude_journal/all',
+      url: 'http://hauscloud.me/api/gratitude_journal/all',
       data: JSON.stringify({ user_id }),
       type: 'POST',
       dataType: 'json',
