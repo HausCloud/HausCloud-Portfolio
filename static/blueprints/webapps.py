@@ -2,12 +2,15 @@
 
 import uuid
 import os
+from flask_cors import CORS
 from functools import wraps
 from authlib.integrations.flask_client import OAuth
 from six.moves.urllib.parse import urlencode
 from flask import render_template, redirect, Blueprint, session, url_for, current_app
 
 webapps = Blueprint('webapps', __name__, url_prefix='/app')
+
+CORS(webapps)
 
 # Setup login for Auth0
 oauth = OAuth(current_app)
