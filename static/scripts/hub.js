@@ -9,8 +9,8 @@ window.addEventListener('DOMContentLoaded', function() {
 
     // Bind click event to all path and text elements to follow href
     for (i=0; i<sub_window.length;++i) {
-	var svg_path = sub_window[i].querySelector('svg > path');
-	var svg_text = sub_window[i].querySelector('svg > text');
+	let svg_path = sub_window[i].querySelector('svg > path');
+	let svg_text = sub_window[i].querySelector('svg > text');
 	svg_path.addEventListener('click', function() { window.open(svg_path.getAttribute('href'), '_blank');});
 	svg_text.addEventListener('click', function () {window.open(svg_text.getAttribute('href'), '_blank');});
     }
