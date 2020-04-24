@@ -3,14 +3,14 @@ window.addEventListener('DOMContentLoaded', () => {
   gsap.registerPlugin(ScrollToPlugin);
 
   // Variable declaration
-  const sub_window = document.querySelectorAll('.subcontainer');
-  let current_view = 0;
-  const end_view = sub_window.length - 1;
+  var sub_window = document.querySelectorAll('.subcontainer');
+  var current_view = 0;
+  var end_view = sub_window.length - 1;
 
   // Bind click event to all path and text elements to follow href
   sub_window.forEach((element) => {
-    const svg_path = element.querySelector('svg > path');
-    const svg_text = element.querySelector('svg > text');
+    var svg_path = element.querySelector('svg > path');
+    var svg_text = element.querySelector('svg > text');
     svg_path.addEventListener('click', () => window.open(svg_path.getAttribute('href'), '_blank'));
     svg_text.addEventListener('click', () => window.open(svg_text.getAttribute('href'), '_blank'));
   });

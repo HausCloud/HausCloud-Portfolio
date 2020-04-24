@@ -1,17 +1,17 @@
 window.addEventListener('DOMContentLoaded', () => {
   /* Typed.js for title */
-  const options = {
+  var options = {
     strings: ['Software Engineer', 'Avid Gamer', 'Eternal Student', 'Lofi Addict', 'Anime Lover'],
     typeSpeed: 60,
     backspeed: 40,
     loop: true,
   };
-  const obj = {
+  var obj = {
     0: ['Command interpreter', 'APR 2019', 'Coursework to broaden understanding of how shells work. Concepts covered are env, built-ins, signals, system calls, string parsing, and errno.'],
     1: ['Wish upon a star web application', 'SEP 2019 - NOV 2019', 'Developed to counteract the trend of other wishing apps where you make a wish and it disappears into the void. Get insight into the wants of others from all around the world. Help fill a desolate universe with fun, hopes, dreams, ..'],
   };
 
-  const project_links = ['https://github.com/HausCloud/C-Shell', 'https://github.com/HausCloud/Hopeful-Cosmos'];
+  var project_links = ['https://github.com/HausCloud/C-Shell', 'https://github.com/HausCloud/Hopeful-Cosmos'];
 
   new Typed('#anttitle div h2', options);
 
@@ -44,7 +44,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
   /* Grab all projects */
-  const projects = document.querySelectorAll('#projects > div > div > a');
+  var projects = document.querySelectorAll('#projects > div > div > a');
 
   /* Assign each project an attribute with a corresponding index */
   projects.forEach((item, index) => {
