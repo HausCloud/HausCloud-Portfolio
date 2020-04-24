@@ -190,7 +190,7 @@ class LogOut extends React.Component {
     return (
       <div id="logout-container">
         <h1>Inspired By Kurzgesagt</h1>
-        <button onClick={() => { location.href = 'http://localhost:5000/app/gratitude_journal/logout'; }}>Logout</button>
+        <button onClick={() => { location.href = 'http://hauscloud.me/app/gratitude_journal/logout'; }}>Logout</button>
       </div>
     );
   }
