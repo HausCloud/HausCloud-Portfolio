@@ -2,12 +2,14 @@
 
 import datetime
 import os
+from flask_cors import CORS
 from functools import wraps
 from flask import Blueprint, request, jsonify, abort, session, redirect
 from db_engine import Database
 
 api = Blueprint('api', __name__, url_prefix='/api')
 
+CORS(api)
 
 def requires_auth(f):
     'Wrapper function'
