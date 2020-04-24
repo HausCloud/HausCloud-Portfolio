@@ -63,15 +63,14 @@ def gj_login():
 @webapps.route('/gratitude_journal/login')
 def auth_gj_login():
     'Redirect Auth0 login page and prep for callback on successful login'
-    # return auth0.authorize_redirect(redirect_uri='http://www.hauscloud.me:80/app/gratitude_journal/callback')
-    return auth0.authorize_redirect(redirect_uri='http://localhost:5000/app/gratitude_journal/callback')
+    return auth0.authorize_redirect(redirect_uri='http://www.hauscloud.me:80/app/gratitude_journal/callback')
+    #return auth0.authorize_redirect(redirect_uri='http://localhost:5000/app/gratitude_journal/callback')
 
 
 @webapps.route('/gratitude_journal/logout')
 def gj_logout():
     'End session on Flask and log user out on Auth0'
     session.clear()
-    print(url_for('webapps.gj', _external=True))
     params = {'returnTo': url_for('webapps.gj_login', _external=True), 'client_id': os.getenv('oauth_client_id')}
     return redirect(auth0.api_base_url + '/v2/logout?' + urlencode(params))
 

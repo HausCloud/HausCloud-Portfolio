@@ -85,9 +85,10 @@
     </svg>
 
   </div>
-  <script src="{{ url_for('static', filename='scripts/hub.js') }}?{{ cache_id }}"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/ScrollToPlugin.min.js"></script>
+    <script src="{{ url_for('static', filename='scripts/hub.js') }}?{{ cache_id }}"></script>
 </body>
 
 </html>

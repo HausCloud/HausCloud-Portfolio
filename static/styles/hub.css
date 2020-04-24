@@ -50,6 +50,7 @@ body {
     -ms-flex-flow: row nowrap;
     flex-flow: row nowrap;
     overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 #arrow-container {
@@ -60,9 +61,9 @@ body {
     -webkit-box-direction: normal;
     -ms-flex-flow: row nowrap;
     flex-flow: row nowrap;
-    -webkit-box-pack: space-evenly;
-    -ms-flex-pack: space-evenly;
-    justify-content: space-evenly;
+    -webkit-box-pack: space-around;
+    -ms-flex-pack: space-around;
+    justify-content: space-around;
     height: 15%;
     width: 100%;
 }
