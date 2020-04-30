@@ -4,6 +4,7 @@
 }
 
 html, body {
+    overflow: auto;
     height: 100%;
     width: 100%;
 }
@@ -11,7 +12,6 @@ html, body {
 body {
     display: flex;
     flex-flow: column nowrap;
-    /* font-size: calc(16px + (24 - 16) * ((100vw - 400px) / (800 - 400))); */
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -30,9 +30,11 @@ p, a, div, li, em, i, b, strong, span {
     justify-content: center;
     align-items: center;
     height: 15%;
+    width: 100%;
 }
 
 #title h1 {
+    font-size: calc(16px + (24 - 16) * ((100vw - 400px) / (800 - 400)));
     padding: 1vh;
     border: 1px solid black;
     margin: 0;
@@ -44,7 +46,7 @@ p, a, div, li, em, i, b, strong, span {
 
 @media screen and (min-device-width: 768px) and (max-device-width : 1024px) {
     #main-content div, #main-content form {
-        font-size: 1.3em;
+	font-size: calc(16px + (24 - 16) * ((100vw - 400px) / (800 - 400)));
     }
 }
 
@@ -80,7 +82,7 @@ p, a, div, li, em, i, b, strong, span {
 #single_view {
     height: 100%;
     width: 100%;
-
+    background: whitesmoke;
 }
 
 #form-container {
@@ -133,8 +135,14 @@ p, a, div, li, em, i, b, strong, span {
     overflow-y: scroll;
 }
 
+div #logout-container {
+    justify-content: space-around;
+}
+
 .group-entries {
-    border-radius: 10%;
+    background: whitesmoke;
+    border-radius: 5px;
+    margin: 0 2vh 0 2vh;
     min-height: 60vh;
     width: 90%;
 }
@@ -165,8 +173,9 @@ p, a, div, li, em, i, b, strong, span {
 }
 
 .info p, .info button {
-    height: 100%;
-    width: 100%;
+    height: 90%;
+    width: 20vw;
+    margin: 0 1vh 0 1vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -183,7 +192,7 @@ p, a, div, li, em, i, b, strong, span {
 
 #nav > div {
     height: 50%;
-    width: 50%;
+    width: 15vw;
 }
 
 #nav > div > svg {
@@ -207,10 +216,12 @@ p, a, div, li, em, i, b, strong, span {
 }
 
 .simple-button {
-    background: lightblue;
+    
+    background: lightskyblue;
     border-radius: 5px;
 }
 
 .simple-button:active {
-    background: blue;
+    background: cornflowerblue;
+    color: white;
 }

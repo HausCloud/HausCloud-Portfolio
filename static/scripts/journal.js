@@ -189,8 +189,8 @@ class LogOut extends React.Component {
   render() {
     return (
       <div id="logout-container">
-        <h1>Inspired By Kurzgesagt</h1>
-        <button onClick={() => { location.href = 'http://www.hauscloud.me/app/gratitude_journal/logout'; }}>Logout</button>
+        <h1 onClick={() => { location.href = 'https://www.youtube.com/watch?v=WPPPFqsECz0'; }}>Inspired By Kurzgesagt</h1>
+        <button className='simple-button' onClick={() => { location.href = 'http://www.hauscloud.me/app/gratitude_journal/logout'; }}>Logout</button>
       </div>
     );
   }
