@@ -66,7 +66,7 @@ def gj_login():
 @webapps.route('/gratitude_journal/login')
 def auth_gj_login():
     'Redirect Auth0 login page and prep for callback on successful login'
-    return auth0.authorize_redirect(redirect_uri='http://www.hauscloud.me:80/app/gratitude_journal/callback')
+    return auth0.authorize_redirect(redirect_uri='http://www.hauscloud.me/app/gratitude_journal/callback')
     #return auth0.authorize_redirect(redirect_uri='http://localhost:5000/app/gratitude_journal/callback')
 
 
