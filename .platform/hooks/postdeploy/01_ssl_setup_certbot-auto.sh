@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -e
 
 original_string=$(echo "elif [ -f /etc/redhat-release ]" | sed -e 's/[]\/$*.^[]/\\&/g')
 new_string=$(echo "elif [ -f /etc/redhat-release ] || grep -q "PRETTY_NAME=\"Amazon Linux 2\"" /etc/os-release || grep -q 'cpe:.*:amazon_linux:2' /etc/os-release" | sed -e 's/[]\/$*.^[]/\\&/g')
@@ -14,8 +15,8 @@ fi
 # Increase size of string name for --domains
 sed -i "s/$http_string/$bucket_increase/g" /etc/nginx/nginx.conf
 
-if /usr/local/bin/certbot-auto delete --cert-name "$CERTBOT_CERT_NAME"; then
-    # Install certbot-auto
+# Install certbot-auto
+if ! [ -f "/usr/local/bin/certbot-auto" ]; then
     wget https://dl.eff.org/certbot-auto
     mv certbot-auto /usr/local/bin/certbot-auto
     chown root /usr/local/bin/certbot-auto
@@ -24,16 +25,20 @@ if /usr/local/bin/certbot-auto delete --cert-name "$CERTBOT_CERT_NAME"; then
     # Detect OS for bootstrapping for Amazon Linux 2
     # Source: https://medium.com/@andrenakkurt/great-guide-thanks-for-putting-this-together-gifford-nowland-c3ce0ea2455
     sed -i "s/${original_string}/${new_string}/g" /usr/local/bin/certbot-auto
+fi
 
+
+if /usr/local/bin/certbot-auto certificates | grep -q 'No certs found'; then
     # Install SSL for nginx
     # For apache, replace --nginx with --apache
-    if ! /usr/local/bin/certbot-auto --nginx --redirect --cert-name "$CERTBOT_CERT_NAME" -m "$CERTBOT_EMAIL" --domains "$CERTBOT_DOMAIN_LIST" --agree-tos --no-eff-email --keep-until-expiring; then
+    if ! /usr/local/bin/certbot-auto --nginx --redirect --cert-name "$CERTBOT_CERT_NAME" -m "$CERTBOT_EMAIL" --domains "$CERTBOT_DOMAIN_LIST" --agree-tos --no-eff-email --keep-until-expiring --non-interactive; then
 	# Workaround to use Python3 for --no-site--packages issue for Python2
 	# Source: https://community.letsencrypt.org/t/how-do-i-specify-the-python-version-when-running-certbot-auto-command/89059
-	USE_PYTHON_3=1 /usr/local/bin/certbot-auto --nginx --redirect --cert-name "$CERTBOT_CERT_NAME" -m "$CERTBOT_EMAIL" --domains "$CERTBOT_DOMAIN_LIST" --agree-tos --no-eff-email --keep-until-expiring
+	if ! USE_PYTHON_3=1 /usr/local/bin/certbot-auto --nginx --redirect --cert-name "$CERTBOT_CERT_NAME" -m "$CERTBOT_EMAIL" --domains "$CERTBOT_DOMAIN_LIST" --agree-tos --no-eff-email --keep-until-expiring --non-interactive; then
+	    exit 1
+	fi
     fi
 
     # Autorenewal
     echo "0 0,12 * * * root python -c 'import random; import time; time.sleep(random.random() * 3600)' && /usr/local/bin/certbot-auto renew -q" | sudo tee -a /etc/crontab >/dev/null
-
 fi
