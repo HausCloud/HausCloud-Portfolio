@@ -28,14 +28,14 @@ if ! [ -f "/usr/local/bin/certbot-auto" ]; then
 fi
 
 
-if /usr/local/bin/certbot-auto certificates | grep -q 'No certs found'; then
+if /usr/local/bin/certbot-auto certificates | grep -q 'No certs found' && ! [ -f "/etc/letsencrypt/live/hauscloud.me/fullchain.pem" ] && ! [ -f "/etc/letsencrypt/live/hauscloud.me/privkey.pem" ]; then
     # Install SSL for nginx
     # For apache, replace --nginx with --apache
     if ! /usr/local/bin/certbot-auto --nginx --redirect --cert-name "$CERTBOT_CERT_NAME" -m "$CERTBOT_EMAIL" --domains "$CERTBOT_DOMAIN_LIST" --agree-tos --no-eff-email --keep-until-expiring --non-interactive; then
 	# Workaround to use Python3 for --no-site--packages issue for Python2
 	# Source: https://community.letsencrypt.org/t/how-do-i-specify-the-python-version-when-running-certbot-auto-command/89059
 	if ! USE_PYTHON_3=1 /usr/local/bin/certbot-auto --nginx --redirect --cert-name "$CERTBOT_CERT_NAME" -m "$CERTBOT_EMAIL" --domains "$CERTBOT_DOMAIN_LIST" --agree-tos --no-eff-email --keep-until-expiring --non-interactive; then
-	    exit 1
+	    exit 0
 	fi
     fi
 
