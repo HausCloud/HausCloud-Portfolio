@@ -14,7 +14,7 @@ fi
 # Increase size of string name for --domains
 sed -i "s/$http_string/$bucket_increase/g" /etc/nginx/nginx.conf
 
-if certbot-auto delete --cert-name "$CERTBOT_CERTNAME"; then
+if /usr/local/bin/certbot-auto delete --cert-name "$CERTBOT_CERT_NAME"; then
     # Install certbot-auto
     wget https://dl.eff.org/certbot-auto
     mv certbot-auto /usr/local/bin/certbot-auto
