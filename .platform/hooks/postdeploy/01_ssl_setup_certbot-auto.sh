@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-CERT_PATH="/etc/letsencrypt/live/$CERTBOT_CERT_NAME/fullchain.pem"
-
-if ! [ -f "$CERT_PATH" ] && certbot-auto certificates | grep -q 'VALID'; then
 original_string=$(echo "elif [ -f /etc/redhat-release ]" | sed -e 's/[]\/$*.^[]/\\&/g')
 new_string=$(echo "elif [ -f /etc/redhat-release ] || grep -q "PRETTY_NAME=\"Amazon Linux 2\"" /etc/os-release || grep -q 'cpe:.*:amazon_linux:2' /etc/os-release" | sed -e 's/[]\/$*.^[]/\\&/g')
 http_string='^http\s*{$'
@@ -35,4 +32,3 @@ fi
 
 # Autorenewal
 echo "0 0,12 * * * root python -c 'import random; import time; time.sleep(random.random() * 3600)' && /usr/local/bin/certbot-auto renew -q" | sudo tee -a /etc/crontab >/dev/null
-fi
