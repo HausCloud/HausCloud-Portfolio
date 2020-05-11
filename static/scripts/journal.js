@@ -2,7 +2,7 @@ function jinja_data() {
   return userinfo;
 }
 
-const user_id = userinfo;
+const user_id = userinfo.sub;
 
 
 // Inline SVG for nav
@@ -105,7 +105,7 @@ class Form extends React.Component {
     }
 
     $.ajax({
-      url: 'https://www.hauscloud.me/api/gratitude_journal/insert',
+      url: 'https://hauscloud.me/api/gratitude_journal/insert',
       data: JSON.stringify({
         user_id, text: [this.state.prefix, this.state.value], mood: emoji, date: new Date().toLocaleString(),
       }),
@@ -190,7 +190,7 @@ class LogOut extends React.Component {
     return (
       <div id="logout-container">
         <h1 onClick={() => { location.href = 'https://www.youtube.com/watch?v=WPPPFqsECz0'; }}>Inspired By Kurzgesagt</h1>
-        <button className='simple-button' onClick={() => { location.href = 'https://www.hauscloud.me/app/gratitude_journal/logout'; }}>Logout</button>
+        <button className='simple-button' onClick={() => { location.href = 'https://hauscloud.me/app/gratitude_journal/logout'; }}>Logout</button>
       </div>
     );
   }
