@@ -3,7 +3,7 @@
 import uuid
 import os
 from werkzeug.exceptions import HTTPException
-from flask import Flask, render_template, redirect, jsonify
+from flask import Flask, render_template, redirect, jsonify, session
 from static.blueprints.api import api
 from static.blueprints.webapps import webapps
 
@@ -32,6 +32,10 @@ def not_found():
 @application.errorhandler(Exception)
 def exception_handler(ex):
     'Global exception handler for entire application'
+    # Workaround for Auth0 redirect error
+    auth_redirect_error = "Invalid_request: Invalid redirect_uri. Expected type 'string' but found type undefined.".lower()
+    if auth_redirect_error == str(ex).lower():
+        redirect('https://hauscloud.me/app/gratitude_journal/personal')
     response = jsonify(message=str(ex))
     response.status_code = (ex.code if isinstance(ex, HTTPException) else 500)
     return response
