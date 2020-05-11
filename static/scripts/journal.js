@@ -4,7 +4,6 @@ function jinja_data() {
 
 const user_id = userinfo;
 
-
 // Inline SVG for nav
 const logout = (
   <svg version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512">
@@ -78,6 +77,7 @@ const ideas = (
   </svg>
 );
 
+// Form Container for main content
 class Form extends React.Component {
   constructor(props) {
     super(props);
@@ -105,7 +105,7 @@ class Form extends React.Component {
     }
 
     $.ajax({
-      url: 'https://www.hauscloud.me/api/gratitude_journal/insert',
+      url: 'https://hauscloud.me/api/gratitude_journal/insert',
       data: JSON.stringify({
         user_id, text: [this.state.prefix, this.state.value], mood: emoji, date: new Date().toLocaleString(),
       }),
@@ -190,7 +190,7 @@ class LogOut extends React.Component {
     return (
       <div id="logout-container">
         <h1 onClick={() => { location.href = 'https://www.youtube.com/watch?v=WPPPFqsECz0'; }}>Inspired By Kurzgesagt</h1>
-        <button className='simple-button' onClick={() => { location.href = 'https://www.hauscloud.me/app/gratitude_journal/logout'; }}>Logout</button>
+        <button className='simple-button' onClick={() => { location.href = 'https://hauscloud.me/app/gratitude_journal/logout'; }}>Logout</button>
       </div>
     );
   }
@@ -218,7 +218,7 @@ class Entries extends React.Component {
 
   deleteEntry(entry_id) {
     $.ajax({
-      url: 'https://www.hauscloud.me/api/gratitude_journal/delete',
+      url: 'https://hauscloud.me/api/gratitude_journal/delete',
       data: JSON.stringify({ user_id: userinfo, entry_id }),
       type: 'POST',
       dataType: 'json',
@@ -231,7 +231,7 @@ class Entries extends React.Component {
 
   fetchData() {
     $.ajax({
-      url: 'https://www.hauscloud.me/api/gratitude_journal/all',
+      url: 'https://hauscloud.me/api/gratitude_journal/all',
       data: JSON.stringify({ user_id }),
       type: 'POST',
       dataType: 'json',
