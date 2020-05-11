@@ -11,7 +11,7 @@ application = Flask(__name__)
 application.register_blueprint(api)
 application.register_blueprint(webapps)
 
-application.secret_key = os.getenv('oauth_client_secret')
+application.secret_key = os.getenv('CLIENT_SECRET')
 #application.debug = True
 
 @application.route('/')
