@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-set -e
+set -euf -o pipefail
+
 
 original_string=$(echo "elif [ -f /etc/redhat-release ]" | sed -e 's/[]\/$*.^[]/\\&/g')
 new_string=$(echo "elif [ -f /etc/redhat-release ] || grep -q "PRETTY_NAME=\"Amazon Linux 2\"" /etc/os-release || grep -q 'cpe:.*:amazon_linux:2' /etc/os-release" | sed -e 's/[]\/$*.^[]/\\&/g')
