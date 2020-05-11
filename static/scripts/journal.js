@@ -2,7 +2,7 @@ function jinja_data() {
   return userinfo;
 }
 
-const user_id = userinfo;
+const user_id = userinfo.sub;
 
 // Inline SVG for nav
 const logout = (
