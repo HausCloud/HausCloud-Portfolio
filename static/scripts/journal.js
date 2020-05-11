@@ -216,10 +216,10 @@ class Entries extends React.Component {
     this.fetchData();
   }
 
-  deleteEntry(entry_id) {
+  deleteEntry(id) {
     $.ajax({
       url: 'https://hauscloud.me/api/gratitude_journal/delete',
-      data: JSON.stringify({ user_id: userinfo, entry_id }),
+      data: JSON.stringify({ user_id: user_id, entry_id: id}),
       type: 'POST',
       dataType: 'json',
       contentType: 'application/json',
