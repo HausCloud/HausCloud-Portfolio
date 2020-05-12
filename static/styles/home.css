@@ -533,6 +533,13 @@ a {
     background: cover;
 }
 
+#projects>div>div:nth-child(3)>a {
+    background: url('../images/projects/logo_eb_ssl.png') no-repeat;
+    background-size: 100% 100%;
+    background: cover;
+}
+
+
 /* Contact section */
 
 #contact {

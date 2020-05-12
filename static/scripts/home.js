@@ -1,17 +1,17 @@
 window.addEventListener('DOMContentLoaded', function () {
     /* Typed.js for title */
     var options = {
-	strings: ['Software Engineer', 'Avid Gamer', 'Eternal Student', 'Lofi Addict', 'Anime Lover'],
+	strings: ['Software Engineer', 'Eternal Student', 'Gamer', 'Lofi Addict', 'Anime Lover'],
 	typeSpeed: 60,
 	backspeed: 40,
 	loop: true,
     };
     var obj = {
 	0: ['Command interpreter', 'APR 2019', 'Coursework to broaden understanding of how shells work. Concepts covered are env, built-ins, signals, system calls, string parsing, and errno.'],
-	1: ['Wish upon a star web application', 'SEP 2019 - NOV 2019', 'Developed to counteract the trend of other wishing apps where you make a wish and it disappears into the void. Get insight into the wants of others from all around the world. Help fill a desolate universe with fun, hopes, dreams, ..'],
+	1: ['Wish upon a star web application', 'SEP 2019 - NOV 2019', 'Developed to counteract the trend of other wishing apps where you make a wish and it disappears into the void. Get insight into the wants of others from all around the world. Help fill a desolate universe with fun, hopes, dreams, ..'], 2: ['AWS EB SSL setup scripts', 'May 2020', 'Lack of easy solution readily available on the net. There is a lot of questions and only unclear and/or thorough explanations regarding adding SSL for EB.']
     };
 
-    var project_links = ['https://github.com/HausCloud/C-Shell', 'https://github.com/HausCloud/Hopeful-Cosmos'];
+    var project_links = ['https://github.com/HausCloud/C-Shell', 'https://github.com/HausCloud/Hopeful-Cosmos', 'https://github.com/HausCloud/AWS-ElasticBeanstalk-SSL'];
 
     new Typed('#anttitle div h2', options);
 
@@ -75,7 +75,7 @@ window.addEventListener('DOMContentLoaded', function () {
     /* Open link for resume button */
     document.getElementById('resume').addEventListener('click', function (e) {
 	e.preventDefault();
-	window.open('https://drive.google.com/file/d/1Oef_mnITx02sKcLENombqRXHbJCA5PRe/view?usp=sharing', '_blank');
+	window.open('https://drive.google.com/file/d/1jOq4mHXe9_4V4WvPUUQnVGX_UK9r6fIg/view?usp=sharing', '_blank');
     });
 
     /* Open links for contact section */
