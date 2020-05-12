@@ -1,87 +1,99 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
-html, body {
-    height: 100%;
-    width: 100%;
+html,
+body {
+  height: 100%;
+  width: 100%;
 }
 
 body {
-    font-size: calc(16px + (24 - 16) * ((100vw - 400px) / (800 - 400)));
+  font-size: calc(16px + (24 - 16) * ((100vw - 400px) / (800 - 400)));
 }
 
 /* Set default font for header */
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Julius Sans One', "Times New Roman", Times, serif;
-    text-align: center;
-
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Julius Sans One", "Times New Roman", Times, serif;
+  text-align: center;
 }
 
 /* set default font for most common tags */
-p, a, div, li, em, i, b, strong, span {
-    font-family: 'Monda', "Times New Roman", Times, serif;
+p,
+a,
+div,
+li,
+em,
+i,
+b,
+strong,
+span {
+  font-family: "Monda", "Times New Roman", Times, serif;
 }
 
 #root {
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
 }
 
 #root > div {
-    display: flex;
-    flex-flow: column nowrap;
-    height: 100%;
-    width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100%;
+  width: 100%;
 }
 
 #root > div > div:first-child {
-    height: 20%;
-    width: 100%;
+  height: 20%;
+  width: 100%;
 }
 
 #jumbotron {
-    display: flex;
-    flex-flow: row nowrap;
-    height: 100%;
-    width: 100%;
-    background-image: linear-gradient(#43d11b, #44d91a);
+  display: flex;
+  flex-flow: row nowrap;
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(#43d11b, #44d91a);
 }
 
 #jumbotron > div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
 }
 
 #root > div > div:last-child {
-    display: flex;
-    flex-flow: row nowrap;
-    height: 80%;
-    width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  height: 80%;
+  width: 100%;
 }
 
 #card-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
 }
 
 #card-container > img {
-    width: 70%;
-    -webkit-box-shadow: 0px 11px 25px 0px rgba(0,0,0,0.33);
-    -moz-box-shadow: 0px 11px 25px 0px rgba(0,0,0,0.33);
-    box-shadow: 0px 11px 25px 0px rgba(0,0,0,0.33);
+  width: 70%;
+  -webkit-box-shadow: 0px 11px 25px 0px rgba(0, 0, 0, 0.33);
+  -moz-box-shadow: 0px 11px 25px 0px rgba(0, 0, 0, 0.33);
+  box-shadow: 0px 11px 25px 0px rgba(0, 0, 0, 0.33);
 }
 
 #card-container > img:after {
-    content: "";
-    display: block;
-    padding-bottom: 100%;
+  content: "";
+  display: block;
+  padding-bottom: 100%;
 }
-

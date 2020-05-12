@@ -1,116 +1,341 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>HausCloud</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link
+      rel="shortcut icon"
+      href="{{ url_for('static', filename='images/favicon.ico') }}?{{ cache_id }}"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Julius+Sans+One%7cMonda"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='styles/normalize.css') }}?{{ cache_id }}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='styles/hub.css') }}?{{ cache_id }}"
+    />
+  </head>
 
-<head>
-  <title>HausCloud</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}?{{ cache_id }}">
-  <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One%7cMonda" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/normalize.css') }}?{{ cache_id }}">
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/hub.css') }}?{{ cache_id }}">
-</head>
+  <body>
+    <!-- <div id="cloud-animation"> -->
+    <!-- </div> -->
+    <div id="cloud-container">
+      <div class="subcontainer">
+        <svg
+          class="cloud"
+          xmlns:dc="http://purl.org/dc/elements/1.1/"
+          xmlns:cc="http://creativecommons.org/ns#"
+          xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+          xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+          inkscape:version="1.1-dev (ddb55ca, 2020-02-02)"
+          sodipodi:docname="cloud_aqg.svg"
+          id="svg40"
+          version="1.1"
+          width="463pt"
+          viewBox="0 -87 463.83425 463"
+          height="463pt"
+        >
+          <path
+            href="http://hauscloud.me/app/anime_quote_generator"
+            style="fill: #ffffff;"
+            id="path38"
+            fill="#a3d4f7"
+            d="m375.835938 112.957031c-5.851563 0-11.691407.582031-17.425782 1.742188-4.324218-21.582031-18.304687-39.992188-37.933594-49.957031-19.625-9.964844-42.738281-10.382813-62.714843-1.136719-18.078125-49.796875-73.101563-75.507813-122.898438-57.429688s-75.507812 73.105469-57.429687 122.898438c-43.621094 1.378906-78.078125 37.484375-77.4257815 81.121093.6562495 43.640626 36.1835935 78.691407 79.8281255 78.761719h296c48.597656 0 88-39.398437 88-88 0-48.601562-39.402344-88-88-88zm0 0"
+          />
+          <text
+            href="http://hauscloud.me/app/anime_quote_generator"
+            transform="scale(0.95847531,1.0433237)"
+            id="text56"
+            y="175.9119"
+            x="239.51414"
+            style="
+              font-style: normal;
+              font-weight: normal;
+              font-size: 40.4627px;
+              line-height: 1.25;
+              font-family: sans-serif;
+              fill: #000000;
+              fill-opacity: 1;
+              stroke: none;
+              stroke-width: 1.01157;
+            "
+            xml:space="preserve"
+          >
+            <tspan
+              style="
+                font-style: normal;
+                font-variant: normal;
+                font-weight: normal;
+                font-stretch: normal;
+                font-family: 'Julius Sans One';
+                -inkscape-font-specification: 'Julius Sans One';
+                text-align: center;
+                letter-spacing: 0px;
+                text-anchor: middle;
+                stroke-width: 1.01157;
+              "
+              y="175.9119"
+              x="300"
+              id="tspan54"
+              sodipodi:role="line"
+            >
+              Anime Quote
+            </tspan>
+            <tspan
+              id="tspan58"
+              style="
+                font-style: normal;
+                font-variant: normal;
+                font-weight: normal;
+                font-stretch: normal;
+                font-family: 'Julius Sans One';
+                -inkscape-font-specification: 'Julius Sans One';
+                text-align: center;
+                letter-spacing: 0px;
+                text-anchor: middle;
+                stroke-width: 1.01157;
+              "
+              y="226.63947"
+              x="300"
+              sodipodi:role="line"
+            >
+              Generator
+            </tspan>
+          </text>
+        </svg>
+      </div>
+      <div class="subcontainer">
+        <svg
+          class="cloud"
+          xmlns:dc="http://purl.org/dc/elements/1.1/"
+          xmlns:cc="http://creativecommons.org/ns#"
+          xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+          xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+          inkscape:version="1.1-dev (ddb55ca, 2020-02-02)"
+          sodipodi:docname="cloud_aqg.svg"
+          id="svg40"
+          version="1.1"
+          width="463pt"
+          viewBox="0 -87 463.83425 463"
+          height="463pt"
+        >
+          <path
+            href="http://hauscloud.me/app/memory_game"
+            style="fill: #ffffff;"
+            id="path38"
+            fill="#a3d4f7"
+            d="m375.835938 112.957031c-5.851563 0-11.691407.582031-17.425782 1.742188-4.324218-21.582031-18.304687-39.992188-37.933594-49.957031-19.625-9.964844-42.738281-10.382813-62.714843-1.136719-18.078125-49.796875-73.101563-75.507813-122.898438-57.429688s-75.507812 73.105469-57.429687 122.898438c-43.621094 1.378906-78.078125 37.484375-77.4257815 81.121093.6562495 43.640626 36.1835935 78.691407 79.8281255 78.761719h296c48.597656 0 88-39.398437 88-88 0-48.601562-39.402344-88-88-88zm0 0"
+          />
+          <text
+            href="http://hauscloud.me/app/memory_game"
+            transform="scale(0.95847531,1.0433237)"
+            id="text56"
+            y="175.9119"
+            x="239.51414"
+            style="
+              font-style: normal;
+              font-weight: normal;
+              font-size: 40.4627px;
+              line-height: 1.25;
+              font-family: sans-serif;
+              fill: #000000;
+              fill-opacity: 1;
+              stroke: none;
+              stroke-width: 1.01157;
+            "
+            xml:space="preserve"
+          >
+            <tspan
+              style="
+                font-style: normal;
+                font-variant: normal;
+                font-weight: normal;
+                font-stretch: normal;
+                font-family: 'Julius Sans One';
+                -inkscape-font-specification: 'Julius Sans One';
+                text-align: center;
+                letter-spacing: 0px;
+                text-anchor: middle;
+                stroke-width: 1.01157;
+              "
+              y="175.9119"
+              x="300"
+              id="tspan54"
+              sodipodi:role="line"
+            >
+              Memory
+            </tspan>
+            <tspan
+              id="tspan58"
+              style="
+                font-style: normal;
+                font-variant: normal;
+                font-weight: normal;
+                font-stretch: normal;
+                font-family: 'Julius Sans One';
+                -inkscape-font-specification: 'Julius Sans One';
+                text-align: center;
+                letter-spacing: 0px;
+                text-anchor: middle;
+                stroke-width: 1.01157;
+              "
+              y="226.63947"
+              x="300"
+              sodipodi:role="line"
+            >
+              Game
+            </tspan>
+          </text>
+        </svg>
+      </div>
+      <div class="subcontainer">
+        <svg
+          class="cloud"
+          xmlns:dc="http://purl.org/dc/elements/1.1/"
+          xmlns:cc="http://creativecommons.org/ns#"
+          xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+          xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+          inkscape:version="1.1-dev (ddb55ca, 2020-02-02)"
+          sodipodi:docname="cloud_aqg.svg"
+          id="svg40"
+          version="1.1"
+          width="463pt"
+          viewBox="0 -87 463.83425 463"
+          height="463pt"
+        >
+          <path
+            href="http://hauscloud.me/app/gratitude_journal"
+            style="fill: #ffffff;"
+            id="path38"
+            fill="#a3d4f7"
+            d="m375.835938 112.957031c-5.851563 0-11.691407.582031-17.425782 1.742188-4.324218-21.582031-18.304687-39.992188-37.933594-49.957031-19.625-9.964844-42.738281-10.382813-62.714843-1.136719-18.078125-49.796875-73.101563-75.507813-122.898438-57.429688s-75.507812 73.105469-57.429687 122.898438c-43.621094 1.378906-78.078125 37.484375-77.4257815 81.121093.6562495 43.640626 36.1835935 78.691407 79.8281255 78.761719h296c48.597656 0 88-39.398437 88-88 0-48.601562-39.402344-88-88-88zm0 0"
+          />
+          <text
+            href="http://hauscloud.me/app/gratitude_journal"
+            transform="scale(0.95847531,1.0433237)"
+            id="text56"
+            y="175.9119"
+            x="239.51414"
+            style="
+              font-style: normal;
+              font-weight: normal;
+              font-size: 40.4627px;
+              line-height: 1.25;
+              font-family: sans-serif;
+              fill: #000000;
+              fill-opacity: 1;
+              stroke: none;
+              stroke-width: 1.01157;
+            "
+            xml:space="preserve"
+          >
+            <tspan
+              style="
+                font-style: normal;
+                font-variant: normal;
+                font-weight: normal;
+                font-stretch: normal;
+                font-family: 'Julius Sans One';
+                -inkscape-font-specification: 'Julius Sans One';
+                text-align: center;
+                letter-spacing: 0px;
+                text-anchor: middle;
+                stroke-width: 1.01157;
+              "
+              y="175.9119"
+              x="300"
+              id="tspan54"
+              sodipodi:role="line"
+            >
+              Gratitude
+            </tspan>
+            <tspan
+              id="tspan58"
+              style="
+                font-style: normal;
+                font-variant: normal;
+                font-weight: normal;
+                font-stretch: normal;
+                font-family: 'Julius Sans One';
+                -inkscape-font-specification: 'Julius Sans One';
+                text-align: center;
+                letter-spacing: 0px;
+                text-anchor: middle;
+                stroke-width: 1.01157;
+              "
+              y="226.63947"
+              x="300"
+              sodipodi:role="line"
+            >
+              Journal
+            </tspan>
+          </text>
+        </svg>
+      </div>
 
-<body>
-  <!-- <div id="cloud-animation"> -->
-  <!-- </div> -->
-  <div id="cloud-container">
-    <div class="subcontainer">
-      <svg class="cloud" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#"
-        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg"
-        xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-        xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" inkscape:version="1.1-dev (ddb55ca, 2020-02-02)"
-        sodipodi:docname="cloud_aqg.svg" id="svg40" version="1.1" width="463pt" viewBox="0 -87 463.83425 463"
-        height="463pt">
-        <path href="http://hauscloud.me/app/anime_quote_generator" style="fill:#ffffff" id="path38" fill="#a3d4f7"
-          d="m375.835938 112.957031c-5.851563 0-11.691407.582031-17.425782 1.742188-4.324218-21.582031-18.304687-39.992188-37.933594-49.957031-19.625-9.964844-42.738281-10.382813-62.714843-1.136719-18.078125-49.796875-73.101563-75.507813-122.898438-57.429688s-75.507812 73.105469-57.429687 122.898438c-43.621094 1.378906-78.078125 37.484375-77.4257815 81.121093.6562495 43.640626 36.1835935 78.691407 79.8281255 78.761719h296c48.597656 0 88-39.398437 88-88 0-48.601562-39.402344-88-88-88zm0 0" />
-        <text href="http://hauscloud.me/app/anime_quote_generator" transform="scale(0.95847531,1.0433237)" id="text56"
-          y="175.9119" x="239.51414"
-          style="font-style:normal;font-weight:normal;font-size:40.4627px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.01157"
-          xml:space="preserve">
-          <tspan
-            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Julius Sans One';-inkscape-font-specification:'Julius Sans One';text-align:center;letter-spacing:0px;text-anchor:middle;stroke-width:1.01157"
-            y="175.9119" x="300" id="tspan54" sodipodi:role="line">Anime Quote</tspan>
-          <tspan id="tspan58"
-            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Julius Sans One';-inkscape-font-specification:'Julius Sans One';text-align:center;letter-spacing:0px;text-anchor:middle;stroke-width:1.01157"
-            y="226.63947" x="300" sodipodi:role="line">Generator</tspan>
-        </text>
-      </svg>
-    </div>
-    <div class="subcontainer">
-      <svg class="cloud" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#"
-        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg"
-        xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-        xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" inkscape:version="1.1-dev (ddb55ca, 2020-02-02)"
-        sodipodi:docname="cloud_aqg.svg" id="svg40" version="1.1" width="463pt" viewBox="0 -87 463.83425 463"
-        height="463pt">
-        <path href="http://hauscloud.me/app/memory_game" style="fill:#ffffff" id="path38" fill="#a3d4f7"
-          d="m375.835938 112.957031c-5.851563 0-11.691407.582031-17.425782 1.742188-4.324218-21.582031-18.304687-39.992188-37.933594-49.957031-19.625-9.964844-42.738281-10.382813-62.714843-1.136719-18.078125-49.796875-73.101563-75.507813-122.898438-57.429688s-75.507812 73.105469-57.429687 122.898438c-43.621094 1.378906-78.078125 37.484375-77.4257815 81.121093.6562495 43.640626 36.1835935 78.691407 79.8281255 78.761719h296c48.597656 0 88-39.398437 88-88 0-48.601562-39.402344-88-88-88zm0 0" />
-        <text href="http://hauscloud.me/app/memory_game" transform="scale(0.95847531,1.0433237)" id="text56"
-          y="175.9119" x="239.51414"
-          style="font-style:normal;font-weight:normal;font-size:40.4627px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.01157"
-          xml:space="preserve">
-          <tspan
-            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Julius Sans One';-inkscape-font-specification:'Julius Sans One';text-align:center;letter-spacing:0px;text-anchor:middle;stroke-width:1.01157"
-            y="175.9119" x="300" id="tspan54" sodipodi:role="line">Memory</tspan>
-          <tspan id="tspan58"
-            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Julius Sans One';-inkscape-font-specification:'Julius Sans One';text-align:center;letter-spacing:0px;text-anchor:middle;stroke-width:1.01157"
-            y="226.63947" x="300" sodipodi:role="line">Game</tspan>
-        </text>
-      </svg>
-    </div>
-        <div class="subcontainer">
-      <svg class="cloud" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#"
-        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg"
-        xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-        xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" inkscape:version="1.1-dev (ddb55ca, 2020-02-02)"
-        sodipodi:docname="cloud_aqg.svg" id="svg40" version="1.1" width="463pt" viewBox="0 -87 463.83425 463"
-        height="463pt">
-        <path href="http://hauscloud.me/app/gratitude_journal" style="fill:#ffffff" id="path38" fill="#a3d4f7"
-          d="m375.835938 112.957031c-5.851563 0-11.691407.582031-17.425782 1.742188-4.324218-21.582031-18.304687-39.992188-37.933594-49.957031-19.625-9.964844-42.738281-10.382813-62.714843-1.136719-18.078125-49.796875-73.101563-75.507813-122.898438-57.429688s-75.507812 73.105469-57.429687 122.898438c-43.621094 1.378906-78.078125 37.484375-77.4257815 81.121093.6562495 43.640626 36.1835935 78.691407 79.8281255 78.761719h296c48.597656 0 88-39.398437 88-88 0-48.601562-39.402344-88-88-88zm0 0" />
-        <text href="http://hauscloud.me/app/gratitude_journal" transform="scale(0.95847531,1.0433237)" id="text56"
-          y="175.9119" x="239.51414"
-          style="font-style:normal;font-weight:normal;font-size:40.4627px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.01157"
-          xml:space="preserve">
-          <tspan
-            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Julius Sans One';-inkscape-font-specification:'Julius Sans One';text-align:center;letter-spacing:0px;text-anchor:middle;stroke-width:1.01157"
-            y="175.9119" x="300" id="tspan54" sodipodi:role="line">Gratitude</tspan>
-          <tspan id="tspan58"
-            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Julius Sans One';-inkscape-font-specification:'Julius Sans One';text-align:center;letter-spacing:0px;text-anchor:middle;stroke-width:1.01157"
-            y="226.63947" x="300" sodipodi:role="line">Journal</tspan>
-        </text>
-      </svg>
-    </div>
-
-    <!-- <div class="subcontainer">
+      <!-- <div class="subcontainer">
 	<svg class="cloud" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" inkscape:version="1.1-dev (ddb55ca, 2020-02-02)" sodipodi:docname="cloud_aqg.svg" id="svg40" version="1.1" width="463pt" viewBox="0 -87 463.83425 463" height="463pt">
 	  <path href="https://blue-protocol.com/" style="fill:#ffffff" id="path38" fill="#a3d4f7" d="m375.835938 112.957031c-5.851563 0-11.691407.582031-17.425782 1.742188-4.324218-21.582031-18.304687-39.992188-37.933594-49.957031-19.625-9.964844-42.738281-10.382813-62.714843-1.136719-18.078125-49.796875-73.101563-75.507813-122.898438-57.429688s-75.507812 73.105469-57.429687 122.898438c-43.621094 1.378906-78.078125 37.484375-77.4257815 81.121093.6562495 43.640626 36.1835935 78.691407 79.8281255 78.761719h296c48.597656 0 88-39.398437 88-88 0-48.601562-39.402344-88-88-88zm0 0"/>
 	  <text href="https://blue-protocol.com/" transform="scale(0.95847531,1.0433237)" id="text56" y="175.9119" x="239.51414" style="font-style:normal;font-weight:normal;font-size:40.4627px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.01157" xml:space="preserve"><tspan style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Julius Sans One';-inkscape-font-specification:'Julius Sans One';text-align:center;letter-spacing:0px;text-anchor:middle;stroke-width:1.01157" y="175.9119" x="239.51414" id="tspan54" sodipodi:role="line">Project</tspan><tspan id="tspan58" style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Julius Sans One';-inkscape-font-specification:'Julius Sans One';text-align:center;letter-spacing:0px;text-anchor:middle;stroke-width:1.01157" y="226.63947" x="239.51414" sodipodi:role="line">in progress ..</tspan></text>
 	</svg>
       </div> -->
-
-  </div>
-  <div id="arrow-container">
-    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-      viewBox="0 0 511.991 511.991" style="enable-background:new 0 0 511.991 511.991;" xml:space="preserve"
-      id="leftarrow">
-      <path d="M153.433,255.991L381.037,18.033c4.063-4.26,3.917-11.01-0.333-15.083c-4.229-4.073-10.979-3.896-15.083,0.333
+    </div>
+    <div id="arrow-container">
+      <svg
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        x="0px"
+        y="0px"
+        viewBox="0 0 511.991 511.991"
+        style="enable-background: new 0 0 511.991 511.991;"
+        xml:space="preserve"
+        id="leftarrow"
+      >
+        <path
+          d="M153.433,255.991L381.037,18.033c4.063-4.26,3.917-11.01-0.333-15.083c-4.229-4.073-10.979-3.896-15.083,0.333
 		 L130.954,248.616c-3.937,4.125-3.937,10.625,0,14.75L365.621,508.7c2.104,2.188,4.896,3.292,7.708,3.292
-		 c2.646,0,5.313-0.979,7.375-2.958c4.25-4.073,4.396-10.823,0.333-15.083L153.433,255.991z" />
-    </svg>
+		 c2.646,0,5.313-0.979,7.375-2.958c4.25-4.073,4.396-10.823,0.333-15.083L153.433,255.991z"
+        />
+      </svg>
 
-    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-      viewBox="0 0 511.995 511.995" style="enable-background:new 0 0 511.995 511.995;" xml:space="preserve"
-      id="rightarrow">
-      <path d="M381.039,248.62L146.373,3.287c-4.083-4.229-10.833-4.417-15.083-0.333c-4.25,4.073-4.396,10.823-0.333,15.083
+      <svg
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        x="0px"
+        y="0px"
+        viewBox="0 0 511.995 511.995"
+        style="enable-background: new 0 0 511.995 511.995;"
+        xml:space="preserve"
+        id="rightarrow"
+      >
+        <path
+          d="M381.039,248.62L146.373,3.287c-4.083-4.229-10.833-4.417-15.083-0.333c-4.25,4.073-4.396,10.823-0.333,15.083
 		 L358.56,255.995L130.956,493.954c-4.063,4.26-3.917,11.01,0.333,15.083c2.063,1.979,4.729,2.958,7.375,2.958
-		 c2.813,0,5.604-1.104,7.708-3.292L381.039,263.37C384.977,259.245,384.977,252.745,381.039,248.62z" />
-    </svg>
-
-  </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/ScrollToPlugin.min.js"></script>
+		 c2.813,0,5.604-1.104,7.708-3.292L381.039,263.37C384.977,259.245,384.977,252.745,381.039,248.62z"
+        />
+      </svg>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/ScrollToPlugin.min.js"></script>
     <script src="{{ url_for('static', filename='scripts/hub.js') }}?{{ cache_id }}"></script>
-</body>
-
+  </body>
 </html>

@@ -7,21 +7,21 @@
     <link
       rel="shortcut icon"
       href="{{ url_for('static', filename='images/favicon.ico') }}?{{ cache_id }}"
-      />
+    />
     <link
       href="https://fonts.googleapis.com/css?family=Julius+Sans+One%7cMonda"
       rel="stylesheet"
-      />
+    />
     <link
       rel="stylesheet"
       type="text/css"
       href="{{ url_for('static', filename='styles/normalize.css') }}?{{ cache_id }}"
-      />
+    />
     <link
       rel="stylesheet"
       type="text/css"
       href="{{ url_for('static', filename='styles/home.css') }}?{{ cache_id }}"
-      />
+    />
   </head>
 
   <body>
@@ -47,10 +47,10 @@
               <object
                 data="{{ url_for('static', filename='images/github.svg') }}?{{ cache_id }}"
                 type="image/svg+xml"
-		>
+              >
                 <img
                   src="https://img.glyphs.co/img?q=85&w=900&src=aHR0cHM6Ly9zMy5tZWRpYWxvb3QuY29tL2Jsb2ctaW1hZ2VzL0NDUEwtSW1hZ2UtMDIuanBnP210aW1lPTIwMTkwNTEzMTcyMzEy"
-                  />
+                />
               </object>
             </a>
           </div>
@@ -59,10 +59,10 @@
               <object
                 data="{{ url_for('static', filename='images/xbutton.svg') }}?{{ cache_id }}"
                 type="image/svg+xml"
-		>
+              >
                 <img
                   src="https://img.glyphs.co/img?q=85&w=900&src=aHR0cHM6Ly9zMy5tZWRpYWxvb3QuY29tL2Jsb2ctaW1hZ2VzL0NDUEwtSW1hZ2UtMDIuanBnP210aW1lPTIwMTkwNTEzMTcyMzEy"
-                  />
+                />
               </object>
             </a>
           </div>
@@ -99,8 +99,10 @@
         </div>
         <p>
           I'm a developer based in the Greater New Haven, Connecticut area.
-          Currently, I'm seeking an opportunity to add value to local businesses through my fullstack experience.
-	  When not coding: I enjoy cosplaying at anime/gaming conventions, going on hikes, and exploring the local food scene.
+          Currently, I'm seeking an opportunity to add value to local businesses
+          through my fullstack experience. When not coding: I enjoy cosplaying
+          at anime/gaming conventions, going on hikes, and exploring the local
+          food scene.
         </p>
         <div>
           <div id="resume">
@@ -108,7 +110,7 @@
               class="hvr-float-shadow"
               href="https://drive.google.com/file/d/1jOq4mHXe9_4V4WvPUUQnVGX_UK9r6fIg/view?usp=sharing"
               >Resume</a
-		       >
+            >
           </div>
         </div>
       </div>
@@ -117,20 +119,23 @@
       <h1>Projects</h1>
       <div>
         <div>
-          <a class="hvr-curl-top-left" href="https://www.hopeful-cosmos.me">
+          <a class="hvr-round-corners" href="https://www.hopeful-cosmos.me">
           </a>
         </div>
         <div>
           <a
-            class="hvr-curl-top-left"
+            class="hvr-round-corners"
             href="https://www.github.com/hauscloud/c-shell"
-            >
+          >
           </a>
         </div>
-	<div>
-	  <a class="hvr-curl-top-left" href="https://github.com/HausCloud/AWS-ElasticBeanstalk-SSL">
-	    </a>
-	</div>
+        <div>
+          <a
+            class="hvr-round-corners"
+            href="https://github.com/HausCloud/AWS-ElasticBeanstalk-SSL"
+          >
+          </a>
+        </div>
       </div>
     </div>
     <div id="contact">
@@ -138,43 +143,43 @@
       <div>
         <noscript
           ><a href="https://www.linkedin.com/in/hauscloud" class="hvr-grow"
-              >Linkedin</a
-			 ></noscript
-			    >
+            >Linkedin</a
+          ></noscript
+        >
         <a id="hclinkedin" class="hvr-grow">
           <i class="fab fa-linkedin fa-3x"></i>
         </a>
         <noscript
           ><a href="https://www.github.com/hauscloud" class="hvr-grow"
-              >GitHub</a
-		       ></noscript
-			  >
+            >GitHub</a
+          ></noscript
+        >
         <a id="hcgithub" class="hvr-grow">
           <i class="fab fa-github-square fa-3x"></i>
         </a>
         <noscript
           ><a href="https://www.twitter.com/hauscloud" class="hvr-grow"
-              >Twitter</a
-			></noscript
-			   >
+            >Twitter</a
+          ></noscript
+        >
         <a id="hctweet" class="hvr-grow">
           <i class="fab fa-twitter-square fa-3x"></i>
         </a>
         <noscript
           ><a
-             href="mailto:hauscloud.me@gmail.com"
-             target="_blank"
-             rel="noopener noreferrer"
-             class="hvr-grow"
-             >E-Mail</a
-		      ></noscript
-			 >
+            href="mailto:hauscloud.me@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hvr-grow"
+            >E-Mail</a
+          ></noscript
+        >
         <a
           href="mailto:hauscloud.me@gmail.com"
           target="_blank"
           rel="noopener noreferrer"
           class="hvr-grow"
-          >
+        >
           <i class="fas fa-envelope-square fa-3x"></i>
         </a>
       </div>
@@ -186,7 +191,7 @@
     <script
       src="https://kit.fontawesome.com/7d2e155d8f.js"
       crossorigin="anonymous"
-      ></script>
+    ></script>
     <script src="{{ url_for('static', filename='scripts/home.js') }}?{{ cache_id }}"></script>
   </body>
 </html>

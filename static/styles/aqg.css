@@ -1,126 +1,155 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
-html, body {
-    height: 100%;
-    width: 100%;
+html,
+body {
+  height: 100%;
+  width: 100%;
 }
 
 body {
-    font-size: calc(16px + (24 - 16) * ((100vw - 400px) / (800 - 400)));
+  font-size: calc(16px + (24 - 16) * ((100vw - 400px) / (800 - 400)));
 }
 
 /* Set default font for header */
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Julius Sans One', "Times New Roman", Times, serif;
-    text-align: center;
-    font-size: calc(16px + (24 - 16) * ((100vw - 400px) / (800 - 400)));
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Julius Sans One", "Times New Roman", Times, serif;
+  text-align: center;
+  font-size: calc(16px + (24 - 16) * ((100vw - 400px) / (800 - 400)));
 }
 
 /* set default font for most common tags */
 
-p, a, div, li, em, i, b, strong, span {
-    font-family: 'Monda', "Times New Roman", Times, serif;
+p,
+a,
+div,
+li,
+em,
+i,
+b,
+strong,
+span {
+  font-family: "Monda", "Times New Roman", Times, serif;
 }
 
 #root {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    height: 100%;
-    width: 100%;
-    background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url(../images/japan_background.gif) no-repeat center center fixed;
-    background: -o-linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../images/japan_background.gif) no-repeat center center fixed;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../images/japan_background.gif) no-repeat center center fixed;
-    background-size: cover;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  background: -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      from(rgba(0, 0, 0, 0.6)),
+      to(rgba(0, 0, 0, 0.6))
+    ),
+    url(../images/japan_background.gif) no-repeat center center fixed;
+  background: -o-linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(../images/japan_background.gif) no-repeat center center fixed;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(../images/japan_background.gif) no-repeat center center fixed;
+  background-size: cover;
 }
 
-#root>div:first-child {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    height: 100%;
-    width: 100%;
+#root > div:first-child {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 100%;
 }
 
 #quote-gen {
-    height: 100%;
-    width: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-flow: column nowrap;
-    flex-flow: column nowrap;
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column nowrap;
+  flex-flow: column nowrap;
 }
 
-#quote-gen>div {
-    color: white;
+#quote-gen > div {
+  color: white;
 }
 
 #quote-gen button {
-    width: 20%;
-    color: white;
-    background-color: transparent;
-    border: none;
+  width: 20%;
+  color: white;
+  background-color: transparent;
+  border: none;
 }
 
-#quote-gen>div:first-child {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-flow: column nowrap;
-    flex-flow: column nowrap;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    -ms-flex-preferred-size: 80%;
-    flex-basis: 80%;
+#quote-gen > div:first-child {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column nowrap;
+  flex-flow: column nowrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  -ms-flex-preferred-size: 80%;
+  flex-basis: 80%;
 }
 
-#quote-gen>div:first-child>h1 {
-    padding: 0 10vw 0 10vw;
+#quote-gen > div:first-child > h1 {
+  padding: 0 10vw 0 10vw;
 }
 
-#quote-gen>div:last-child {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-flow: row nowrap;
-    flex-flow: row nowrap;
-    -webkit-box-pack: space-evenly;
-    -ms-flex-pack: space-evenly;
-    justify-content: space-evenly;
-    height: 100%;
-    width: 100%;
-    -ms-flex-preferred-size: 20%;
-    flex-basis: 20%;
+#quote-gen > div:last-child {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+  -webkit-box-pack: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
+  height: 100%;
+  width: 100%;
+  -ms-flex-preferred-size: 20%;
+  flex-basis: 20%;
 }
 
 .example {
-    display: -ms-grid;
-    display: grid;
-    -webkit-transition: all .5s;
-    -o-transition: all .5s;
-    transition: all .5s;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    background: -webkit-gradient(linear, left top, left bottom, from(white), to(black));
-    background: -o-linear-gradient(top, white, black);
-    background: linear-gradient(to bottom, white, black);
+  display: -ms-grid;
+  display: grid;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(white),
+    to(black)
+  );
+  background: -o-linear-gradient(top, white, black);
+  background: linear-gradient(to bottom, white, black);
 }

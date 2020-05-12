@@ -219,7 +219,7 @@ class Entries extends React.Component {
   deleteEntry(id) {
     $.ajax({
       url: 'https://hauscloud.me/api/gratitude_journal/delete',
-      data: JSON.stringify({ user_id: user_id, entry_id: id}),
+      data: JSON.stringify({ user_id: user_id, entry_id: id }),
       type: 'POST',
       dataType: 'json',
       contentType: 'application/json',

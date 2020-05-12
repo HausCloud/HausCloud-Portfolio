@@ -1,69 +1,83 @@
 .square {
-    width: 50%;
+  width: 50%;
 }
 
 .square:after {
-    content: "";
-    display: block;
-    padding-bottom: 100%;
+  content: "";
+  display: block;
+  padding-bottom: 100%;
 }
 
 @media all and (orientation: landscape) {
-    .square {
-        width: 25%;
-    }
+  .square {
+    width: 25%;
+  }
 }
 
-html, body {
-    height: 100%;
-    width: 100%;
+html,
+body {
+  height: 100%;
+  width: 100%;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Julius Sans One', "Times New Roman", Times, serif;
-    text-align: center;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Julius Sans One", "Times New Roman", Times, serif;
+  text-align: center;
 }
 
-p, a, div, li, em, i, b, strong, span {
-    text-align: center;
-    font-family: 'Monda', "Times New Roman", Times, serif;
+p,
+a,
+div,
+li,
+em,
+i,
+b,
+strong,
+span {
+  text-align: center;
+  font-family: "Monda", "Times New Roman", Times, serif;
 }
 
 body {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
 }
 
 body > div:first-child {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 80%;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+  width: 100%;
 }
 
 body > div:last-child {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 20%;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20%;
+  width: 100%;
 }
 
 body > div:last-child > a {
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: lightblue;
-    color: inherit;
-    text-decoration: none;
-    font-size: calc(16px + (24 - 16) * ((100vw - 400px) / (800 - 400)));
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: lightblue;
+  color: inherit;
+  text-decoration: none;
+  font-size: calc(16px + (24 - 16) * ((100vw - 400px) / (800 - 400)));
 }
 
 .rectangle {
-    width: 30vw;
-    height: 60%;
+  width: 30vw;
+  height: 60%;
 }

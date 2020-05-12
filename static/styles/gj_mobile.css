@@ -1,227 +1,241 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
-html, body {
-    overflow: auto;
-    height: 100%;
-    width: 100%;
+html,
+body {
+  overflow: auto;
+  height: 100%;
+  width: 100%;
 }
 
 body {
-    display: flex;
-    flex-flow: column nowrap;
+  display: flex;
+  flex-flow: column nowrap;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Julius Sans One', "Times New Roman", Times, serif;
-    text-align: center;
-    /* font-size: calc(20px + (24 - 16) * ((100vw - 400px) / (800 - 400))); */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Julius Sans One", "Times New Roman", Times, serif;
+  text-align: center;
+  /* font-size: calc(20px + (24 - 16) * ((100vw - 400px) / (800 - 400))); */
 }
 
-p, a, div, li, em, i, b, strong, span {
-    text-align: center;
-    font-family: 'Monda', "Times New Roman", Times, serif;
+p,
+a,
+div,
+li,
+em,
+i,
+b,
+strong,
+span {
+  text-align: center;
+  font-family: "Monda", "Times New Roman", Times, serif;
 }
 
 #title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 15%;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15%;
+  width: 100%;
 }
 
 #title h1 {
-    font-size: calc(16px + (24 - 16) * ((100vw - 400px) / (800 - 400)));
-    padding: 1vh;
-    border: 1px solid black;
-    margin: 0;
+  font-size: calc(16px + (24 - 16) * ((100vw - 400px) / (800 - 400)));
+  padding: 1vh;
+  border: 1px solid black;
+  margin: 0;
 }
 
 #root {
-    height: 85%;
+  height: 85%;
 }
 
-@media screen and (min-device-width: 768px) and (max-device-width : 1024px) {
-    #main-content div, #main-content form {
-	font-size: calc(16px + (24 - 16) * ((100vw - 400px) / (800 - 400)));
-    }
+@media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  #main-content div,
+  #main-content form {
+    font-size: calc(16px + (24 - 16) * ((100vw - 400px) / (800 - 400)));
+  }
 }
 
 @media screen and (max-device-aspect-ratio: 16/9) {
-    #title {
-        height: 20%;
-    }
-    #root {
-        height: 80%;
-    }
+  #title {
+    height: 20%;
+  }
+  #root {
+    height: 80%;
+  }
 }
 
 #root > div:first-child {
-    display: flex;
-    flex-flow: column nowrap;
-    height: 100%;
-    width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100%;
+  width: 100%;
 }
 
 #suggestion-container {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: calc(16px + (24 - 16) * ((100vw - 400px) / (800 - 400)));
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: calc(16px + (24 - 16) * ((100vw - 400px) / (800 - 400)));
 }
 
 #suggestion-container p {
-    padding: 0 2vw 0 2vw;
+  padding: 0 2vw 0 2vw;
 }
 
 #single_view {
-    height: 100%;
-    width: 100%;
-    background: whitesmoke;
+  height: 100%;
+  width: 100%;
+  background: whitesmoke;
 }
 
 #form-container {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-    justify-content: center;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
 }
 
 #form-container > div {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #form-container > div > select {
-    height: 100%;
-    width: 50%;
-    text-align-last: center;
-    /* background-color: inherit; */
+  height: 100%;
+  width: 50%;
+  text-align-last: center;
+  /* background-color: inherit; */
 }
 
 #form-container div:nth-child(3) label input {
-    margin: 1vh 2vw 1vh 2vw;
-    padding: 0 1vw 0 1vw;
-    border: none;
-    border-bottom: 1px solid black;
-} 
+  margin: 1vh 2vw 1vh 2vw;
+  padding: 0 1vw 0 1vw;
+  border: none;
+  border-bottom: 1px solid black;
+}
 
 #form-container div:last-child input {
-    height: 100%;
-    width: 50%;
+  height: 100%;
+  width: 50%;
 }
 
 #main-content {
-    height: 70%;
+  height: 70%;
 }
 
 #main-content > div {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-    justify-content: space-between;
-    overflow-y: scroll;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-between;
+  overflow-y: scroll;
 }
 
 div #logout-container {
-    justify-content: space-around;
+  justify-content: space-around;
 }
 
 .group-entries {
-    background: whitesmoke;
-    border-radius: 5px;
-    margin: 2vh 0 2vh 0;
-    min-height: 60vh;
-    width: 90%;
+  background: whitesmoke;
+  border-radius: 5px;
+  margin: 2vh 0 2vh 0;
+  min-height: 60vh;
+  width: 90%;
 }
 
 .entry {
-    height: 80%;
-    width: 100%;
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-    justify-content: center;
-    justify-content: space-evenly;
+  height: 80%;
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-evenly;
 }
 
 .entry > p:last-child {
-    width: 50%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  width: 50%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .info {
-    height: 20%;
-    width: 100%;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
+  height: 20%;
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
 }
 
-.info p, .info button {
-    height: 90%;
-    width: 20vw;
-    margin: 0 1vh 0 1vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.info p,
+.info button {
+  height: 90%;
+  width: 20vw;
+  margin: 0 1vh 0 1vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #nav {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: center;
-    justify-content: space-around;
-    height: 30%;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-around;
+  height: 30%;
 }
 
 #nav > div {
-    height: 50%;
-    width: 15vw;
+  height: 50%;
+  width: 15vw;
 }
 
 #nav > div > svg {
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
 }
 
-
 .rectangle {
-    width: 100%;
+  width: 100%;
 }
 
 .rectangle:before {
-    content: "";
-    display: block;
-    padding-top: 25%;
-  } 
+  content: "";
+  display: block;
+  padding-top: 25%;
+}
 
 .active > svg {
-    fill: lightblue;
+  fill: lightblue;
 }
 
 .simple-button {
-    
-    background: lightskyblue;
-    border-radius: 5px;
+  background: lightskyblue;
+  border-radius: 5px;
 }
 
 .simple-button:active {
-    background: cornflowerblue;
-    color: white;
+  background: cornflowerblue;
+  color: white;
 }

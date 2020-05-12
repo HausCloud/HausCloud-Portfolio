@@ -1,36 +1,57 @@
 /* Set default font for all headers */
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Julius Sans One', "Times New Roman", Times, serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Julius Sans One", "Times New Roman", Times, serif;
 }
 
 /* Set default font for most common tags */
 
-p, a, div, li, em, i, b, strong, span {
-    font-family: 'Monda', "Times New Roman", Times, serif;
+p,
+a,
+div,
+li,
+em,
+i,
+b,
+strong,
+span {
+  font-family: "Monda", "Times New Roman", Times, serif;
 }
 
 /* Remove underline and blue text for ALL anchor tags */
 a {
-    text-decoration: none;
-    color: inherit;
+  text-decoration: none;
+  color: inherit;
 }
 
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    width: 100%;
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 
 /* Responsive text calculation ripped from css-tricks */
 body {
-    display: flex;
-    flex-flow: column nowrap;
-    font-size: calc(16px + (24 - 16) * ((100vw - 400px) / (800 - 400)));
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, #94c5f8),color-stop(80%, #a6e6ff),to(#b1b5ea));
-    background: -o-linear-gradient(top, #94c5f8 1%,#a6e6ff 80%,#b1b5ea 100%);
-    background: linear-gradient(to bottom, #94c5f8 1%,#a6e6ff 80%,#b1b5ea 100%);
+  display: flex;
+  flex-flow: column nowrap;
+  font-size: calc(16px + (24 - 16) * ((100vw - 400px) / (800 - 400)));
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(1%, #94c5f8),
+    color-stop(80%, #a6e6ff),
+    to(#b1b5ea)
+  );
+  background: -o-linear-gradient(top, #94c5f8 1%, #a6e6ff 80%, #b1b5ea 100%);
+  background: linear-gradient(to bottom, #94c5f8 1%, #a6e6ff 80%, #b1b5ea 100%);
 }
 
 /* #cloud-animation { */
@@ -39,59 +60,60 @@ body {
 /* } */
 
 #cloud-container {
-    height: 85%;
-    width: 100%;
-    overflow: scroll;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-flow: row nowrap;
-    flex-flow: row nowrap;
-    overflow-x: hidden;
-    overflow-y: hidden;
+  height: 85%;
+  width: 100%;
+  overflow: scroll;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 #arrow-container {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-flow: row nowrap;
-    flex-flow: row nowrap;
-    -webkit-box-pack: space-around;
-    -ms-flex-pack: space-around;
-    justify-content: space-around;
-    height: 15%;
-    width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+  -webkit-box-pack: space-around;
+  -ms-flex-pack: space-around;
+  justify-content: space-around;
+  height: 15%;
+  width: 100%;
 }
 
 #cloud-container > div {
-    height: 100%;
-    min-width: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
+  height: 100%;
+  min-width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .cloud {
-    height: 85%;
-    width: 85%;
+  height: 85%;
+  width: 85%;
 }
 
-.cloud > path, .cloud > text {
-    cursor: pointer;
+.cloud > path,
+.cloud > text {
+  cursor: pointer;
 }
 
 #arrow-container > svg {
-    padding-bottom: 5vh;
-    width: 20%;
+  padding-bottom: 5vh;
+  width: 20%;
 }
