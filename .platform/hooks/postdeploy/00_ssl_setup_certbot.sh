@@ -17,6 +17,9 @@ fi
 
 # Install EPEL
 # Source: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/amazon-linux-ami-basics.html
+
+yum clean all
+
 if ! yum list installed epel-release; then
     yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 fi
