@@ -13,8 +13,5 @@ Cloud-based portfolio site
 * [Babel](https://babeljs.io/) - Javascript Transpiler
 * [Auth0](https://auth0.com/) - User Authentication
 
-## License
-This project is licensed under the MIT License
-
 ## Authors
 * Anthony Le | [HausCloud](https://github.com/HausCloud)
