@@ -75,7 +75,7 @@ window.addEventListener('DOMContentLoaded', function () {
     /* Open link for resume button */
     document.getElementById('resume').addEventListener('click', function (e) {
         e.preventDefault();
-        window.open('https://drive.google.com/file/d/1jOq4mHXe9_4V4WvPUUQnVGX_UK9r6fIg/view?usp=sharing', '_blank');
+        window.open('https://drive.google.com/file/d/1oH4Z61atV7oZCge_eJpzXZwONH5dvaFQ/view?usp=sharing', '_blank');
     });
 
     /* Open links for contact section */
