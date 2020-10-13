@@ -9,8 +9,8 @@ Cloud-based portfolio site
 * [Python](https://www.python.org/) - Programming Language
 * [Flask](https://flask.palletsprojects.com/en/1.1.x/) - Web Framework
 * [GSAP3](https://greensock.com/gsap/) - JS animation library
-* [React](https://reactjs.org/) - Javascript framework
-* [Babel](https://babeljs.io/) - Javascript Transpiler
+* [React](https://reactjs.org/) - JS framework
+* [Babel](https://babeljs.io/) - JS Transpiler
 * [Auth0](https://auth0.com/) - User Authentication
 
 ## Authors
