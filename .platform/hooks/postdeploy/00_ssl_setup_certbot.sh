@@ -58,11 +58,11 @@ fi
 
 # Prevent certificate installation if not clean sample app
 
-CERT_REGEX="Certificate Name:\s+$CERTBOT_NAME"
+# CERT_REGEX="Certificate Name:\s+$CERTBOT_NAME"
 
-if certbot certificates | grep -Ew "$CERT_REGEX"; then
-    log_and_exit 'INFO: Certificate already installed.'
-fi
+# if certbot certificates | grep -Ew "$CERT_REGEX"; then
+#    log_and_exit 'INFO: Certificate already installed.'
+# fi
 
 # Set up certificates
 
