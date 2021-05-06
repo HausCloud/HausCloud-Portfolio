@@ -4,7 +4,7 @@ cffi==1.14.0
 chardet==3.0.4
 click==7.1.1
 cryptography==3.3.2
-Flask-Cors==3.0.8
+Flask-Cors==3.0.9
 Flask==1.1.2
 Flask-OAuthlib==0.9.5
 idna==2.9
